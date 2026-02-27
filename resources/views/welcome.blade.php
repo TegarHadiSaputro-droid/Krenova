@@ -17,8 +17,8 @@
     
     </style>
  <header>
-     <h2>jadaganteng</h2>
-     <p>jadagagah</p>
+     <h2>jada ganteng</h2>
+     <p>jada gagah</p>
  </header>  
 
 </body>
