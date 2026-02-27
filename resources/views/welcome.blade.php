@@ -19,8 +19,7 @@
  <header>
      <h1>Welcome to Laravel</h1>
 
-     <p>indonesia negeri aman</p>
+     <p>indonesia</p>
  </header>  
-
 </body>
 </html> 
