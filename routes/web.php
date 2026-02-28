@@ -2,6 +2,7 @@
 
 use App\Http\Controllers\ProfileController;
 use Illuminate\Support\Facades\Route;
+use App\Http\Controllers\ChatController;
 
 Route::get('/', function () {
     return view('welcome');
@@ -18,3 +19,20 @@ Route::middleware('auth')->group(function () {
 });
 
 require __DIR__.'/auth.php';
+
+Route::middleware(['web'])->group(function () {
+    Route::get('/', function () {
+        return view('chat');
+    });
+
+    Route::post('/chat', [ChatController::class, 'chat']);
+
+    Route::post('/chat/new', function () {
+        session()->forget('chat_history');
+        return response()->json(['status' => 'ok']);
+    });
+
+    Route::get('/chat/history', function () {
+        return response()->json(session('chat_sessions', []));
+    });
+});
