@@ -4,7 +4,7 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Footer Marketing</title>
-<link rel="stylesheet" href="tes.css">
+<link rel="stylesheet" href="{{ asset('css/footer.css') }}">
 <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap" rel="stylesheet">
 </head>
 <body>
@@ -47,11 +47,12 @@
     </div>
 
     <div class="footer-col">
-      <h4>Newsletter</h4>
+      <h4>Panduan</h4>
       <ul style="margin-bottom:14px;">
-        <li><a href="#">Tips Marketing Gratis</a></li>
-        <li><a href="#">Update Tren Digital</a></li>
-        <li><a href="#">Promo & Penawaran</a></li>
+        <li><a href="#">Cara mulai</a></li>
+        <li><a href="#">Video tutorial</a></li>
+        <li><a href="#">FAQ</a></li>
+        <li><a href="#">Blog</a></li>
       </ul>
   </div>
  </div>
