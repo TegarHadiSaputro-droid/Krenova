@@ -26,7 +26,7 @@ Route::middleware('auth')->group(function () {
 require __DIR__.'/auth.php';
 
 Route::middleware(['web'])->group(function () {
-    Route::get('/', function () {
+    Route::get('/chat', function () {   // ← ubah '/' jadi '/chat'
         return view('chat');
     });
 
