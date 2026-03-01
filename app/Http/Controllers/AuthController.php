@@ -9,11 +9,13 @@ use Illuminate\Support\Facades\Hash;
 
 class AuthController extends Controller
 {
+    // FUNGSI MENAMPILKAN FORM LOGIN
     public function showLogin()
     {
         return view('auth.login');
     }
 
+    // FUNGSI PROSES LOGIN
     public function login(Request $request)
     {
         $credentials = $request->validate([
@@ -31,11 +33,36 @@ class AuthController extends Controller
         ]);
     }
 
+    // FUNGSI LOGOUT
     public function logout(Request $request)
     {
         Auth::logout();
         $request->session()->invalidate();
         $request->session()->regenerateToken();
         return redirect('/');
+    }
+
+    // FUNGSI MENAMPILKAN FORM REGISTER
+    public function showRegister()
+    {
+        return view('auth.register');
+    }
+
+    // FUNGSI PROSES REGISTER
+    public function register(Request $request)
+    {
+        $request->validate([
+            'name' => 'required|string|max:255',
+            'email' => 'required|email|unique:users',
+            'password' => 'required|min:6|confirmed',
+        ]);
+
+        User::create([
+            'name' => $request->name,
+            'email' => $request->email,
+            'password' => Hash::make($request->password),
+        ]);
+
+        return redirect('/login')->with('success', 'Akun berhasil dibuat, silakan login!');
     }
 }
