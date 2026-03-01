@@ -1,12 +1,17 @@
 <?php
 
 use App\Http\Controllers\ProfileController;
+use App\Http\Controllers\AuthController;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\ChatController;
 
 Route::get('/', function () {
     return view('welcome');
 });
+
+Route::get('/download', function () {
+    return view('download');
+})->name('download');
 
 Route::get('/dashboard', function () {
     return view('dashboard');
@@ -36,3 +41,10 @@ Route::middleware(['web'])->group(function () {
         return response()->json(session('chat_sessions', []));
     });
 });
+Route::get('/login', [AuthController::class, 'showLogin'])->name('login');
+Route::post('/login', [AuthController::class, 'login']);
+Route::post('/logout', [AuthController::class, 'logout'])->name('logout');
+Route::get('/register', [AuthController::class, 'showRegister'])->name('register');
+Route::post('/register', [AuthController::class, 'register']);
+
+
