@@ -121,8 +121,5 @@ document.querySelectorAll('.nav-item').forEach(item => {
   });
 });
 </script>
-
->>>>>>> bcbad540e25e3c375e143c76ae902248c98d35c2
-
 </body>
 </html>
