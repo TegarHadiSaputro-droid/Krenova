@@ -7,23 +7,7 @@
   <link href="#" rel="stylesheet">
   <link rel="stylesheet" href="{{ asset('css/style.css') }}">
 </head>
- 
-<body>
-<<<<<<< HEAD
-    <style>
-    body{
-        background-color: #f0f0f0;
-        font-family: Arial, sans-serif;
-        text-align: center;
-        padding: 50px;
-    }
-    
-    </style>
- <header>
-     <h2>jada ganteng</h2>
-     <p>jada gagah</p>
- </header>  
-=======
+ <body>
  <header class="main-header">
   <a href="#" class="logo">
   <img src="tunawoi.png" alt="Logo" style="height: 40px; width: auto; border-radius: 10px; margin-right: 10px;">
