@@ -39,12 +39,10 @@
     <div class="footer-col">
       <h4>Pembayaran</h4>
       <ul>
-        <li><a href="#">Tentang Kami</a></li>
-        <li><a href="#">Tim & Portofolio</a></li>
-        <li><a href="#">Studi Kasus</a></li>
-        <li><a href="#">Blog & Artikel</a></li>
-        <li><a href="#">Karir</a></li>
-        <li><a href="#">Hubungi Kami</a></li>
+        <li><a href="#">Transfer Bank</a></li>
+        <li><a href="#">Kartu kredit/Debit</a></li>
+        <li><a href="#">E-Wallet</a></li>
+        <li><a href="#">Invoice</a></li>
       </ul>
     </div>
 
