@@ -779,6 +779,7 @@ a.btn-login {
 .tuna-market__scroll-wrap {
   overflow-x: auto;
   padding-bottom: 12px;
+  padding-top: 10px;
   margin-bottom: 40px;
   scrollbar-width: thin;
   scrollbar-color: #0078ff #e8eef8;
