@@ -7,6 +7,15 @@
   <link rel="stylesheet" href="{{ asset('css/style.css') }}">
 </head>
 <body>
+ <header class="main-header">
+  <a href="#" class="logo">
+  <img src="tunawoi.png" alt="Logo" style="height: 40px; width: auto; border-radius: 10px; margin-right: 10px;">
+  
+    <div class="logo-text-wrap">
+  <div class="logo-main">TU<span>NA</span></div>
+  <div class="logo-sub">Transforming User Needs into Access</div>
+    </div>
+        </a>
 
   <!-- ============================================================
        HEADER
@@ -40,6 +49,13 @@
         <div class="dropdown">
           <a href="#">Promo</a>
           <a href="#">Lihat Paket</a>
+        <span class="nav-link">
+          Pembayaran
+          <span class="arrow"></span>
+        </span>
+        <div class="dropdown">
+          <a href="#">Transfer Bank</a>
+          <a href="#">Kartu Kredit / Debit</a>
           <a href="#">E-Wallet</a>
           <a href="#">Invoice</a>
         </div>
@@ -81,6 +97,12 @@
         <button class="btn-cta">Coba Gratis</button>
       </a>
     </div>
+       <a href="{{ route('login') }}" class="btn-login">Masuk</a>
+  <button class="btn-cta">Coba Gratis</button>
+</div>
+
+
+
   </header>
 
   <!-- ============================================================
@@ -88,6 +110,7 @@
   ============================================================ -->
   <main>
 
+<<<<<<< HEAD
     <!-- ===== HERO / TENTANG TUNA ===== -->
     <section class="tuna-hero">
       <div class="tuna-hero__bg-circles">
@@ -509,6 +532,8 @@ document.querySelectorAll('.nav-item').forEach(item => {
 </html>
 >>>>>>> dd72b412d8d8d1ffa1731ee4619c80351677cfe6
 
+=======
+>>>>>>> parent of 3714ac6 (chat ai)
 <script>
 let closeTimer;
 
@@ -528,5 +553,7 @@ document.querySelectorAll('.nav-item').forEach(item => {
   });
 });
 </script>
+
+
 </body>
 </html>

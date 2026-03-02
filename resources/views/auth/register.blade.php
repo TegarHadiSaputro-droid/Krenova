@@ -1,13 +1,6 @@
-<!DOCTYPE html>
-<html lang="id">
-<head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Daftar - TUNA</title>
-  <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap" rel="stylesheet">
-  <link rel="stylesheet" href="{{ asset('css/register.css') }}">
-</head>
-<body>
+<x-guest-layout>
+    <form method="POST" action="{{ route('register') }}">
+        @csrf
 
 <div class="login-wrapper">
   <div class="login-left">
@@ -20,59 +13,51 @@
       <h1>Bergabunglah bersama kami sekarang, dan jadilah salah satu dari pengguna TUNA, gratis! </h1>
       <p>Buat akun dan mulai nikmati platform  layanan TUNA untuk membantu kehidupan mu lebih baik, karena perubahan pengguna adalah harapan kami!.</p>
     </div>
+        <!-- Name -->
+        <div>
+            <x-input-label for="name" :value="__('Name')" />
+            <x-text-input id="name" class="block mt-1 w-full" type="text" name="name" :value="old('name')" required autofocus autocomplete="name" />
+            <x-input-error :messages="$errors->get('name')" class="mt-2" />
+        </div>
 
-    <div class="features">
-      <div class="feature-item"><div class="feature-dot"></div> Daftar gratis, tanpa kartu kredit</div>
-      <div class="feature-item"><div class="feature-dot"></div> Akses semua fitur dasar</div>
-      <div class="feature-item"><div class="feature-dot"></div> Support 24/7 siap membantu</div>
-    </div>
-  </div>
+        <!-- Email Address -->
+        <div class="mt-4">
+            <x-input-label for="email" :value="__('Email')" />
+            <x-text-input id="email" class="block mt-1 w-full" type="email" name="email" :value="old('email')" required autocomplete="username" />
+            <x-input-error :messages="$errors->get('email')" class="mt-2" />
+        </div>
 
-  <div class="login-right">
-    <h2>Buat akun baru ✨</h2>
-    <p class="sub">Isi data di bawah untuk mulai</p>
+        <!-- Password -->
+        <div class="mt-4">
+            <x-input-label for="password" :value="__('Password')" />
 
-    @if ($errors->any())
-      <div class="alert-error">{{ $errors->first() }}</div>
-    @endif
+            <x-text-input id="password" class="block mt-1 w-full"
+                            type="password"
+                            name="password"
+                            required autocomplete="new-password" />
 
-    <form method="POST" action="/register">
-      @csrf
+            <x-input-error :messages="$errors->get('password')" class="mt-2" />
+        </div>
 
-      <div class="form-group">
-        <label>Nama Lengkap</label>
-        <input type="text" name="name" placeholder="John Doe" required>
-      </div>
+        <!-- Confirm Password -->
+        <div class="mt-4">
+            <x-input-label for="password_confirmation" :value="__('Confirm Password')" />
 
-      <div class="form-group">
-        <label>Email</label>
-        <input type="email" name="email" placeholder="email@example.com" required>
-      </div>
+            <x-text-input id="password_confirmation" class="block mt-1 w-full"
+                            type="password"
+                            name="password_confirmation" required autocomplete="new-password" />
 
-      <div class="form-group">
-        <label>Password</label>
-        <input type="password" name="password" placeholder="Min. 6 karakter" required>
-      </div>
+            <x-input-error :messages="$errors->get('password_confirmation')" class="mt-2" />
+        </div>
 
-      <div class="form-group">
-        <label>Konfirmasi Password</label>
-        <input type="password" name="password_confirmation" placeholder="Ulangi password" required>
-      </div>
+        <div class="flex items-center justify-end mt-4">
+            <a class="underline text-sm text-gray-600 dark:text-gray-400 hover:text-gray-900 dark:hover:text-gray-100 rounded-md focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500 dark:focus:ring-offset-gray-800" href="{{ route('login') }}">
+                {{ __('Already registered?') }}
+            </a>
 
-      <button type="submit" class="btn-masuk">Daftar Sekarang</button>
+            <x-primary-button class="ms-4">
+                {{ __('Register') }}
+            </x-primary-button>
+        </div>
     </form>
-
-    <div class="divider">atau</div>
-
-    <p class="register-link">Sudah punya akun? <a href="{{ route('login') }}">Masuk di sini</a></p>
-
-    <div style="text-align: center; margin-top: 10px;">
-    <a href="{{ url('/') }}" style="font-size: 12px; color: gray;">← Kembali ke Beranda</a>
-</div>
-
-</div>
-  </div>
-</div>
-
-</body>
-</html>
+</x-guest-layout>
