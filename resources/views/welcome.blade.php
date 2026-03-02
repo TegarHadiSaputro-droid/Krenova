@@ -351,7 +351,178 @@
         </div>
       </div>
     </section>
+
+    <!-- ===== VIDEO PEMBELAJARAN ===== -->
+<section class="vid-section">
+  <div class="tuna-container">
+    <div class="tuna-section-head">
+      <span class="section-tag">Edukasi</span>
+      <h2>Video <span>Pembelajaran</span></h2>
+      <p>Kenali lebih dalam tentang teman-teman disabilitas melalui video edukatif kami.</p>
+    </div>
+
+    <!-- Banner kepedulian -->
+<div class="vid-banner">
+  <span>♿</span>
+  <p>TUNA percaya setiap orang berhak mendapatkan akses yang sama — termasuk akses terhadap ilmu dan informasi.</p>
+</div>
+
+    <div class="vid-scroll-wrap">
+      <div class="vid-row">
+
+        <!-- Card 1 -->
+        <div class="vid-card" onclick="openVidModal(0)">
+          <div class="vid-thumb">
+            <div class="vid-thumb-inner" style="background: linear-gradient(135deg, #1e3a8a, #3b82f6);">
+              <span class="vid-emoji">♿</span>
+            </div>
+            <div class="vid-play-btn">
+              <svg viewBox="0 0 24 24" fill="currentColor"><path d="M8 5v14l11-7z"/></svg>
+            </div>
+            <span class="vid-duration">12:34</span>
+          </div>
+          <div class="vid-info">
+            <span class="vid-tag">Mobilitas</span>
+            <h4>Mengenal Disabilitas Fisik & Cara Mendukungnya</h4>
+            <p>Panduan memahami kebutuhan penyandang disabilitas fisik dalam kehidupan sehari-hari.</p>
+          </div>
+        </div>
+
+        <!-- Card 2 -->
+        <div class="vid-card" onclick="openVidModal(1)">
+          <div class="vid-thumb">
+            <div class="vid-thumb-inner" style="background: linear-gradient(135deg, #065f46, #10b981);">
+              <span class="vid-emoji">👁️</span>
+            </div>
+            <div class="vid-play-btn">
+              <svg viewBox="0 0 24 24" fill="currentColor"><path d="M8 5v14l11-7z"/></svg>
+            </div>
+            <span class="vid-duration">08:20</span>
+          </div>
+          <div class="vid-info">
+            <span class="vid-tag">Visual</span>
+            <h4>Teknologi Aksesibilitas untuk Tunanetra</h4>
+            <p>Mengenal tools dan aplikasi yang membantu penyandang disabilitas visual beraktivitas.</p>
+          </div>
+        </div>
+
+        <!-- Card 3 -->
+        <div class="vid-card" onclick="openVidModal(2)">
+          <div class="vid-thumb">
+            <div class="vid-thumb-inner" style="background: linear-gradient(135deg, #7c3aed, #a78bfa);">
+              <span class="vid-emoji">👂</span>
+            </div>
+            <div class="vid-play-btn">
+              <svg viewBox="0 0 24 24" fill="currentColor"><path d="M8 5v14l11-7z"/></svg>
+            </div>
+            <span class="vid-duration">15:10</span>
+          </div>
+          <div class="vid-info">
+            <span class="vid-tag">Pendengaran</span>
+            <h4>Bahasa Isyarat: Dasar Komunikasi Tuli</h4>
+            <p>Belajar dasar-dasar bahasa isyarat Indonesia (BISINDO) untuk berkomunikasi inklusif.</p>
+          </div>
+        </div>
+
+        <!-- Card 4 -->
+        <div class="vid-card" onclick="openVidModal(3)">
+          <div class="vid-thumb">
+            <div class="vid-thumb-inner" style="background: linear-gradient(135deg, #9a3412, #fb923c);">
+              <span class="vid-emoji">🧠</span>
+            </div>
+            <div class="vid-play-btn">
+              <svg viewBox="0 0 24 24" fill="currentColor"><path d="M8 5v14l11-7z"/></svg>
+            </div>
+            <span class="vid-duration">20:05</span>
+          </div>
+          <div class="vid-info">
+            <span class="vid-tag">Kognitif</span>
+            <h4>Memahami Spektrum Autisme & Cara Berinteraksi</h4>
+            <p>Penjelasan mendalam tentang autisme dan cara menciptakan lingkungan yang ramah.</p>
+          </div>
+        </div>
+
+        <!-- Card 5 -->
+        <div class="vid-card" onclick="openVidModal(4)">
+          <div class="vid-thumb">
+            <div class="vid-thumb-inner" style="background: linear-gradient(135deg, #0e7490, #22d3ee);">
+              <span class="vid-emoji">🗣️</span>
+            </div>
+            <div class="vid-play-btn">
+              <svg viewBox="0 0 24 24" fill="currentColor"><path d="M8 5v14l11-7z"/></svg>
+            </div>
+            <span class="vid-duration">10:45</span>
+          </div>
+          <div class="vid-info">
+            <span class="vid-tag">Bicara</span>
+            <h4>Disabilitas Wicara: Komunikasi Alternatif</h4>
+            <p>Cara mendukung penyandang gangguan wicara menggunakan media komunikasi alternatif.</p>
+          </div>
+        </div>
+
+        <!-- Card 6 -->
+        <div class="vid-card" onclick="openVidModal(5)">
+          <div class="vid-thumb">
+            <div class="vid-thumb-inner" style="background: linear-gradient(135deg, #be185d, #f472b6);">
+              <span class="vid-emoji">❤️</span>
+            </div>
+            <div class="vid-play-btn">
+              <svg viewBox="0 0 24 24" fill="currentColor"><path d="M8 5v14l11-7z"/></svg>
+            </div>
+            <span class="vid-duration">18:30</span>
+          </div>
+          <div class="vid-info">
+            <span class="vid-tag">Mental</span>
+            <h4>Kesehatan Mental & Disabilitas Psikososial</h4>
+            <p>Mengenal disabilitas psikososial dan pentingnya dukungan kesehatan mental inklusif.</p>
+          </div>
+        </div>
+
+        <!-- Card 7 -->
+        <div class="vid-card" onclick="openVidModal(6)">
+          <div class="vid-thumb">
+            <div class="vid-thumb-inner" style="background: linear-gradient(135deg, #1a2340, #0078ff);">
+              <span class="vid-emoji">🌍</span>
+            </div>
+            <div class="vid-play-btn">
+              <svg viewBox="0 0 24 24" fill="currentColor"><path d="M8 5v14l11-7z"/></svg>
+            </div>
+            <span class="vid-duration">22:15</span>
+          </div>
+          <div class="vid-info">
+            <span class="vid-tag">Inklusivitas</span>
+            <h4>Membangun Dunia Inklusif untuk Semua</h4>
+            <p>Bagaimana kita bersama menciptakan masyarakat yang ramah dan setara bagi semua orang.</p>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ===== MODAL DESKRIPSI VIDEO ===== -->
+<div class="vid-modal-overlay" id="vidModal" onclick="closeVidModal(event)">
+  <div class="vid-modal">
+    <button class="vid-modal-close" onclick="closeVidModal()">✕</button>
+    <div class="vid-modal-thumb" id="modalThumb">
+      <div class="vid-modal-play">
+        <svg viewBox="0 0 24 24" fill="currentColor"><path d="M8 5v14l11-7z"/></svg>
+      </div>
+    </div>
+    <div class="vid-modal-body">
+      <span class="vid-modal-tag" id="modalTag"></span>
+      <h3 id="modalTitle"></h3>
+      <p id="modalDesc"></p>
+      <div class="vid-modal-meta">
+        <span id="modalDuration">⏱ </span>
+      </div>
+      <a href="#" class="btn-blue" style="margin-top: 16px; display: inline-block;">▶ Tonton Sekarang</a>
+    </div>
+  </div>
+</div>
   </main>
+
 
   <!-- ============================================================
        FOOTER
@@ -475,6 +646,96 @@ document.querySelectorAll('.nav-item').forEach(item => {
       this.querySelector('.dropdown').style.display = 'none';
     }, 300);
   });
+});
+
+const vidData = [
+  {
+    title: "Mengenal Disabilitas Fisik & Cara Mendukungnya",
+    tag: "Mobilitas",
+    desc: "Video ini membahas secara mendalam tentang berbagai jenis disabilitas fisik, tantangan yang dihadapi dalam kehidupan sehari-hari, serta cara-cara praktis yang bisa kita lakukan untuk mendukung dan menciptakan lingkungan yang lebih inklusif bagi penyandang disabilitas fisik.",
+    duration: "12 menit 34 detik",
+    bg: "linear-gradient(135deg, #1e3a8a, #3b82f6)",
+    emoji: "♿"
+  },
+  {
+    title: "Teknologi Aksesibilitas untuk Tunanetra",
+    tag: "Visual",
+    desc: "Pelajari berbagai teknologi assistive yang membantu penyandang tunanetra dan low vision dalam beraktivitas, mulai dari screen reader, aplikasi pengenalan suara, hingga perangkat braille digital yang tersedia saat ini.",
+    duration: "8 menit 20 detik",
+    bg: "linear-gradient(135deg, #065f46, #10b981)",
+    emoji: "👁️"
+  },
+  {
+    title: "Bahasa Isyarat: Dasar Komunikasi Tuli",
+    tag: "Pendengaran",
+    desc: "Pengenalan dasar Bahasa Isyarat Indonesia (BISINDO) yang dapat membantu kamu berkomunikasi dengan teman-teman Tuli. Video ini mencakup salam, angka, huruf, dan kalimat sehari-hari yang paling sering digunakan.",
+    duration: "15 menit 10 detik",
+    bg: "linear-gradient(135deg, #7c3aed, #a78bfa)",
+    emoji: "👂"
+  },
+  {
+    title: "Memahami Spektrum Autisme & Cara Berinteraksi",
+    tag: "Kognitif",
+    desc: "Autisme adalah spektrum yang luas. Video ini menjelaskan karakteristik autisme, cara berinteraksi yang tepat, serta bagaimana menciptakan lingkungan yang nyaman dan ramah bagi individu autistik di rumah, sekolah, maupun tempat kerja.",
+    duration: "20 menit 5 detik",
+    bg: "linear-gradient(135deg, #9a3412, #fb923c)",
+    emoji: "🧠"
+  },
+  {
+    title: "Disabilitas Wicara: Komunikasi Alternatif",
+    tag: "Bicara",
+    desc: "Mengenal berbagai jenis gangguan wicara dan cara mendukung komunikasi yang efektif menggunakan Augmentative and Alternative Communication (AAC), papan komunikasi, dan aplikasi text-to-speech modern.",
+    duration: "10 menit 45 detik",
+    bg: "linear-gradient(135deg, #0e7490, #22d3ee)",
+    emoji: "🗣️"
+  },
+  {
+    title: "Kesehatan Mental & Disabilitas Psikososial",
+    tag: "Mental",
+    desc: "Disabilitas psikososial sering kali tidak terlihat namun dampaknya nyata. Video ini membahas pentingnya kesehatan mental, stigma yang dihadapi, serta bagaimana membangun sistem dukungan yang inklusif untuk individu dengan kondisi kesehatan mental.",
+    duration: "18 menit 30 detik",
+    bg: "linear-gradient(135deg, #be185d, #f472b6)",
+    emoji: "❤️"
+  },
+  {
+    title: "Membangun Dunia Inklusif untuk Semua",
+    tag: "Inklusivitas",
+    desc: "Sebuah panduan komprehensif tentang bagaimana individu, komunitas, dan organisasi dapat berkontribusi dalam membangun dunia yang benar-benar inklusif — mulai dari desain universal, kebijakan publik, hingga perubahan pola pikir masyarakat.",
+    duration: "22 menit 15 detik",
+    bg: "linear-gradient(135deg, #1a2340, #0078ff)",
+    emoji: "🌍"
+  }
+];
+
+function openVidModal(index) {
+  const data = vidData[index];
+  const modal = document.getElementById('vidModal');
+  const thumb = document.getElementById('modalThumb');
+
+  document.getElementById('modalTag').textContent = data.tag;
+  document.getElementById('modalTitle').textContent = data.title;
+  document.getElementById('modalDesc').textContent = data.desc;
+  document.getElementById('modalDuration').textContent = '⏱ ' + data.duration;
+
+  thumb.style.background = data.bg;
+  thumb.querySelector('.vid-modal-play').innerHTML = `
+    <span style="font-size:2.5rem">${data.emoji}</span>
+  `;
+
+  modal.classList.add('active');
+  document.body.style.overflow = 'hidden';
+}
+
+function closeVidModal(event) {
+  if (!event || event.target === document.getElementById('vidModal') || event.currentTarget.classList.contains('vid-modal-close')) {
+    document.getElementById('vidModal').classList.remove('active');
+    document.body.style.overflow = '';
+  }
+}
+
+// Close dengan tombol ESC
+document.addEventListener('keydown', function(e) {
+  if (e.key === 'Escape') closeVidModal();
 });
 </script>
 </body>
