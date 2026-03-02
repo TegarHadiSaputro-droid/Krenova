@@ -4,34 +4,30 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>TUNA</title>
-  <link href="#" rel="stylesheet">
   <link rel="stylesheet" href="{{ asset('css/style.css') }}">
-  <link rel="stylesheet" href="{{ asset('css/footer.css') }}">
 </head>
- <body>
- <header class="main-header">
-  <a href="#" class="logo">
-  <img src="tunawoi.png" alt="Logo" style="height: 40px; width: auto; border-radius: 10px; margin-right: 10px;">
-  
-    <div class="logo-text-wrap">
-  <div class="logo-main">TU<span>NA</span></div>
-  <div class="logo-sub">Transforming User Needs into Access</div>
-    </div>
-        </a>
+<body>
 
-   <nav class="main-nav">
-    <a href="{{ url('/') }}" class="nav-link">Beranda</a>
+  <!-- ============================================================
+       HEADER
+  ============================================================ -->
+  <header class="main-header">
+    <a href="{{ url('/') }}" class="logo">
+      <img src="{{ asset('tunawoi.png') }}" alt="Logo" style="height: 40px; width: auto; border-radius: 10px; margin-right: 10px;">
+      <div class="logo-text-wrap">
+        <div class="logo-main">TU<span>NA</span></div>
+        <div class="logo-sub">Transforming User Needs into Access</div>
+      </div>
+    </a>
 
+    <nav class="main-nav">
+      <a href="{{ url('/') }}" class="nav-link">Beranda</a>
 
-     
       <div class="nav-item">
-        <span class="nav-link">
-          Layanan
-          <span class="arrow"></span>
-        </span>
+        <span class="nav-link">Layanan <span class="arrow"></span></span>
         <div class="dropdown">
           <a href="#">Call & Chat</a>
-          <a href="#">AI trixie</a>
+          <a href="#">AI Trixie</a>
           <a href="#">Marketplace</a>
           <a href="#">Konsultasi</a>
         </div>
@@ -41,23 +37,17 @@
       <a href="#" class="nav-link">Portofolio</a>
 
       <div class="nav-item">
-        <span class="nav-link">
-        Berlangganan
-          <span class="arrow"></span>
-        </span>
+        <span class="nav-link">Berlangganan <span class="arrow"></span></span>
         <div class="dropdown">
           <a href="#">Promo</a>
-          <a href="#">Lihat paket</a>
+          <a href="#">Lihat Paket</a>
           <a href="#">E-W</a>
           <a href="#">Invoice</a>
         </div>
       </div>
 
       <div class="nav-item">
-        <span class="nav-link">
-          Panduan
-          <span class="arrow"></span>
-        </span>
+        <span class="nav-link">Panduan <span class="arrow"></span></span>
         <div class="dropdown">
           <a href="#">Cara Mulai</a>
           <a href="#">Video Tutorial</a>
@@ -67,10 +57,7 @@
       </div>
 
       <div class="nav-item">
-        <span class="nav-link">
-          Hubungi Kami
-          <span class="arrow"></span>
-        </span>
+        <span class="nav-link">Hubungi Kami <span class="arrow"></span></span>
         <div class="dropdown">
           <a href="#">WhatsApp</a>
           <a href="#">Email Support</a>
@@ -90,113 +77,287 @@
     </nav>
 
     <div class="header-actions">
-       <a href="{{ route('login') }}" class="btn-login">Masuk</a>
- 
-
-  <a href="{{ route('download') }}" style="text-decoration: none;">
-    <button class="btn-cta">Coba Gratis</button>
-  </a>
-</div>
+      <a href="{{ route('login') }}" class="btn-login">Masuk</a>
+      <a href="{{ route('download') }}" style="text-decoration: none;">
+        <button class="btn-cta">Coba Gratis</button>
+      </a>
+    </div>
   </header>
 
-<main>
+  <!-- ============================================================
+       MAIN
+  ============================================================ -->
+  <main>
 
+    <!-- ===== HERO / TENTANG TUNA ===== -->
+    <section class="tuna-hero">
+      <div class="tuna-hero__bg-circles">
+        <span></span><span></span><span></span>
+      </div>
+      <div class="tuna-container">
+        <div class="tuna-hero__inner">
+          <div class="tuna-hero__text">
+            <span class="tuna-hero__label">Tentang Kami</span>
+            <h1>Teknologi yang <br><em>benar-benar</em> untuk <strong>semua</strong></h1>
+            <p>TUNA — <b>Transforming User Needs into Access</b> — adalah platform digital inklusif yang dirancang untuk membantu penyandang disabilitas mengakses layanan, informasi, dan peluang tanpa hambatan.</p>
+            <div class="tuna-hero__stats">
+              <div class="stat">
+                <span class="stat-num">5K+</span>
+                <span class="stat-label">Pengguna Aktif</span>
+              </div>
+              <div class="stat-divider"></div>
+              <div class="stat">
+                <span class="stat-num">4</span>
+                <span class="stat-label">Layanan Utama</span>
+              </div>
+              <div class="stat-divider"></div>
+              <div class="stat">
+                <span class="stat-num">24/7</span>
+                <span class="stat-label">Dukungan</span>
+              </div>
+            </div>
+            <div class="tuna-hero__cta">
+              <a href="#layanan" class="btn-blue">Jelajahi Layanan</a>
+              <a href="#" class="btn-outline-white">Pelajari Lebih →</a>
+            </div>
+          </div>
 
-
-  <!-- MARKETPLACE SECTION -->
-<section class="marketplace">
-  <div class="container">
-    <!-- Bagian Rekomendasi (Horizontal Scroll) -->
-    <div class="section-header">
-      <h2>Rekomendasi <span>Produk</span></h2>
-      <p>Produk pilihan untuk kamu</p>
-    </div>
-
-    <div class="scroll-wrapper">
-      <div class="product-row">
-        <!-- Card 1 -->
-        <div class="product-card">
-          <div class="product-badge best">Best Seller</div>
-          <img src="https://via.placeholder.com/250x150" alt="Produk">
-          <h3>Template Website</h3>
-          <p class="price">Rp 199.000</p>
-          <button class="btn-small">Lihat</button>
-        </div>
-        <!-- Card 2 -->
-        <div class="product-card">
-          <img src="https://via.placeholder.com/250x150" alt="Produk">
-          <h3>AI Trixie</h3>
-          <p class="price">Rp 99.000</p>
-          <button class="btn-small">Lihat</button>
-        </div>
-        <!-- Card 3 -->
-        <div class="product-card">
-          <div class="product-badge new">New</div>
-          <img src="https://via.placeholder.com/250x150" alt="Produk">
-          <h3>Konsultasi 60'</h3>
-          <p class="price">Rp 299.000</p>
-          <button class="btn-small">Lihat</button>
-        </div>
-        <!-- Card 4 -->
-        <div class="product-card">
-          <img src="https://via.placeholder.com/250x150" alt="Produk">
-          <h3>E-Book Panduan</h3>
-          <p class="price">Rp 49.000</p>
-          <button class="btn-small">Lihat</button>
-        </div>
-        <!-- Card 5 -->
-        <div class="product-card">
-          <img src="https://via.placeholder.com/250x150" alt="Produk">
-          <h3>Plugin SEO</h3>
-          <p class="price">Rp 149.000</p>
-          <button class="btn-small">Lihat</button>
-        </div>
-        <!-- Card 6 -->
-        <div class="product-card">
-          <img src="https://via.placeholder.com/250x150" alt="Produk">
-          <h3>Desain Grafis</h3>
-          <p class="price">Rp 89.000</p>
-          <button class="btn-small">Lihat</button>
+          <div class="tuna-hero__visual">
+            <div class="tuna-hero__card-float card-1">
+              <span class="card-icon">♿</span>
+              <span>Aksesibel</span>
+            </div>
+            <div class="tuna-hero__card-float card-2">
+              <span class="card-icon">🤖</span>
+              <span>AI Trixie</span>
+            </div>
+            <div class="tuna-hero__card-float card-3">
+              <span class="card-icon">🛒</span>
+              <span>Marketplace</span>
+            </div>
+            <div class="tuna-hero__mockup">
+              <div class="mockup-topbar"></div>
+              <div class="mockup-content">
+                <div class="mockup-line w80"></div>
+                <div class="mockup-line w60"></div>
+                <div class="mockup-line w90"></div>
+                <div class="mockup-cards-row">
+                  <div class="mockup-mini-card"></div>
+                  <div class="mockup-mini-card"></div>
+                </div>
+              </div>
+            </div>
+          </div>
         </div>
       </div>
-    </div>
+    </section>
 
-    <!-- Bagian Produk Lainnya (Grid) -->
-    <div class="section-header" style="margin-top: 50px;">
-      <h2>Produk <span>Lainnya</span></h2>
-      <p>Temukan lebih banyak produk menarik</p>
-    </div>
+    <!-- ===== FITUR ===== -->
+    <section class="tuna-features" id="layanan">
+      <div class="tuna-container">
+        <div class="tuna-section-head">
+          <span class="section-tag">Layanan Kami</span>
+          <h2>Semua yang kamu butuhkan,<br><span>dalam satu platform</span></h2>
+          <p>Empat layanan utama yang dirancang khusus untuk aksesibilitas dan kemudahan.</p>
+        </div>
+        <div class="tuna-features__grid">
 
-    <div class="product-grid">
-      <!-- Card 1 -->
-      <div class="product-card">
-        <img src="https://via.placeholder.com/300x180" alt="Produk">
-        <h3>Akun Premium 1 Bulan</h3>
-        <p class="price">Rp 50.000</p>
-        <button class="btn-small">Lihat</button>
-      </div>
-      <!-- Card 2 -->
-      <div class="product-card">
-        <img src="https://via.placeholder.com/300x180" alt="Produk">
-        <h3>Paket Starter</h3>
-        <p class="price">Rp 120.000</p>
-        <button class="btn-small">Lihat</button>
-      </div>
-      <!-- Card 3 -->
-      <div class="product-card">
-        <img src="https://via.placeholder.com/300x180" alt="Produk">
-        <h3>Kipas Angin</h3>
-        <p class="price">Rp 75.000</p>
-        <button class="btn-small">Lihat</button>
-      </div>
-    </div>
+          <a href="#" class="feature-card">
+            <div class="feature-card__icon">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8">
+                <path d="M8 12h.01M12 12h.01M16 12h.01M21 12c0 4.418-4.03 8-9 8a9.863 9.863 0 01-4.255-.949L3 20l1.395-3.72C3.512 15.042 3 13.574 3 12c0-4.418 4.03-8 9-8s9 3.582 9 8z"/>
+              </svg>
+            </div>
+            <div class="feature-card__body">
+              <h3>Call & Chat</h3>
+              <p>Hubungi kami kapan saja via telepon atau pesan langsung. Layanan responsif 24 jam untuk semua kebutuhanmu.</p>
+            </div>
+            <div class="feature-card__silhouette">
+              <svg viewBox="0 0 120 80" fill="none">
+                <circle cx="30" cy="40" r="18" fill="currentColor" opacity=".08"/>
+                <circle cx="30" cy="40" r="10" fill="currentColor" opacity=".12"/>
+                <rect x="50" y="25" width="55" height="8" rx="4" fill="currentColor" opacity=".1"/>
+                <rect x="50" y="38" width="40" height="8" rx="4" fill="currentColor" opacity=".08"/>
+                <rect x="50" y="51" width="48" height="8" rx="4" fill="currentColor" opacity=".06"/>
+              </svg>
+            </div>
+            <span class="feature-card__arrow">→</span>
+          </a>
 
-    <div class="text-center" style="margin-top: 30px;">
-      <a href="#" class="btn-lihat-semua">Lihat Semua Produk →</a>
-    </div>
-  </div>
-</section>
-</main>
+          <a href="#" class="feature-card feature-card--accent">
+            <div class="feature-card__icon">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8">
+                <path d="M12 2a10 10 0 100 20A10 10 0 0012 2zm0 0v4m0 12v2m-8-8H2m20 0h-2M5.636 5.636l1.414 1.414m9.9 9.9l1.414 1.414M5.636 18.364l1.414-1.414m9.9-9.9l1.414-1.414"/>
+              </svg>
+            </div>
+            <div class="feature-card__body">
+              <h3>AI Trixie</h3>
+              <p>Asisten AI cerdas yang membantu menjawab pertanyaan, memberi rekomendasi, dan mendampingi aktivitasmu.</p>
+            </div>
+            <div class="feature-card__silhouette">
+              <svg viewBox="0 0 120 80" fill="none">
+                <rect x="10" y="15" width="100" height="50" rx="12" fill="currentColor" opacity=".1"/>
+                <circle cx="35" cy="40" r="12" fill="currentColor" opacity=".15"/>
+                <rect x="55" y="30" width="45" height="6" rx="3" fill="currentColor" opacity=".12"/>
+                <rect x="55" y="42" width="35" height="6" rx="3" fill="currentColor" opacity=".09"/>
+                <circle cx="35" cy="40" r="5" fill="currentColor" opacity=".2"/>
+              </svg>
+            </div>
+            <span class="feature-card__arrow">→</span>
+          </a>
+
+          <a href="#" class="feature-card">
+            <div class="feature-card__icon">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8">
+                <path d="M3 3h2l.4 2M7 13h10l4-8H5.4M7 13L5.4 5M7 13l-2.293 2.293c-.63.63-.184 1.707.707 1.707H17m0 0a2 2 0 100 4 2 2 0 000-4zm-8 2a2 2 0 11-4 0 2 2 0 014 0z"/>
+              </svg>
+            </div>
+            <div class="feature-card__body">
+              <h3>Marketplace</h3>
+              <p>Temukan template, tools, e-book, dan produk digital lainnya yang dirancang untuk kebutuhan aksesibilitas.</p>
+            </div>
+            <div class="feature-card__silhouette">
+              <svg viewBox="0 0 120 80" fill="none">
+                <rect x="8" y="20" width="28" height="35" rx="6" fill="currentColor" opacity=".1"/>
+                <rect x="46" y="20" width="28" height="35" rx="6" fill="currentColor" opacity=".1"/>
+                <rect x="84" y="20" width="28" height="35" rx="6" fill="currentColor" opacity=".1"/>
+                <rect x="8" y="58" width="28" height="6" rx="3" fill="currentColor" opacity=".08"/>
+                <rect x="46" y="58" width="28" height="6" rx="3" fill="currentColor" opacity=".08"/>
+                <rect x="84" y="58" width="28" height="6" rx="3" fill="currentColor" opacity=".08"/>
+              </svg>
+            </div>
+            <span class="feature-card__arrow">→</span>
+          </a>
+
+          <a href="#" class="feature-card">
+            <div class="feature-card__icon">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8">
+                <path d="M17 20h5v-2a3 3 0 00-5.356-1.857M17 20H7m10 0v-2c0-.656-.126-1.283-.356-1.857M7 20H2v-2a3 3 0 015.356-1.857M7 20v-2c0-.656.126-1.283.356-1.857m0 0a5.002 5.002 0 019.288 0M15 7a3 3 0 11-6 0 3 3 0 016 0z"/>
+              </svg>
+            </div>
+            <div class="feature-card__body">
+              <h3>Konsultasi</h3>
+              <p>Sesi konsultasi langsung dengan tim profesional kami untuk solusi yang lebih personal dan tepat sasaran.</p>
+            </div>
+            <div class="feature-card__silhouette">
+              <svg viewBox="0 0 120 80" fill="none">
+                <circle cx="40" cy="30" r="14" fill="currentColor" opacity=".1"/>
+                <circle cx="80" cy="30" r="14" fill="currentColor" opacity=".1"/>
+                <rect x="20" y="52" width="35" height="16" rx="8" fill="currentColor" opacity=".08"/>
+                <rect x="65" y="52" width="35" height="16" rx="8" fill="currentColor" opacity=".08"/>
+              </svg>
+            </div>
+            <span class="feature-card__arrow">→</span>
+          </a>
+
+        </div>
+      </div>
+    </section>
+
+    <!-- ===== MARKETPLACE ===== -->
+    <section class="tuna-market" id="marketplace">
+      <div class="tuna-container">
+        <div class="tuna-section-head">
+          <span class="section-tag">Marketplace</span>
+          <h2>Produk pilihan <span>untuk kamu</span></h2>
+          <p>Template, tools, dan konten digital berkualitas tinggi.</p>
+        </div>
+
+        <!-- Scroll horizontal -->
+        <div class="tuna-market__scroll-wrap">
+          <div class="tuna-market__row">
+            <div class="market-card">
+              <div class="market-card__badge best">Best Seller</div>
+              <div class="market-card__img"><div class="market-card__img-placeholder">🌐</div></div>
+              <div class="market-card__info">
+                <h4>Template Website</h4>
+                <span class="market-price">Rp 199.000</span>
+                <button class="btn-market">Lihat</button>
+              </div>
+            </div>
+            <div class="market-card">
+              <div class="market-card__img"><div class="market-card__img-placeholder">🤖</div></div>
+              <div class="market-card__info">
+                <h4>AI Trixie</h4>
+                <span class="market-price">Rp 99.000</span>
+                <button class="btn-market">Lihat</button>
+              </div>
+            </div>
+            <div class="market-card">
+              <div class="market-card__badge new">Baru</div>
+              <div class="market-card__img"><div class="market-card__img-placeholder">💼</div></div>
+              <div class="market-card__info">
+                <h4>Konsultasi 60'</h4>
+                <span class="market-price">Rp 299.000</span>
+                <button class="btn-market">Lihat</button>
+              </div>
+            </div>
+            <div class="market-card">
+              <div class="market-card__img"><div class="market-card__img-placeholder">📖</div></div>
+              <div class="market-card__info">
+                <h4>E-Book Panduan</h4>
+                <span class="market-price">Rp 49.000</span>
+                <button class="btn-market">Lihat</button>
+              </div>
+            </div>
+            <div class="market-card">
+              <div class="market-card__img"><div class="market-card__img-placeholder">🔍</div></div>
+              <div class="market-card__info">
+                <h4>Plugin SEO</h4>
+                <span class="market-price">Rp 149.000</span>
+                <button class="btn-market">Lihat</button>
+              </div>
+            </div>
+            <div class="market-card">
+              <div class="market-card__img"><div class="market-card__img-placeholder">🎨</div></div>
+              <div class="market-card__info">
+                <h4>Desain Grafis</h4>
+                <span class="market-price">Rp 89.000</span>
+                <button class="btn-market">Lihat</button>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Grid produk lainnya -->
+        <div class="tuna-market__grid">
+          <div class="market-card">
+            <div class="market-card__img"><div class="market-card__img-placeholder">⭐</div></div>
+            <div class="market-card__info">
+              <h4>Akun Premium 1 Bulan</h4>
+              <span class="market-price">Rp 50.000</span>
+              <button class="btn-market">Lihat</button>
+            </div>
+          </div>
+          <div class="market-card">
+            <div class="market-card__img"><div class="market-card__img-placeholder">🚀</div></div>
+            <div class="market-card__info">
+              <h4>Paket Starter</h4>
+              <span class="market-price">Rp 120.000</span>
+              <button class="btn-market">Lihat</button>
+            </div>
+          </div>
+          <div class="market-card">
+            <div class="market-card__img"><div class="market-card__img-placeholder">🎬</div></div>
+            <div class="market-card__info">
+              <h4>Video Tutorial</h4>
+              <span class="market-price">Rp 75.000</span>
+              <button class="btn-market">Lihat</button>
+            </div>
+          </div>
+        </div>
+
+        <div style="text-align:center; margin-top: 36px;">
+          <a href="#" class="btn-blue">Lihat Semua Produk →</a>
+        </div>
+      </div>
+    </section>
+
+  </main>
+
+  <!-- ============================================================
+       FOOTER
+  ============================================================ -->
 
 <footer>
         <div class="f-wrap">
@@ -299,6 +460,27 @@
             </div>
         </div>
     </footer>
+<script>
+let closeTimer;
+
+document.querySelectorAll('.nav-item').forEach(item => {
+  item.addEventListener('mouseenter', function() {
+    clearTimeout(closeTimer);
+    document.querySelectorAll('.dropdown').forEach(d => d.style.display = 'none');
+    this.querySelector('.dropdown').style.display = 'block';
+  });
+
+  
+
+  item.addEventListener('mouseleave', function() {
+    closeTimer = setTimeout(() => {
+      this.querySelector('.dropdown').style.display = 'none';
+    }, 300);
+  });
+});
+</script>
+</body>
+</html>
 
 <script>
 let closeTimer;
