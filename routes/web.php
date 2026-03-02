@@ -15,7 +15,11 @@ Route::get('/download', function () {
 
 Route::get('/dashboard', function () {
     return view('dashboard');
-})->middleware(['auth', 'verified'])->name('dashboard');
+});
+
+Route::get('/account', function () {
+    return view('account');
+});
 
 Route::middleware('auth')->group(function () {
     Route::get('/profile', [ProfileController::class, 'edit'])->name('profile.edit');
@@ -26,8 +30,8 @@ Route::middleware('auth')->group(function () {
 require __DIR__.'/auth.php';
 
 Route::middleware(['web'])->group(function () {
-    Route::get('/chat', function () {   // ← ubah '/' jadi '/chat'
-        return view('chat');
+    Route::get('/chat', function () {
+        return view('chat-ai');
     });
 
     Route::post('/chat', [ChatController::class, 'chat']);
@@ -46,5 +50,4 @@ Route::post('/login', [AuthController::class, 'login']);
 Route::post('/logout', [AuthController::class, 'logout'])->name('logout');
 Route::get('/register', [AuthController::class, 'showRegister'])->name('register');
 Route::post('/register', [AuthController::class, 'register']);
-
 
