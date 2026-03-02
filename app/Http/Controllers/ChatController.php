@@ -10,44 +10,89 @@ class ChatController extends Controller
     public function chat(Request $request)
     {
         try {
-            // Ambil riwayat chat dari session
-            $history = session('chat_history', []);
+            $history   = session('chat_history', []);
+            $sessions  = session('chat_sessions', []);
+            $currentId = session('current_chat_id');
 
-            // Tambahkan pesan user ke riwayat
-            $history[] = [
-                'role' => 'user',
-                'content' => $request->message
-            ];
+            // Tambahkan system prompt jika history kosong
+            if (empty($history)) {
+                $history[] = [
+                    'role'    => 'system',
+                    'content' => 'Kamu adalah Trixie AI, asisten virtual yang fokus memberikan informasi dan layanan seputar disabilitas tuna (tuna netra, tuna rungu, tuna wicara, tuna daksa, tuna grahita), setiap jawaban gaperlu menggunakan tanda ** dan bawa seperti kamu berbicara dengan user. Jawab dengan bahasa Indonesia yang ramah, mudah dipahami, dan empatik.'
+                ];
+            }
 
-            // Kirim ke Groq beserta riwayat
+            // Buat ID unik jika belum ada
+            if (!$currentId) {
+                $currentId = uniqid('chat_', true);
+                session(['current_chat_id' => $currentId]);
+            }
+
+            $userMessage = $request->message;
+            $image       = $request->image;
+
+            // Susun pesan user
+            if ($image) {
+                $base64   = preg_replace('/^data:image\/\w+;base64,/', '', $image);
+                $mimeType = 'image/jpeg';
+                if (preg_match('/^data:(image\/\w+);base64,/', $image, $matches)) {
+                    $mimeType = $matches[1];
+                }
+
+                $history[] = [
+                    'role'    => 'user',
+                    'content' => [
+                        [
+                            'type'      => 'image_url',
+                            'image_url' => ['url' => "data:{$mimeType};base64,{$base64}"]
+                        ],
+                        ['type' => 'text', 'text' => $userMessage]
+                    ]
+                ];
+            } else {
+                $history[] = ['role' => 'user', 'content' => $userMessage];
+            }
+
+            // Kirim ke Groq API
             $response = Http::withoutVerifying()
                 ->withToken(config('services.groq.key'))
                 ->post('https://api.groq.com/openai/v1/chat/completions', [
-                    'model' => 'llama-3.3-70b-versatile',
+                    'model' => 'meta-llama/llama-4-scout-17b-16e-instruct',
                     'messages' => $history
                 ]);
 
-            $reply = $response->json()['choices'][0]['message']['content'];
+            $json = $response->json();
+            $reply = $json['choices'][0]['message']['content'] ?? 'Maaf, terjadi kesalahan.';
 
-            // Tambahkan jawaban AI ke riwayat
-            $history[] = [
-                'role' => 'assistant',
-                'content' => $reply
-            ];
+            // Simpan balasan ke history
+            $history[] = ['role' => 'assistant', 'content' => $reply];
 
-            // Simpan riwayat ke session
             session(['chat_history' => $history]);
 
-            // Simpan judul percakapan (pesan pertama user)
-            $sessions = session('chat_sessions', []);
-            // Cek apakah ini pesan pertama di percakapan, jika iya buat judul berdasarkan pesan pertama
-            if (count($history) == 2) {
+            // Update atau tambahkan ke chat_sessions
+            $found = false;
+            foreach ($sessions as &$s) {
+                if ((string)$s['id'] === (string)$currentId) {
+                    $s['messages'] = $history;
+                    $found = true;
+                    break;
+                }
+            }
+            unset($s); // putus referensi
+
+            if (!$found) {
+                // Judul diambil dari pesan user pertama (maks 40 karakter)
+                $title = mb_substr($userMessage, 0, 40);
+
                 array_unshift($sessions, [
-                    'id' => time(),
-                    'title' => substr($request->message, 0, 40)
+                    'id'        => $currentId,
+                    'title'     => $title,
+                    'messages'  => $history,
+                    'createdAt' => now()->toDateTimeString()
                 ]);
-                session(['chat_sessions' => $sessions]);
-}
+            }
+
+            session(['chat_sessions' => $sessions]);
 
             return response()->json(['reply' => $reply]);
 

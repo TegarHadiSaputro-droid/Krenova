@@ -33,7 +33,7 @@
 
     <!-- Menu -->
     <div class="dropdown-section-label">Menu</div>
-    <a href="/settings" class="dropdown-item">
+    <a href="{{ route('dashboard.pengaturan') }}" class="dropdown-item">
         <span class="dropdown-icon"></span>
         <span class="dropdown-item-label">Pengaturan</span>
     </a>
