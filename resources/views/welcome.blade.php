@@ -33,15 +33,14 @@
         </div>
       </div>
 
-      <a href="#" class="nav-link active">Template</a>
-      <a href="#" class="nav-link">Portofolio</a>
+      <a href="#" class="nav-link">Fitur Kami</a>
 
       <div class="nav-item">
         <span class="nav-link">Berlangganan <span class="arrow"></span></span>
         <div class="dropdown">
           <a href="#">Promo</a>
           <a href="#">Lihat Paket</a>
-          <a href="#">E-W</a>
+          <a href="#">E-Wallet</a>
           <a href="#">Invoice</a>
         </div>
       </div>
@@ -49,10 +48,10 @@
       <div class="nav-item">
         <span class="nav-link">Panduan <span class="arrow"></span></span>
         <div class="dropdown">
+          <a href="#">Visi Misi</a>
           <a href="#">Cara Mulai</a>
           <a href="#">Video Tutorial</a>
           <a href="#">FAQ</a>
-          <a href="#">Blog</a>
         </div>
       </div>
 
@@ -61,7 +60,7 @@
         <div class="dropdown">
           <a href="#">WhatsApp</a>
           <a href="#">Email Support</a>
-          <a href="#">Live Chat</a>
+          <a href="#">Sosial Media Kami</a>
           <a href="#">Kantor Kami</a>
         </div>
       </div>
@@ -395,10 +394,10 @@
                 <div class="f-col">
                     <h4>Panduan</h4>
                     <ul>
+                        <li><a href="#"><span class="dot"></span>Visi Mis</a></li>
                         <li><a href="#"><span class="dot"></span>Cara Mulai</a></li>
                         <li><a href="#"><span class="dot"></span>Video Tutorial</a></li>
                         <li><a href="#"><span class="dot"></span>FAQ</a></li>
-                        <li><a href="#"><span class="dot"></span>Blog</a></li>
                     </ul>
                 </div>
 
@@ -407,7 +406,7 @@
                     <ul>
                         <li><a href="#"><span class="dot"></span>WhatsApp</a></li>
                         <li><a href="#"><span class="dot"></span>Email Support</a></li>
-                        <li><a href="#"><span class="dot"></span>Live Chat</a></li>
+                        <li><a href="#"><span class="dot"></span>Sosial Media Kami</a></li>
                         <li><a href="#"><span class="dot"></span>Kantor Kami</a></li>
                     </ul>
                 </div>
