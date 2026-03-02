@@ -14,18 +14,18 @@
   <div class="login-left">
     <div class="left-logo">
       <div class="brand">TU<span>NA</span></div>
-      <div class="tagline">Transforming Needs Into Access</div>
+      <div class="tagline">Transforming User Needs Into Access</div>
     </div>
 
     <div class="left-content">
-      <h1>Solusi digital untuk semua kebutuhanmu</h1>
-      <p>Gabung bersama ribuan pengguna yang sudah mempercayai TUNA untuk layanan terbaik mereka.</p>
+      <h1>Kami mendukung aksebilitas pengguna dalam mengakses</h1>
+      <p>Gabunglah bersama kami dan rasakan pengalaman baru sebagai pengguna TUNA karena kami hadir untuk memberikan solusi digital bagi anda.</p>
     </div>
 
     <div class="features">
-      <div class="feature-item"><div class="feature-dot"></div> Layanan Call & Chat 24/7</div>
-      <div class="feature-item"><div class="feature-dot"></div> Template profesional siap pakai</div>
-      <div class="feature-item"><div class="feature-dot"></div> Pembayaran aman & mudah</div>
+      <div class="feature-item"><div class="feature-dot"></div> Layanan yang dapat diakses dimana saja</div>
+      <div class="feature-item"><div class="feature-dot"></div> Dashboard profesional untuk anda</div>
+      <div class="feature-item"><div class="feature-dot"></div> Dan banyak fitur lainnya</div>
     </div>
   </div>
 

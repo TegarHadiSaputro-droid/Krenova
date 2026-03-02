@@ -13,12 +13,12 @@
   <div class="login-left">
     <div class="left-logo">
       <div class="brand">TU<span>NA</span></div>
-      <div class="tagline">Transforming Needs Into Access</div>
+      <div class="tagline">Transforming User Needs Into Access</div>
     </div>
 
     <div class="left-content">
-      <h1>Bergabung sekarang, gratis!</h1>
-      <p>Buat akun dan mulai nikmati semua layanan TUNA untuk kebutuhanmu.</p>
+      <h1>Bergabunglah bersama kami sekarang, dan jadilah salah satu dari pengguna TUNA, gratis! </h1>
+      <p>Buat akun dan mulai nikmati platform  layanan TUNA untuk membantu kehidupan mu lebih baik, karena perubahan pengguna adalah harapan kami!.</p>
     </div>
 
     <div class="features">
