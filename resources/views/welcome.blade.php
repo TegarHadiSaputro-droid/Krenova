@@ -564,7 +564,7 @@
                 <div class="f-col">
                     <h4>Panduan</h4>
                     <ul>
-                        <li><a href="#"><span class="dot"></span>Visi Mis</a></li>
+                        <li><a href="#"><span class="dot"></span>Visi Misi</a></li>
                         <li><a href="#"><span class="dot"></span>Cara Mulai</a></li>
                         <li><a href="#"><span class="dot"></span>Video Tutorial</a></li>
                         <li><a href="#"><span class="dot"></span>FAQ</a></li>
