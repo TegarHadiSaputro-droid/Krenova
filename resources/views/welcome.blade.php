@@ -123,8 +123,8 @@
 
           <div class="tuna-hero__visual">
             <div class="tuna-hero__card-float card-1">
-              <span class="card-icon">♿</span>
-              <span>Aksesibel</span>
+              <span class="card-icon">📞</span>
+              <span>Call & Chat</span>
             </div>
             <div class="tuna-hero__card-float card-2">
               <span class="card-icon">🤖</span>
