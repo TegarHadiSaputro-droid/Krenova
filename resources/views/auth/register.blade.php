@@ -17,8 +17,8 @@
     </div>
 
     <div class="left-content">
-      <h1>Bergabunglah bersama kami sekarang, dan jadilah salah satu dari pengguna TUNA, gratis! </h1>
-      <p>Buat akun dan mulai nikmati platform  layanan TUNA untuk membantu kehidupan mu lebih baik, karena perubahan pengguna adalah harapan kami!.</p>
+      <h1>Gabung TUNA sekarang, gratis!</h1>
+      <p>Buat akun dan nikmati layanan TUNA untuk membantu hidupmu menjadi lebih baik.</p>
     </div>
 
     <div class="features">

@@ -18,8 +18,8 @@
     </div>
 
     <div class="left-content">
-      <h1>Kami mendukung aksebilitas pengguna dalam mengakses</h1>
-      <p>Gabunglah bersama kami dan rasakan pengalaman baru sebagai pengguna TUNA karena kami hadir untuk memberikan solusi digital bagi anda.</p>
+      <h1>Kami mendukung akses mudah bagi pengguna.</h1>
+      <p>Bergabung dengan TUNA dan nikmati solusi digital yang memudahkan anda.</p>
     </div>
 
     <div class="features">
