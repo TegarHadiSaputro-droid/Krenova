@@ -96,17 +96,12 @@
     <button class="btn-cta">Coba Gratis</button>
   </a>
 </div>
-
-
-
   </header>
 
-  <div class="page-content">
-    <h1>Selamat datang di website kami 👋</h1>
-    <p>Header sudah siap — hover menu untuk melihat dropdown.</p>
-  </div>
-
 <main>
+
+
+
   <!-- MARKETPLACE SECTION -->
 <section class="marketplace">
   <div class="container">
