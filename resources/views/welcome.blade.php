@@ -6,6 +6,7 @@
   <title>TUNA</title>
   <link rel="stylesheet" href="{{ asset('css/style.css') }}">
 </head>
+ 
 <body>
  <header class="main-header">
   <a href="#" class="logo">
@@ -110,6 +111,7 @@
   ============================================================ -->
   <main>
 
+<<<<<<< HEAD
 <<<<<<< HEAD
     <!-- ===== HERO / TENTANG TUNA ===== -->
     <section class="tuna-hero">
@@ -509,6 +511,8 @@
 
 =======
     </footer>
+=======
+>>>>>>> parent of 3714ac6 (chat ai)
 <script>
 let closeTimer;
 
@@ -528,6 +532,8 @@ document.querySelectorAll('.nav-item').forEach(item => {
   });
 });
 </script>
+
+
 </body>
 </html>
 >>>>>>> dd72b412d8d8d1ffa1731ee4619c80351677cfe6
