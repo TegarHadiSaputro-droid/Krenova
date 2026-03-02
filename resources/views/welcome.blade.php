@@ -6,6 +6,7 @@
   <title>TUNA</title>
   <link href="#" rel="stylesheet">
   <link rel="stylesheet" href="{{ asset('css/style.css') }}">
+  <link rel="stylesheet" href="{{ asset('css/footer.css') }}">
 </head>
  <body>
  <header class="main-header">
@@ -184,7 +185,7 @@
       <!-- Card 3 -->
       <div class="product-card">
         <img src="https://via.placeholder.com/300x180" alt="Produk">
-        <h3>Video Tutorial</h3>
+        <h3>Kipas Angin</h3>
         <p class="price">Rp 75.000</p>
         <button class="btn-small">Lihat</button>
       </div>
@@ -198,107 +199,106 @@
 </main>
 
 <footer>
-  <div class="footer-topbar"></div>
+        <div class="f-wrap">
+            <!-- Strip: Logo + Tagline centered -->
+            <div class="f-strip">
+                <div class="f-strip-top">
+                    <div class="f-logo-text">TU<span style="color: #0078ff;">NA</span></div>
+                    <div class="f-kepanjangan">Transforming User Needs into Access</div>
+                </div>
+                <p class="f-tagline">Selalu siap membantu teman disabilitas dimana saja dan kapan saja.</p>
+            </div>
 
-  <div class="footer-main">
-    <div class="footer-brand">
-      <div class="logo">📣 Layanan Kami</div>
-      <p class="tagline">Penyandang disabilitas masih mengalami kendala dalam memanfaatkan teknologi karena belum semua sistem dirancang secara inklusif. Oleh karena itu, dikembangkan Cross-Platform Apllication TUNA sebagai platform digital berbasis web/apps yang menyediakan layanan dan dukungan yang lebih mudah diakses.</p>
-      <a href="#" class="btn-cta">🚀 Konsultasi Gratis</a>
-      <div class="contact-list">
-        <a href="#"><span class="c-icon">📞</span>+62 811-9910-0330</a>
-        <a href="#"><span class="c-icon">✉️</span>tuna@gmail.com</a>
-        <a href="#"><span class="c-icon">⏰</span>Setiap Hari 24 jam</a>
-      </div>
-    </div>
+            <!-- Link Columns - semua 4 kolom pakai format list -->
+            <div class="f-links">
+                <div class="f-col">
+                    <h4>Layanan Kami</h4>
+                    <ul>
+                        <li><a href="#"><span class="dot"></span>Call & Chat</a></li>
+                        <li><a href="#"><span class="dot"></span>AI Trixie</a></li>
+                        <li><a href="#"><span class="dot"></span>Marketplace</a></li>
+                        <li><a href="#"><span class="dot"></span>Konsultasi</a></li>
+                    </ul>
+                </div>
 
-    <div class="footer-col">
-      <h4>Layanan Kami</h4>
-      <ul>
-        <li><a href="#">Call&Chat</a></li>
-        <li><a href="#">AI Trixie</a></li>
-        <li><a href="#">Marketplace</a></li>
-        <li><a href="#">Konsultasi</a></li>
-      </ul>
-    </div>
+                <div class="f-col">
+                    <h4>Berlangganan</h4>
+                    <ul>
+                        <li><a href="#"><span class="dot"></span>Promo</a></li>
+                        <li><a href="#"><span class="dot"></span>Lihat Paket</a></li>
+                        <li><a href="#"><span class="dot"></span>E-Wallet</a></li>
+                        <li><a href="#"><span class="dot"></span>Invoice</a></li>
+                    </ul>
+                </div>
 
-    <div class="footer-col">
-      <h4>Pembayaran</h4>
-      <ul>
-        <li><a href="#">Transfer Bank</a></li>
-        <li><a href="#">Kartu kredit/Debit</a></li>
-        <li><a href="#">E-Wallet</a></li>
-        <li><a href="#">Invoice</a></li>
-      </ul>
-    </div>
+                <div class="f-col">
+                    <h4>Panduan</h4>
+                    <ul>
+                        <li><a href="#"><span class="dot"></span>Cara Mulai</a></li>
+                        <li><a href="#"><span class="dot"></span>Video Tutorial</a></li>
+                        <li><a href="#"><span class="dot"></span>FAQ</a></li>
+                        <li><a href="#"><span class="dot"></span>Blog</a></li>
+                    </ul>
+                </div>
 
-    <div class="footer-col">
-      <h4>Panduan</h4>
-      <ul style="margin-bottom:14px;">
-        <li><a href="#">Cara mulai</a></li>
-        <li><a href="#">Video tutorial</a></li>
-        <li><a href="#">FAQ</a></li>
-        <li><a href="#">Blog</a></li>
-      </ul>
-  </div>
- </div>
+                <div class="f-col">
+                    <h4>Hubungi Kami</h4>
+                    <ul>
+                        <li><a href="#"><span class="dot"></span>WhatsApp</a></li>
+                        <li><a href="#"><span class="dot"></span>Email Support</a></li>
+                        <li><a href="#"><span class="dot"></span>Live Chat</a></li>
+                        <li><a href="#"><span class="dot"></span>Kantor Kami</a></li>
+                    </ul>
+                </div>
+            </div>
 
-    <div class="newsletter-box" style="margin: 0 64px 32px;">
-        <p>Dapatkan konsultasi gratis tiap minggu.</p>
-        <div class="input-row" style="display:flex; flex-direction:column; gap:8px;">
-            <input type="email" placeholder="Email Anda...">
-            <button>Daftar</button>
+            <!-- Bottom Bar -->
+            <div class="f-bottom">
+                <div class="f-soc">
+                    <a href="#" title="Instagram">
+                        <svg width="15" height="15" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
+                            <rect x="2" y="2" width="20" height="20" rx="5"/>
+                            <path d="M16 11.37A4 4 0 1112.63 8 4 4 0 0116 11.37z"/>
+                            <line x1="17.5" y1="6.5" x2="17.51" y2="6.5"/>
+                        </svg>
+                    </a>
+                    <a href="#" title="TikTok">
+                        <svg width="14" height="14" fill="currentColor" viewBox="0 0 24 24">
+                            <path d="M19.59 6.69a4.83 4.83 0 01-3.77-4.25V2h-3.45v13.67a2.89 2.89 0 01-2.88 2.5 2.89 2.89 0 01-2.89-2.89 2.89 2.89 0 012.89-2.89c.28 0 .54.04.79.1V9.01a6.32 6.32 0 00-.79-.05 6.34 6.34 0 00-6.34 6.34 6.34 6.34 0 006.34 6.34 6.34 6.34 0 006.33-6.34V8.69a8.18 8.18 0 004.78 1.53V6.79a4.85 4.85 0 01-1.01-.1z"/>
+                        </svg>
+                    </a>
+                    <a href="#" title="YouTube">
+                        <svg width="15" height="15" fill="currentColor" viewBox="0 0 24 24">
+                            <path d="M19.615 3.184c-3.604-.246-11.631-.245-15.23 0-3.897.266-4.356 2.62-4.385 8.816.029 6.185.484 8.549 4.385 8.816 3.6.245 11.626.246 15.23 0 3.897-.266 4.356-2.62 4.385-8.816-.029-6.185-.484-8.549-4.385-8.816zm-10.615 12.816v-8l8 3.993-8 4.007z"/>
+                        </svg>
+                    </a>
+                    <a href="#" title="X">
+                        <svg width="13" height="13" fill="currentColor" viewBox="0 0 24 24">
+                            <path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-4.714-6.231-5.401 6.231H2.74l7.73-8.835L1.254 2.25H8.08l4.713 6.231zm-1.161 17.52h1.833L7.084 4.126H5.117z"/>
+                        </svg>
+                    </a>
+                    <a href="#" title="Facebook">
+                        <svg width="15" height="15" fill="currentColor" viewBox="0 0 24 24">
+                            <path d="M24 12.073c0-6.627-5.373-12-12-12s-12 5.373-12 12c0 5.99 4.388 10.954 10.125 11.854v-8.385H7.078v-3.47h3.047V9.43c0-3.007 1.792-4.669 4.533-4.669 1.312 0 2.686.235 2.686.235v2.953H15.83c-1.491 0-1.956.925-1.956 1.874v2.25h3.328l-.532 3.47h-2.796v8.385C19.612 23.027 24 18.062 24 12.073z"/>
+                        </svg>
+                    </a>
+                    <a href="#" title="LinkedIn">
+                        <svg width="14" height="14" fill="currentColor" viewBox="0 0 24 24">
+                            <path d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433a2.062 2.062 0 01-2.063-2.065 2.064 2.064 0 112.063 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z"/>
+                        </svg>
+                    </a>
+                    <a href="#" title="Pinterest">
+                        <svg width="14" height="14" fill="currentColor" viewBox="0 0 24 24">
+                            <path d="M12 0C5.373 0 0 5.373 0 12c0 5.084 3.163 9.426 7.627 11.174-.105-.949-.2-2.405.042-3.441.218-.937 1.407-5.965 1.407-5.965s-.359-.719-.359-1.782c0-1.668.967-2.914 2.171-2.914 1.023 0 1.518.769 1.518 1.69 0 1.029-.655 2.568-.994 3.995-.283 1.194.599 2.169 1.777 2.169 2.133 0 3.772-2.249 3.772-5.495 0-2.873-2.064-4.882-5.012-4.882-3.414 0-5.418 2.561-5.418 5.207 0 1.031.397 2.138.893 2.738a.36.36 0 01.083.345l-.333 1.36c-.053.22-.174.267-.402.161-1.499-.698-2.436-2.889-2.436-4.649 0-3.785 2.75-7.262 7.929-7.262 4.163 0 7.398 2.967 7.398 6.931 0 4.136-2.607 7.464-6.227 7.464-1.216 0-2.359-.632-2.75-1.378l-.748 2.853c-.271 1.043-1.002 2.35-1.492 3.146C9.57 23.812 10.763 24 12 24c6.627 0 12-5.373 12-12S18.627 0 12 0z"/>
+                        </svg>
+                    </a>
+                </div>
+                <div class="f-copy">
+                    © 2025 <span class="cn">TU</span><span class="ct">NA</span> · All Rights Reserved
+                </div>
+            </div>
         </div>
-    </div>
-
-  <div class="footer-divider"></div>
-
-  <div class="footer-copyright-row">
-    <div class="copyright">
-      © 2026 <span>TUNA (Transforming User Needs into Access)</span>. Seluruh hak cipta dilindungi undang-undang. &nbsp;·&nbsp; Kebijakan Privasi &nbsp;·&nbsp; Syarat & Ketentuan
-    </div>
-  </div>
-
-  <div class="footer-social-row">
-    <span class="social-label">Ikuti kami:</span>
-
-    <a href="#" class="social-btn ig">
-      <svg viewBox="0 0 24 24"><path d="M12 2.163c3.204 0 3.584.012 4.85.07 1.366.062 2.633.334 3.608 1.308.975.975 1.246 2.242 1.308 3.608.058 1.266.07 1.646.07 4.85s-.012 3.584-.07 4.85c-.062 1.366-.333 2.633-1.308 3.608-.975.975-2.242 1.246-3.608 1.308-1.266.058-1.646.07-4.85.07s-3.584-.012-4.85-.07c-1.366-.062-2.633-.333-3.608-1.308-.975-.975-1.246-2.242-1.308-3.608C2.175 15.584 2.163 15.204 2.163 12s.012-3.584.07-4.85c.062-1.366.333-2.633 1.308-3.608.975-.975 2.242-1.246 3.608-1.308C8.416 2.175 8.796 2.163 12 2.163zm0-2.163C8.741 0 8.333.014 7.053.072 2.695.272.273 2.69.073 7.052.014 8.333 0 8.741 0 12c0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98C8.333 23.986 8.741 24 12 24c3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98C15.668.014 15.259 0 12 0zm0 5.838a6.162 6.162 0 1 0 0 12.324 6.162 6.162 0 0 0 0-12.324zM12 16a4 4 0 1 1 0-8 4 4 0 0 1 0 8zm6.406-11.845a1.44 1.44 0 1 0 0 2.881 1.44 1.44 0 0 0 0-2.881z"/></svg>
-      Instagram
-    </a>
-
-    <a href="#" class="social-btn fb">
-      <svg viewBox="0 0 24 24"><path d="M24 12.073C24 5.405 18.627 0 12 0S0 5.405 0 12.073C0 18.1 4.388 23.094 10.125 24v-8.437H7.078v-3.49h3.047V9.41c0-3.025 1.792-4.696 4.533-4.696 1.312 0 2.686.236 2.686.236v2.97h-1.513c-1.491 0-1.956.93-1.956 1.886v2.267h3.328l-.532 3.49h-2.796V24C19.612 23.094 24 18.1 24 12.073z"/></svg>
-      Facebook
-    </a>
-
-    <a href="#" class="social-btn yt">
-      <svg viewBox="0 0 24 24"><path d="M23.495 6.205a3.007 3.007 0 0 0-2.088-2.088c-1.87-.501-9.396-.501-9.396-.501s-7.507-.01-9.396.501A3.007 3.007 0 0 0 .527 6.205a31.247 31.247 0 0 0-.522 5.805 31.247 31.247 0 0 0 .522 5.783 3.007 3.007 0 0 0 2.088 2.088c1.868.502 9.396.502 9.396.502s7.506 0 9.396-.502a3.007 3.007 0 0 0 2.088-2.088 31.247 31.247 0 0 0 .5-5.783 31.247 31.247 0 0 0-.5-5.805zM9.609 15.601V8.408l6.264 3.602z"/></svg>
-      YouTube
-    </a>
-
-    <a href="#" class="social-btn tk">
-      <svg viewBox="0 0 24 24"><path d="M12.525.02c1.31-.02 2.61-.01 3.91-.02.08 1.53.63 3.09 1.75 4.17 1.12 1.11 2.7 1.62 4.24 1.79v4.03c-1.44-.05-2.89-.35-4.2-.97-.57-.26-1.1-.59-1.62-.93-.01 2.92.01 5.84-.02 8.75-.08 1.4-.54 2.79-1.35 3.94-1.31 1.92-3.58 3.17-5.91 3.21-1.43.08-2.86-.31-4.08-1.03-2.02-1.19-3.44-3.37-3.65-5.71-.02-.5-.03-1-.01-1.49.18-1.9 1.12-3.72 2.58-4.96 1.66-1.44 3.98-2.13 6.15-1.72.02 1.48-.04 2.96-.04 4.44-.99-.32-2.15-.23-3.02.37-.63.41-1.11 1.04-1.36 1.75-.21.51-.15 1.07-.14 1.61.24 1.64 1.82 3.02 3.5 2.87 1.12-.01 2.19-.66 2.77-1.61.19-.33.4-.67.41-1.06.1-1.79.06-3.57.07-5.36.01-4.03-.01-8.05.02-12.07z"/></svg>
-      TikTok
-    </a>
-
-    <a href="#" class="social-btn li">
-      <svg viewBox="0 0 24 24"><path d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433a2.062 2.062 0 0 1-2.063-2.065 2.064 2.064 0 1 1 2.063 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z"/></svg>
-      LinkedIn
-    </a>
-
-    <a href="#" class="social-btn">
-      <svg viewBox="0 0 24 24"><path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-4.714-6.231-5.401 6.231H2.742l7.732-8.855L1.254 2.25H8.08l4.253 5.622 5.91-5.622zm-1.161 17.52h1.833L7.084 4.126H5.117z"/></svg>
-      X (Twitter)
-    </a>
-  </div>
-
-</footer>
-
-
-
-
-
+    </footer>
 
 <script>
 let closeTimer;
