@@ -4,137 +4,236 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta name="csrf-token" content="{{ csrf_token() }}">
-    <title>Pengaturan - Trixie AI</title>
+    <title>Pengaturan</title>
     <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="{{ asset('css/settings.css') }}">
 </head>
 <body>
 
+<!-- Banner -->
 <div class="banner">
+    <div class="circle circle-1"></div>
+    <div class="circle circle-2"></div>
+    <div class="circle circle-3"></div>
+    <div class="circle circle-4"></div>
+
     <div class="banner-nav">
         <a href="javascript:history.back()" class="back-btn">← Kembali</a>
-        <span class="banner-title">Pengaturan</span>
         <div style="width:80px"></div>
     </div>
+
+    <div class="banner-body">
+        <div class="banner-icon">⚙️</div>
+        <div class="banner-text">
+            <div class="banner-heading">Pengaturan</div>
+            <div class="banner-sub">Sesuaikan tampilan dan preferensimu</div>
+        </div>
+    </div>
 </div>
 
-<div class="content">
+<!-- 3 Kolom Baris 1 -->
+<div class="grid">
 
-    <div class="section-label">Tampilan</div>
-    <div class="card">
-        <div class="row">
-            <div class="row-left">
-                <div class="row-icon" style="background:#fef9c3;">🌙</div>
-                <div>
-                    <div class="row-label">Mode Gelap</div>
-                    <div class="row-sub">Aktifkan tema gelap</div>
+    <!-- Kolom 1: Tampilan -->
+    <div class="col">
+        <div class="section-label">🎨 Tampilan</div>
+        <div class="card">
+            <div class="row">
+                <div class="row-left">
+                    <div class="row-icon" style="background:#fef9c3;">🌙</div>
+                    <div>
+                        <div class="row-label">Mode Gelap</div>
+                        <div class="row-sub">Aktifkan tema gelap</div>
+                    </div>
                 </div>
+                <button class="toggle" onclick="toggleSwitch(this)"></button>
             </div>
-            <button class="toggle" id="toggleDark" onclick="toggleSwitch(this)"></button>
-        </div>
-        <div class="row" onclick="openSheet('language')">
-            <div class="row-left">
-                <div class="row-icon" style="background:#eff6ff;">🌐</div>
-                <div>
-                    <div class="row-label">Bahasa</div>
-                    <div class="row-sub" id="langVal">Indonesia</div>
+            <div class="row" onclick="openSheet('language')">
+                <div class="row-left">
+                    <div class="row-icon" style="background:#eff6ff;">🌐</div>
+                    <div>
+                        <div class="row-label">Bahasa</div>
+                        <div class="row-sub" id="langVal">Indonesia</div>
+                    </div>
                 </div>
+                <span class="arrow">›</span>
             </div>
-            <span class="arrow">›</span>
-        </div>
-        <div class="row" onclick="openSheet('theme')">
-            <div class="row-left">
-                <div class="row-icon" style="background:#fdf4ff;">🎨</div>
-                <div>
-                    <div class="row-label">Tema Warna</div>
-                    <div class="row-sub" id="themeVal">Biru default</div>
+            <div class="row" onclick="openSheet('theme')">
+                <div class="row-left">
+                    <div class="row-icon" style="background:#fdf4ff;">🎨</div>
+                    <div>
+                        <div class="row-label">Tema Warna</div>
+                        <div class="row-sub" id="themeVal">Biru default</div>
+                    </div>
                 </div>
+                <span class="arrow">›</span>
             </div>
-            <span class="arrow">›</span>
-        </div>
-        <div class="row" onclick="openSheet('fontsize')">
-            <div class="row-left">
-                <div class="row-icon" style="background:#f0fdf4;">🔤</div>
-                <div>
-                    <div class="row-label">Ukuran Teks</div>
-                    <div class="row-sub" id="fontVal">Normal</div>
+            <div class="row" onclick="openSheet('fontsize')">
+                <div class="row-left">
+                    <div class="row-icon" style="background:#f0fdf4;">🔤</div>
+                    <div>
+                        <div class="row-label">Ukuran Teks</div>
+                        <div class="row-sub" id="fontVal">Normal</div>
+                    </div>
                 </div>
+                <span class="arrow">›</span>
             </div>
-            <span class="arrow">›</span>
         </div>
     </div>
 
-    <div class="section-label">Notifikasi</div>
-    <div class="card">
-        <div class="row">
-            <div class="row-left">
-                <div class="row-icon" style="background:#fff7ed;">🔔</div>
-                <div>
-                    <div class="row-label">Push Notification</div>
-                    <div class="row-sub">Terima notifikasi push</div>
+    <!-- Kolom 2: Chat & AI -->
+    <div class="col">
+        <div class="section-label">🤖 Chat & AI</div>
+        <div class="card">
+            <div class="row">
+                <div class="row-left">
+                    <div class="row-icon" style="background:#f0fdf4;">💾</div>
+                    <div>
+                        <div class="row-label">Simpan Riwayat</div>
+                        <div class="row-sub">Otomatis simpan percakapan</div>
+                    </div>
                 </div>
+                <button class="toggle on" onclick="toggleSwitch(this)"></button>
             </div>
-            <button class="toggle on" onclick="toggleSwitch(this)"></button>
-        </div>
-        <div class="row">
-            <div class="row-left">
-                <div class="row-icon" style="background:#f0fdf4;">📧</div>
-                <div>
-                    <div class="row-label">Email Digest</div>
-                    <div class="row-sub">Ringkasan mingguan via email</div>
+            <div class="row" onclick="openSheet('aimodel')">
+                <div class="row-left">
+                    <div class="row-icon" style="background:#eff6ff;">🧠</div>
+                    <div>
+                        <div class="row-label">Model AI</div>
+                        <div class="row-sub" id="modelVal">Trixie Standard</div>
+                    </div>
                 </div>
+                <span class="arrow">›</span>
             </div>
-            <button class="toggle" onclick="toggleSwitch(this)"></button>
-        </div>
-        <div class="row">
-            <div class="row-left">
-                <div class="row-icon" style="background:#fdf4ff;">💬</div>
-                <div>
-                    <div class="row-label">Suara Notifikasi</div>
-                    <div class="row-sub">Bunyi saat ada pesan masuk</div>
+            <div class="row" onclick="openSheet('ailang')">
+                <div class="row-left">
+                    <div class="row-icon" style="background:#fdf4ff;">💬</div>
+                    <div>
+                        <div class="row-label">Bahasa Respons AI</div>
+                        <div class="row-sub" id="ailangVal">Bahasa Indonesia</div>
+                    </div>
                 </div>
+                <span class="arrow">›</span>
             </div>
-            <button class="toggle on" onclick="toggleSwitch(this)"></button>
+            <div class="row">
+                <div class="row-left">
+                    <div class="row-icon" style="background:#fff7ed;">⚡</div>
+                    <div>
+                        <div class="row-label">Respons Cepat</div>
+                        <div class="row-sub">Prioritaskan kecepatan</div>
+                    </div>
+                </div>
+                <button class="toggle" onclick="toggleSwitch(this)"></button>
+            </div>
         </div>
     </div>
 
-    <div class="section-label">Data & Penyimpanan</div>
-    <div class="card">
-        <div class="row" onclick="clearCache()">
-            <div class="row-left">
-                <div class="row-icon" style="background:#fff1f2;">🗑️</div>
-                <div>
-                    <div class="row-label">Hapus Cache</div>
-                    <div class="row-sub">24.3 MB tersimpan</div>
+    <!-- Kolom 3: Aksesibilitas -->
+    <div class="col">
+        <div class="section-label">♿ Aksesibilitas</div>
+        <div class="card">
+            <div class="row">
+                <div class="row-left">
+                    <div class="row-icon" style="background:#f0f4ff;">🔆</div>
+                    <div>
+                        <div class="row-label">Kontras Tinggi</div>
+                        <div class="row-sub">Tingkatkan keterbacaan</div>
+                    </div>
                 </div>
+                <button class="toggle" onclick="toggleSwitch(this)"></button>
             </div>
-            <span class="arrow">›</span>
-        </div>
-        <div class="row" onclick="openSheet('autodownload')">
-            <div class="row-left">
-                <div class="row-icon" style="background:#f0f9ff;">📥</div>
-                <div>
-                    <div class="row-label">Unduh Otomatis</div>
-                    <div class="row-sub" id="downloadVal">Wi-Fi saja</div>
+            <div class="row">
+                <div class="row-left">
+                    <div class="row-icon" style="background:#f0fdf4;">🎬</div>
+                    <div>
+                        <div class="row-label">Kurangi Animasi</div>
+                        <div class="row-sub">Untuk pengguna sensitif gerak</div>
+                    </div>
                 </div>
+                <button class="toggle" onclick="toggleSwitch(this)"></button>
             </div>
-            <span class="arrow">›</span>
-        </div>
-        <div class="row">
-            <div class="row-left">
-                <div class="row-icon" style="background:#f0f4ff;">📊</div>
-                <div>
-                    <div class="row-label">Kirim Analitik</div>
-                    <div class="row-sub">Bantu tingkatkan aplikasi</div>
+            <div class="row">
+                <div class="row-left">
+                    <div class="row-icon" style="background:#fff1f2;">🔊</div>
+                    <div>
+                        <div class="row-label">Pembaca Layar</div>
+                        <div class="row-sub">Kompatibel screen reader</div>
+                    </div>
                 </div>
+                <button class="toggle on" onclick="toggleSwitch(this)"></button>
             </div>
-            <button class="toggle on" onclick="toggleSwitch(this)"></button>
+            <div class="row" onclick="openSheet('zoom')">
+                <div class="row-left">
+                    <div class="row-icon" style="background:#fef9c3;">🔍</div>
+                    <div>
+                        <div class="row-label">Zoom Teks</div>
+                        <div class="row-sub" id="zoomVal">100%</div>
+                    </div>
+                </div>
+                <span class="arrow">›</span>
+            </div>
         </div>
     </div>
 
 </div>
 
-<!-- Bottom Sheets -->
+<!-- Baris 2: Info Akun + Tombol Aksi -->
+<div class="grid grid-bottom">
+
+    <!-- Info Akun -->
+    <div class="col col-wide">
+        <div class="section-label">👤 Info Akun</div>
+        <div class="card card-account">
+            <div class="account-avatar">R</div>
+            <div class="account-info">
+                <div class="account-name">Revan Putra</div>
+                <div class="account-email">revan@email.com</div>
+                <span class="account-badge">✅ Akun Aktif</span>
+            </div>
+            <a href="/profile" class="btn-edit">Edit Profil →</a>
+        </div>
+    </div>
+
+    <!-- Data & Penyimpanan -->
+    <div class="col col-wide">
+        <div class="section-label">📦 Data & Penyimpanan</div>
+        <div class="card">
+            <div class="row" onclick="clearCache()">
+                <div class="row-left">
+                    <div class="row-icon" style="background:#fff1f2;">🗑️</div>
+                    <div>
+                        <div class="row-label">Hapus Cache</div>
+                        <div class="row-sub">24.3 MB tersimpan</div>
+                    </div>
+                </div>
+                <span class="arrow">›</span>
+            </div>
+            <div class="row" onclick="openSheet('autodownload')">
+                <div class="row-left">
+                    <div class="row-icon" style="background:#f0f9ff;">📥</div>
+                    <div>
+                        <div class="row-label">Unduh Otomatis</div>
+                        <div class="row-sub" id="downloadVal">Wi-Fi saja</div>
+                    </div>
+                </div>
+                <span class="arrow">›</span>
+            </div>
+            <div class="row">
+                <div class="row-left">
+                    <div class="row-icon" style="background:#f0f4ff;">📊</div>
+                    <div>
+                        <div class="row-label">Kirim Analitik</div>
+                        <div class="row-sub">Bantu tingkatkan aplikasi</div>
+                    </div>
+                </div>
+                <button class="toggle on" onclick="toggleSwitch(this)"></button>
+            </div>
+        </div>
+    </div>
+
+</div>
+
+<!-- Bottom Sheet -->
 <div class="bottom-sheet-overlay" id="sheetOverlay" onclick="closeSheet()">
     <div class="bottom-sheet" onclick="event.stopPropagation()">
         <div class="sheet-title" id="sheetTitle"></div>
@@ -151,26 +250,13 @@
     }
 
     const sheets = {
-        language: {
-            title: 'Pilih Bahasa',
-            options: ['Indonesia', 'English', 'العربية', '中文', 'Español'],
-            target: 'langVal'
-        },
-        theme: {
-            title: 'Tema Warna',
-            options: ['Biru default', 'Hijau', 'Ungu', 'Merah', 'Oranye'],
-            target: 'themeVal'
-        },
-        fontsize: {
-            title: 'Ukuran Teks',
-            options: ['Kecil', 'Normal', 'Besar', 'Sangat Besar'],
-            target: 'fontVal'
-        },
-        autodownload: {
-            title: 'Unduh Otomatis',
-            options: ['Selalu', 'Wi-Fi saja', 'Tidak pernah'],
-            target: 'downloadVal'
-        }
+        language:    { title: 'Pilih Bahasa', options: ['Indonesia', 'English', 'العربية', '中文', 'Español'], target: 'langVal' },
+        theme:       { title: 'Tema Warna', options: ['Biru default', 'Hijau', 'Ungu', 'Merah', 'Oranye'], target: 'themeVal' },
+        fontsize:    { title: 'Ukuran Teks', options: ['Kecil', 'Normal', 'Besar', 'Sangat Besar'], target: 'fontVal' },
+        aimodel:     { title: 'Pilih Model AI', options: ['Trixie Standard', 'Trixie Pro', 'Trixie Vision'], target: 'modelVal' },
+        ailang:      { title: 'Bahasa Respons AI', options: ['Bahasa Indonesia', 'English', 'Auto'], target: 'ailangVal' },
+        zoom:        { title: 'Zoom Teks', options: ['80%', '90%', '100%', '110%', '120%'], target: 'zoomVal' },
+        autodownload:{ title: 'Unduh Otomatis', options: ['Selalu', 'Wi-Fi saja', 'Tidak pernah'], target: 'downloadVal' }
     };
 
     let currentSheet = null;
@@ -189,8 +275,7 @@
     }
 
     function selectOption(val) {
-        const sheet = sheets[currentSheet];
-        document.getElementById(sheet.target).textContent = val;
+        document.getElementById(sheets[currentSheet].target).textContent = val;
         closeSheet();
         showToast('Tersimpan: ' + val);
     }
