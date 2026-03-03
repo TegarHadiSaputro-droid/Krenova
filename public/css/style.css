@@ -23,13 +23,22 @@ body {
   display: flex;
   flex-direction: column;
   min-height: 100vh;
-  opacity: 0;
-  animation: pageFadeIn 1s cubic-bezier(0.25, 0.46, 0.45, 0.94) forwards;
+  opacity: 1;
 }
 
 @keyframes pageFadeIn {
-  from { opacity: 0; transform: translateY(10px); }
-  to   { opacity: 1; transform: translateY(0); }
+  from {
+    opacity: 0;
+    transform: translateY(10px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.page-content {
+  animation: pageFadeIn 0.8s ease forwards;
 }
 
 /* ============================================================
@@ -1412,6 +1421,29 @@ a.btn-login {
             font-weight: 700;
         }
 
+        #trixie-fab {
+        position: fixed;
+        bottom: 24px;
+        right: 24px;
+        width: 56px;
+        height: 56px;
+        border-radius: 50%;
+        overflow: hidden;
+        background: linear-gradient(135deg, #00c6ff, #0078ff);
+        box-shadow: 0 4px 16px rgba(0,0,0,0.2);
+        z-index: 9999;
+        display: block;
+        transition: transform 0.2s;
+        opacity: 1 !important;
+        transform: none !important;
+}
+
+        #trixie-fab img {
+        width: 100%;  
+        height: 100%;
+        object-fit: cover;
+        color: #ffffff;
+}
 
 /* ============================================================
    RESPONSIVE

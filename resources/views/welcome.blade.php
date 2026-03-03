@@ -7,7 +7,7 @@
   <link rel="stylesheet" href="{{ asset('css/style.css') }}">
 </head>
 <body>
-
+  <div class="page-content">
   <!-- ============================================================
        HEADER
   ============================================================ -->
@@ -629,7 +629,16 @@
             </div>
         </div>
     </footer>
+  </div>
+    <a href="/chat" id="trixie-fab">
+    <img src="{{ asset('tunawoi.png') }}" alt="Trixie AI">
+    </a>
 <script>
+  window.addEventListener("load", function() {
+    document.querySelector(".page-content")
+          .classList.add("loaded");
+});
+
 let closeTimer;
 
 document.querySelectorAll('.nav-item').forEach(item => {
@@ -638,8 +647,6 @@ document.querySelectorAll('.nav-item').forEach(item => {
     document.querySelectorAll('.dropdown').forEach(d => d.style.display = 'none');
     this.querySelector('.dropdown').style.display = 'block';
   });
-
-  
 
   item.addEventListener('mouseleave', function() {
     closeTimer = setTimeout(() => {
