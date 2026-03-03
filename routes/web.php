@@ -23,6 +23,7 @@ Route::get('/account', function () {
 });
 
 Route::get('/settings', [DashboardController::class, 'settings'])->name('dashboard.settings');
+Route::get('/notifications', [DashboardController::class, 'notifications'])->name('dashboard.notifications');
 
 Route::middleware('auth')->group(function () {
     Route::get('/profile', [ProfileController::class, 'edit'])->name('profile.edit');
