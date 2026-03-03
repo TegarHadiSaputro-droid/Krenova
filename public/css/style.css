@@ -840,6 +840,8 @@ a.btn-login {
   display: flex;
   align-items: center;
   justify-content: center;
+  background-size: cover; 
+  background-position: center;
 }
 
 .market-card__img-placeholder {
@@ -1283,13 +1285,7 @@ a.btn-login {
             color: #1a2b4a;
             text-align: left;
             letter-spacing: 0.5px;
-        }
-
-        .f-tagline {
-            font-size: 13px;
-            color: #4a6580;
-            line-height: 1.6;
-            margin-top: 12px;
+            margin-top: 10px;
         }
 
         /* Link Columns - 4 kolom semua sama */

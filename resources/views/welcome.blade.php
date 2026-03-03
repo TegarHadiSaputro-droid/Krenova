@@ -97,12 +97,12 @@
         <div class="tuna-hero__inner">
           <div class="tuna-hero__text">
             <span class="tuna-hero__label">Tentang Kami</span>
-            <h1>Teknologi yang <br><em>benar-benar</em> untuk <strong>semua</strong></h1>
-            <p>TUNA — <b>Transforming User Needs into Access</b> — adalah platform digital inklusif yang dirancang untuk membantu penyandang disabilitas mengakses layanan, informasi, dan peluang tanpa hambatan.</p>
+            <h1>Platform yang <br><em>menghadirkan</em> akses setara <strong> untuk semua</strong></h1>
+            <p>TUNA — <b>Transforming User Needs into Access</b> — TUNA adalah platform digital inklusif yang dibuat untuk membantu teman-teman disabilitas supaya bisa lebih mudah mengakses layanan, informasi, dan berbagai peluang tanpa merasa terhambat.</p>
             <div class="tuna-hero__stats">
               <div class="stat">
-                <span class="stat-num">5K+</span>
-                <span class="stat-label">Pengguna Aktif</span>
+                <span class="stat-num">11k+</span>
+                <span class="stat-label">Target Pengguna</span>
               </div>
               <div class="stat-divider"></div>
               <div class="stat">
@@ -157,7 +157,7 @@
         <div class="tuna-section-head">
           <span class="section-tag">Layanan Kami</span>
           <h2>Semua yang kamu butuhkan,<br><span>dalam satu platform</span></h2>
-          <p>Empat layanan utama yang dirancang khusus untuk aksesibilitas dan kemudahan.</p>
+          <p>Empat layanan utama yang dirancang khusus agar lebih mudah diakses dan nyaman digunakan oleh semua pengguna.</p>
         </div>
         <div class="tuna-features__grid">
 
@@ -169,7 +169,7 @@
             </div>
             <div class="feature-card__body">
               <h3>Call & Chat</h3>
-              <p>Hubungi kami kapan saja via telepon atau pesan langsung. Layanan responsif 24 jam untuk semua kebutuhanmu.</p>
+              <p>Kamu bisa hubungi kami kapan saja lewat telepon atau chat. Layanan kami siap membantu 24 jam untuk semua kebutuhanmu.</p>
             </div>
             <div class="feature-card__silhouette">
               <svg viewBox="0 0 120 80" fill="none">
@@ -191,7 +191,7 @@
             </div>
             <div class="feature-card__body">
               <h3>AI Trixie</h3>
-              <p>Asisten AI cerdas yang membantu menjawab pertanyaan, memberi rekomendasi, dan mendampingi aktivitasmu.</p>
+              <p>Asisten AI pintar yang siap bantu jawab pertanyaan, memberikan rekomendasi, dan nemenin aktivitas kamu sehari-hari.</p>
             </div>
             <div class="feature-card__silhouette">
               <svg viewBox="0 0 120 80" fill="none">
@@ -213,7 +213,7 @@
             </div>
             <div class="feature-card__body">
               <h3>Marketplace</h3>
-              <p>Temukan template, tools, e-book, dan produk digital lainnya yang dirancang untuk kebutuhan aksesibilitas.</p>
+              <p>Temukan berbagai alat bantu, perlengkapan, dan produk aksesibilitas yang dirancang khusus untuk memenuhi kebutuhan teman disabilitas.</p>
             </div>
             <div class="feature-card__silhouette">
               <svg viewBox="0 0 120 80" fill="none">
@@ -236,7 +236,7 @@
             </div>
             <div class="feature-card__body">
               <h3>Konsultasi</h3>
-              <p>Sesi konsultasi langsung dengan tim profesional kami untuk solusi yang lebih personal dan tepat sasaran.</p>
+              <p>Butuh solusi yang lebih spesifik? Kamu bisa konsultasi langsung dengan tim kami agar mendapatkan saran yang benar-benar pas untuk kamu.</p>
             </div>
             <div class="feature-card__silhouette">
               <svg viewBox="0 0 120 80" fill="none">
@@ -259,61 +259,75 @@
         <div class="tuna-section-head">
           <span class="section-tag">Marketplace</span>
           <h2>Produk pilihan <span>untuk kamu</span></h2>
-          <p>Template, tools, dan konten digital berkualitas tinggi.</p>
+          <p>Perangkat bantu disabilitas dengan kualitas terbaik.</p>
         </div>
 
         <!-- Scroll horizontal -->
         <div class="tuna-market__scroll-wrap">
           <div class="tuna-market__row">
             <div class="market-card">
+              <a href="https://shopee.co.id/Tongkat-Tunanetra-Tongkat-Jalan-Lipat-GEA-FS936L-FS-936-L-FS-936L-i.201164434.10448538109" style="text-decoration: none;">
               <div class="market-card__badge best">Best Seller</div>
-              <div class="market-card__img"><div class="market-card__img-placeholder">🌐</div></div>
+              <div class="market-card__img"><img src="{{ asset('tongkattuna.png') }}" alt="market-card__img-placeholder" style="width: 100%; height: 120px; object-fit: cover; object-position: center; display: block;" ></div>
               <div class="market-card__info">
-                <h4>Template Website</h4>
-                <span class="market-price">Rp 199.000</span>
-                <button class="btn-market">Lihat</button>
-              </div>
-            </div>
-            <div class="market-card">
-              <div class="market-card__img"><div class="market-card__img-placeholder">🤖</div></div>
-              <div class="market-card__info">
-                <h4>AI Trixie</h4>
+                <h4>Tongkat Tunanetra</h4>
                 <span class="market-price">Rp 99.000</span>
                 <button class="btn-market">Lihat</button>
               </div>
+             </a>
             </div>
             <div class="market-card">
+              <a href="https://shopee.co.id/product/103402650/13119339207?gads_t_sig=VTJGc2RHVmtYMTlxTFVSVVRrdENkY0tSanlKZU1BU2Y2RTJzOS9neUtnZXNhK3ByckZiZzVmNmtmSjZEMmc5ellZdWFiNTg4Nkt2Smg1Q25IaDFoNytQTXc4L01Md2hwdzNXNlVaei8vdytBbzJlak8rdksyalk3ODNZSVdZWks1NGoxdC93S2pCM24rbkIwSWYwdVNBPT0" style="text-decoration: none;">
+              <div class="market-card__img">
+                <img src="{{ asset('alatbantudengar.png') }}" alt="market-card__img-placeholder" style="width: 100%; height: 120px; object-fit: cover; object-position: center; display: block;">
+              </div>
+              <div class="market-card__info">
+                <h4>Alat Bantu Dengar</h4>
+                <span class="market-price">Rp 229.000</span>
+                <button class="btn-market">Lihat</button>
+              </div>
+             </a>
+            </div>
+            <div class="market-card">
+              <a href="https://shopee.co.id/Buku-Cerita-Braille-Aku-Sudah-Besar-(Edisi-Braile)-i.34881066.55756198753" style="text-decoration: none">
               <div class="market-card__badge new">Baru</div>
-              <div class="market-card__img"><div class="market-card__img-placeholder">💼</div></div>
+              <div class="market-card__img"><img src="{{ asset('buku.jpg') }}" alt="market-card__img-placeholder" style="width: 100%; height: 120px; object-fit: cover; object-position: center; display: block;"></div>
               <div class="market-card__info">
-                <h4>Konsultasi 60'</h4>
-                <span class="market-price">Rp 299.000</span>
+                <h4>Buku Braille</h4>
+                <span class="market-price">Rp 259.000</span>
                 <button class="btn-market">Lihat</button>
               </div>
+             </a>
             </div>
             <div class="market-card">
-              <div class="market-card__img"><div class="market-card__img-placeholder">📖</div></div>
+              <a href="https://shopee.co.id/product/169113488/14021619935?gads_t_sig=VTJGc2RHVmtYMTlxTFVSVVRrdENkY0tSanlKZU1BU2Y2RTJzOS9neUtnY2I5WEluRnlCWEhIZ1FuRlhVem9XQnhGajBMbmx1cW0rVWtPSlBEYWhHY3hzRUlCcnAyMG5MZHB3M1NGTyt2RE8zRjR6NEpFMTUzSTUvdzFoclZPVS9oNVlua1U3dEgyaTQ2Y1Z6TThyM1dBPT0" style="text-decoration: none">
+              <div class="market-card__img"><img src="{{ asset('kursirodda.png') }}" alt="market-card__img-placeholder" style="width: 100%; height: 120px; object-fit: cover; object-position: center; display: block;" ></div>
               <div class="market-card__info">
-                <h4>E-Book Panduan</h4>
-                <span class="market-price">Rp 49.000</span>
+                <h4>Kursi Roda</h4>
+                <span class="market-price">Rp 999.000</span>
                 <button class="btn-market">Lihat</button>
               </div>
+             </a>
             </div>
             <div class="market-card">
-              <div class="market-card__img"><div class="market-card__img-placeholder">🔍</div></div>
+              <a href="https://www.tokopedia.com/pantes-/buku-belajar-bahasa-isyarat-untuk-anak-tunarungu-mari-berbicara-dengan" style="text-decoration: none">
+              <div class="market-card__img"><img src="{{ asset('isyarat.jpg') }}" alt="market-card__img-placeholder" style="width: 100%; height: 120px; object-fit: cover; object-position: center; display: block;" ></div>
               <div class="market-card__info">
-                <h4>Plugin SEO</h4>
+                <h4>Buku Bahasa Isyarat</h4>
                 <span class="market-price">Rp 149.000</span>
                 <button class="btn-market">Lihat</button>
               </div>
+             </a>
             </div>
             <div class="market-card">
-              <div class="market-card__img"><div class="market-card__img-placeholder">🎨</div></div>
+              <a href="https://www.lazada.com.ph/products/english-talking-wrist-watch-sport-style-with-alarm-funtion-665e-i3355610480.html" style="text-decoration: none">
+              <div class="market-card__img"><img src="{{ asset('talkingwatch.jpg') }}" alt="market-card__img-placeholder" style="width: 100%; height: 120px; object-fit: cover; object-position: center; display: block;" ></div>
               <div class="market-card__info">
-                <h4>Desain Grafis</h4>
-                <span class="market-price">Rp 89.000</span>
+                <h4>Talking Watch</h4>
+                <span class="market-price">Rp 999.000</span>
                 <button class="btn-market">Lihat</button>
               </div>
+             </a>
             </div>
           </div>
         </div>
@@ -321,28 +335,34 @@
         <!-- Grid produk lainnya -->
         <div class="tuna-market__grid">
           <div class="market-card">
-            <div class="market-card__img"><div class="market-card__img-placeholder">⭐</div></div>
+            <a href="https://www.tokopedia.com/luxebag-store/lb-jam-alarm-jam-dinding-jam-alarm-klasik-jam-weker-klasik-jam-estetik-alarm-clock-classic-jam-beker-r1355-1732713006090848109" style="text-decoration: none">
+            <div class="market-card__img"><img src="{{ asset('alarm.jpg') }}" alt="market-card__img-placeholder" style="width: 100%; height: 120px; object-fit: cover; object-position: center; display: block;" ></div>
             <div class="market-card__info">
-              <h4>Akun Premium 1 Bulan</h4>
-              <span class="market-price">Rp 50.000</span>
+              <h4>Jam Alarm</h4>
+              <span class="market-price">Rp 25.000</span>
               <button class="btn-market">Lihat</button>
             </div>
+           </a>
           </div>
           <div class="market-card">
-            <div class="market-card__img"><div class="market-card__img-placeholder">🚀</div></div>
+            <a href="https://www.tokopedia.com/juandamart/bel-rumah-bel-rumah-wireless-bel-pintu-bel-wireless-bell-rumah-ac-822" style="text-decoration: none">
+            <div class="market-card__img"><img src="{{ asset('belpintu.jpg') }}" alt="market-card__img-placeholder" style="width: 100%; height: 120px; object-fit: cover; object-position: center; display: block;" ></div>
             <div class="market-card__info">
-              <h4>Paket Starter</h4>
-              <span class="market-price">Rp 120.000</span>
+              <h4>Bel Rumah</h4>
+              <span class="market-price">Rp 39.999</span>
               <button class="btn-market">Lihat</button>
             </div>
+           </a>
           </div>
           <div class="market-card">
-            <div class="market-card__img"><div class="market-card__img-placeholder">🎬</div></div>
+            <a href="https://shopee.co.id/loli-Tongkat-Tunanetra-Sensor-Ultrasonik-Type-3S-BW-Bunyi-Buzzer-dan-Deteksi-Air-i.1556583860.43504482470" style="text-decoration: none">
+            <div class="market-card__img"><img src="{{ asset('ultrasonik.jpg') }}" alt="market-card__img-placeholder" style="width: 100%; height: 120px; object-fit: cover; object-position: center; display: block;" ></div>
             <div class="market-card__info">
-              <h4>Video Tutorial</h4>
-              <span class="market-price">Rp 75.000</span>
+              <h4>Tongkat Tunanetra Sensor Ultrasonik</h4>
+              <span class="market-price">Rp 1.534.999</span>
               <button class="btn-market">Lihat</button>
             </div>
+           </a>
           </div>
         </div>
 
@@ -356,14 +376,13 @@
 <section class="vid-section">
   <div class="tuna-container">
     <div class="tuna-section-head">
-      <span class="section-tag">Edukasi</span>
-      <h2>Video <span>Pembelajaran</span></h2>
+      <span class="section-tag">Pengetahuan</span>
+      <h2>Video <span>Edukasi</span></h2>
       <p>Kenali lebih dalam tentang teman-teman disabilitas melalui video edukatif kami.</p>
     </div>
 
     <!-- Banner kepedulian -->
 <div class="vid-banner">
-  <span>♿</span>
   <p>TUNA percaya setiap orang berhak mendapatkan akses yang sama — termasuk akses terhadap ilmu dan informasi.</p>
 </div>
 
@@ -534,9 +553,8 @@
             <div class="f-strip">
                 <div class="f-strip-top">
                     <div class="f-logo-text">TU<span style="color: #0078ff;">NA</span></div>
-                    <div class="f-kepanjangan">Transforming User Needs into Access</div>
                 </div>
-                <p class="f-tagline">Selalu siap membantu teman disabilitas dimana saja dan kapan saja.</p>
+                <p class="f-kepanjangan">Transforming User Needs into Access</p>
             </div>
 
             <!-- Link Columns - semua 4 kolom pakai format list -->
