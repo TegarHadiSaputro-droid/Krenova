@@ -42,7 +42,7 @@
         <span class="dropdown-item-label">Notifikasi</span>
         <span class="dropdown-item-badge" style="background:#ef4444;">3</span>
     </a>
-    <a href="/privacy" class="dropdown-item">
+    <a href="/privacy-security" class="dropdown-item">
         <span class="dropdown-icon"></span>
         <span class="dropdown-item-label">Privasi & Keamanan</span>
     </a>
@@ -65,6 +65,45 @@
     <div class="dropdown-footer">Transforming User Needs into Access</div>
 </div>
 
+<div class="logout-overlay" id="logoutOverlay">
+    <div class="logout-modal">
+        <div class="logout-title">Yakin ingin keluar?</div>
+        <div class="logout-desc">Kamu akan keluar dari akun. Perubahan yang kamu lakukan di akun ini akan tetap tersimpan</div>
+        <div class="logout-actions">
+            <button class="logout-btn logout-btn-cancel" onclick="closeLogoutModal()">Batal</button>
+            <button class="logout-btn logout-btn-confirm" onclick="confirmLogout()">Ya, Keluar</button>
+        </div>
+    </div>
+</div>
+
+<script>
+    function toggleDropdown() {
+        document.getElementById('profileDropdown').classList.toggle('open');
+    }
+
+    document.addEventListener('click', function(e) {
+        const wrap = document.getElementById('profileWrap');
+        if (wrap && !wrap.contains(e.target)) {
+            document.getElementById('profileDropdown').classList.remove('open');
+        }
+    }); 
+
+    function handleLogout() {
+        document.getElementById('profileDropdown').classList.remove('open');
+        document.getElementById('logoutOverlay').classList.add('open');
+    }
+
+    function closeLogoutModal() {
+        document.getElementById('logoutOverlay').classList.remove('open');
+    }
+
+    function confirmLogout() {
+        window.location.href = '/logout';
+    }
+
+    document.getElementById('logoutOverlay').addEventListener('click', function(e) {
+        if (e.target === this) closeLogoutModal();
+    });
 </script>
 </body>
 </html>

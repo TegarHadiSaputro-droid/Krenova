@@ -9,4 +9,13 @@ class DashboardController extends Controller
 
     public function notifications()
         { return view ('notifications'); }
+
+    public function privacySecurity()
+        { return view ('privacy&security'); }
+
+    function about()
+        { return view ('about'); }
+
+    public function help()
+        { return view ('help'); }
 }

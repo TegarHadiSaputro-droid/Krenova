@@ -296,36 +296,26 @@ body { font-family: 'Plus Jakarta Sans', sans-serif; background: #f1f5f9; min-he
     .grid-bottom { grid-template-columns: 1fr; }
 }
 
-.notif-list { display: flex; flex-direction: column; }
-        .notif-item {
-            display: flex; align-items: flex-start; gap: .9rem;
-            padding: 1rem; border-bottom: 1px solid #f1f5f9;
-            cursor: pointer; transition: background .15s;
+        .about-hero {
+            display: flex; flex-direction: column; align-items: center;
+            padding: 1.8rem 1rem; text-align: center;
         }
-        .notif-item:last-child { border-bottom: none; }
-        .notif-item:hover { background: #f8fafc; }
-        .notif-item.unread { background: #eff6ff; }
-        .notif-item.unread:hover { background: #dbeafe; }
-        .notif-icon {
-            width: 42px; height: 42px; border-radius: 12px;
+        .about-logo {
+            width: 72px; height: 72px; border-radius: 20px;
+            background: linear-gradient(145deg, #0055cc, #0078ff, #00aaff);
             display: flex; align-items: center; justify-content: center;
-            font-size: 1.2rem; flex-shrink: 0;
+            font-size: 2rem; margin-bottom: 1rem;
+            box-shadow: 0 8px 24px rgba(0,120,255,0.25);
         }
-        .notif-body { flex: 1; }
-        .notif-title { font-size: .88rem; font-weight: 700; color: #0f172a; }
-        .notif-desc { font-size: .78rem; color: #64748b; margin-top: 3px; line-height: 1.5; }
-        .notif-time { font-size: .7rem; color: #94a3b8; margin-top: 5px; }
-        .notif-dot { width: 8px; height: 8px; border-radius: 50%; background: #0078ff; flex-shrink: 0; margin-top: 6px; }
-        .notif-item:not(.unread) .notif-dot { visibility: hidden; }
-        .badge-count {
-            display: inline-flex; align-items: center; justify-content: center;
-            background: #ef4444; color: white; font-size: .65rem; font-weight: 800;
-            width: 22px; height: 22px; border-radius: 50%; margin-left: 6px; vertical-align: middle;
+        .about-appname { font-size: 1.3rem; font-weight: 800; color: #0f172a; }
+        .about-version { font-size: .8rem; color: #64748b; margin-top: 4px; }
+        .about-tagline {
+            font-size: .85rem; color: #64748b; margin-top: 8px;
+            max-width: 300px; line-height: 1.6;
         }
-        .filter-tabs { display: flex; gap: .5rem; padding: 1rem 1.5rem 0; max-width: 1400px; margin: 0 auto; flex-wrap: wrap; }
-        .tab { padding: .4rem 1rem; border-radius: 20px; font-size: .8rem; font-weight: 600; cursor: pointer; border: 1.5px solid #e2e8f0; background: white; color: #64748b; transition: all .2s; font-family: 'Plus Jakarta Sans', sans-serif; }
-        .tab.active { background: #0078ff; color: white; border-color: #0078ff; }
-        .section-header { display: flex; align-items: center; justify-content: space-between; padding: .8rem 1rem; border-bottom: 1px solid #f1f5f9; }
-        .section-header-label { font-size: .7rem; font-weight: 700; text-transform: uppercase; letter-spacing: .08em; color: #94a3b8; }
-        .btn-clear { font-size: .75rem; color: #0078ff; font-weight: 600; background: none; border: none; cursor: pointer; font-family: 'Plus Jakarta Sans', sans-serif; }
-        .full-grid { grid-template-columns: 1fr !important; }
+        .version-badge {
+            display: inline-flex; align-items: center; gap: 6px;
+            background: #f0fdf4; color: #16a34a; font-size: .75rem;
+            font-weight: 700; padding: 4px 12px; border-radius: 20px;
+            margin-top: 10px; border: 1px solid #bbf7d0;
+        }

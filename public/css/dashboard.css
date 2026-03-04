@@ -47,7 +47,7 @@
             display: flex;
             align-items: center;
             justify-content: center;
-            border: 2px solid rgba(255,255,255,0.25);
+            border: none;
             transition: transform 0.2s, box-shadow 0.2s;
             overflow: hidden;
         }
@@ -103,7 +103,7 @@
             align-items: center;
             justify-content: center;
             flex-shrink: 0;
-            border: 2px solid rgba(255,255,255,0.4);
+            border: none;
             overflow: hidden;
         }
 
@@ -215,6 +215,105 @@
         .dropdown-logout:hover {
             background: rgba(248,113,113,0.08);
             color: #ff6b6b;
+        }
+
+        .logout-overlay {
+            display: none;
+            position: fixed;
+            inset: 0;
+            background: rgba(15, 31, 61, 0.45);
+            backdrop-filter: blur(4px);
+            -webkit-backdrop-filter: blur(4px);
+            z-index: 9999;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .logout-overlay.open {
+            display: flex;
+        }
+
+        .logout-modal {
+            background: white;
+            border-radius: 20px;
+            padding: 2rem;
+            max-width: 360px;
+            width: 90%;
+            box-shadow: 0 20px 60px rgba(0, 0, 0, 0.15);
+            animation: modalPop 0.25s cubic-bezier(0.34, 1.56, 0.64, 1);
+            text-align: center;
+        }
+
+        @keyframes modalPop {
+            from { opacity: 0; transform: scale(0.85); }
+            to   { opacity: 1; transform: scale(1); }
+        }
+
+        .logout-icon-wrap {
+            width: 64px;
+            height: 64px;
+            border-radius: 50%;
+            background: linear-gradient(145deg, #fff1f2, #ffe4e6);
+            border: 2px solid #fecaca;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.8rem;
+            margin: 0 auto 1.2rem;
+        }
+
+        .logout-title {
+            font-family: 'Plus Jakarta Sans', sans-serif;
+            font-size: 1.1rem;
+            font-weight: 800;
+            color: #0f172a;
+            margin-bottom: .5rem;
+        }
+
+        .logout-desc {
+            font-family: 'Plus Jakarta Sans', sans-serif;
+            font-size: .85rem;
+            color: #64748b;
+            line-height: 1.6;
+            margin-bottom: 1.6rem;
+        }
+
+        .logout-actions {
+            display: flex;
+            gap: .75rem;
+        }
+
+        .logout-btn {
+            flex: 1;
+            padding: .75rem;
+            border-radius: 12px;
+            font-family: 'Plus Jakarta Sans', sans-serif;
+            font-size: .88rem;
+            font-weight: 700;
+            cursor: pointer;
+            border: none;
+            transition: all .2s;
+        }
+
+        .logout-btn:active { transform: scale(0.97); }
+
+        .logout-btn-cancel {
+            background: #f1f5f9;
+            color: #475569;
+            border: 1.5px solid #e2e8f0;
+        }
+
+        .logout-btn-cancel:hover { background: #e2e8f0; }
+
+        .logout-btn-confirm {
+            background: linear-gradient(135deg, #ef4444, #dc2626);
+            color: white;
+            box-shadow: 0 4px 14px rgba(239, 68, 68, 0.35);
+        }
+
+        .logout-btn-confirm:hover {
+            box-shadow: 0 6px 20px rgba(239, 68, 68, 0.45);
+            transform: translateY(-1px);
         }
 
         /* Footer */

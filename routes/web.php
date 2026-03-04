@@ -24,6 +24,9 @@ Route::get('/account', function () {
 
 Route::get('/settings', [DashboardController::class, 'settings'])->name('dashboard.settings');
 Route::get('/notifications', [DashboardController::class, 'notifications'])->name('dashboard.notifications');
+Route::get('/privacy-security', [DashboardController::class, 'privacySecurity'])->name('dashboard.privacy-security');
+Route::get('/about', [DashboardController::class, 'about'])->name('dashboard.about');
+Route::get('/help', [DashboardController::class, 'help'])->name('dashboard.help');
 
 Route::middleware('auth')->group(function () {
     Route::get('/profile', [ProfileController::class, 'edit'])->name('profile.edit');
