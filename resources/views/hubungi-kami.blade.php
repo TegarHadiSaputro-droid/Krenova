@@ -26,7 +26,7 @@
     <div class="hk-hero__inner">
       <div class="hk-hero__tag">📬 Hubungi Kami</div>
       <h1>Kami siap <em>mendengar</em><br>dan membantu kamu</h1>
-      <p>Ada pertanyaan, masukan, atau butuh bantuan? Jangan ragu untuk menghubungi tim TUNA — kami selalu ada untuk kamu.</p>
+      <p>Kalau ada yang ingin ditanyakan, disampaikan, atau butuh bantuan? Jangan ragu untuk menghubungi tim TUNA. Kami siap membantu dan selalu ada untukmu.</p>
       <div class="hk-stats">
         <div class="hk-stat"><span class="hk-stat__num">24/7</span><span class="hk-stat__label">Dukungan</span></div>
         <div class="hk-stat"><span class="hk-stat__num">&lt;1 jam</span><span class="hk-stat__label">Respons WA</span></div>
@@ -40,7 +40,7 @@
     <div class="hk-cards">
       <div id="whatsapp" class="hk-card hk-card--accent reveal">
         <div class="hk-card__icon">💬</div>
-        <div><div class="hk-card__title">WhatsApp</div><div class="hk-card__desc">Hubungi kami langsung via WhatsApp untuk respons paling cepat. Tim kami siap membantu setiap hari tanpa henti.</div></div>
+        <div><div class="hk-card__title">WhatsApp</div><div class="hk-card__desc">Ada yang ingin ditanyakan? Chat WhatsApp kami saja. Kami selalu siap membantu kapan pun anda butuh.</div></div>
         <div class="hk-card__info">
           <div class="hk-info-row"><div class="hk-info-row__dot"></div>+62 812-3456-7890</div>
           <div class="hk-info-row"><div class="hk-info-row__dot"></div>Senin – Minggu, 08.00 – 22.00 WITA</div>
@@ -50,7 +50,7 @@
 
       <div id="email-support" class="hk-card reveal" style="transition-delay:0.15s;">
         <div class="hk-card__icon">📧</div>
-        <div><div class="hk-card__title">Email Support</div><div class="hk-card__desc">Kirim pertanyaan, laporan, atau saran lewat email. Kami akan merespons dengan solusi terbaik dalam 1×24 jam kerja.</div></div>
+        <div><div class="hk-card__title">Email Support</div><div class="hk-card__desc">Punya pesan, laporan, atau saran? Kirimkan lewat email saja. Kami akan membalas secepat mungkin, maksimal dalam 1×24 jam kerja.</div></div>
         <div class="hk-card__info">
           <div class="hk-info-row"><div class="hk-info-row__dot"></div>support@tuna.id</div>
           <div class="hk-info-row"><div class="hk-info-row__dot"></div>Respons dalam 1×24 jam kerja</div>

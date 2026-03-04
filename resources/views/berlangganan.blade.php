@@ -24,7 +24,7 @@
     <div class="sub-hero__inner">
       <div class="sub-hero__tag">💙 Berlangganan TUNA</div>
       <h1>Pilih paket yang <em>tepat</em><br>untuk kamu</h1>
-      <p>Mulai gratis, upgrade kapan saja. Semua paket dirancang agar teknologi aksesibilitas bisa dijangkau semua orang.</p>
+      <p>Mulai gratis dan upgrade kapan saja sesuai kebutuhan Anda. Setiap paket dirancang agar teknologi aksesibilitas mudah dijangkau semua orang.</p>
     </div>
   </section>
 

@@ -1625,23 +1625,6 @@ a.btn-login {
             transform: translateY(-2px);
         }
 
-        .f-copy {
-            font-size: 12px;
-            color: #5a7a9a;
-        }
-
-        .f-copy .cn {
-            color: #1a2b4a;
-            font-family: 'Poppins', sans-serif;
-            font-weight: 700;
-        }
-
-        .f-copy .ct {
-            color: #00BCD4;
-            font-family: 'Poppins', sans-serif;
-            font-weight: 700;
-        }
-
         #trixie-fab {
         position: fixed;
         bottom: 24px;

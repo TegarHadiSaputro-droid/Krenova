@@ -190,7 +190,7 @@
           <div class="tuna-hero__text">
             <span class="tuna-hero__label">Tentang Kami</span>
             <h1>Platform yang <br><em>menghadirkan</em> akses setara <strong> untuk semua</strong></h1>
-            <p>TUNA — <b>Transforming User Needs into Access</b> — TUNA adalah platform digital inklusif yang dibuat untuk membantu teman-teman disabilitas supaya bisa lebih mudah mengakses layanan, informasi, dan berbagai peluang tanpa merasa terhambat.</p>
+            <p>TUNA — <b>Transforming User Needs into Access</b> — TUNA adalah platform digital inklusif yang dibuat untuk membantu teman-teman disabilitas agar lebih mudah mengakses layanan, informasi, dan berbagai peluang tanpa merasa terhambat.</p>
             <div class="tuna-hero__stats">
               <div class="stat">
                 <span class="stat-num">11k+</span>
@@ -733,9 +733,6 @@
                         </svg>
                     </a>
                    
-                </div>
-                <div class="f-copy">
-                    © 2025 <span class="cn">TU</span><span class="ct">NA</span> · All Rights Reserved
                 </div>
             </div>
         </div>
