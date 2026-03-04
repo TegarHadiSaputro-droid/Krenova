@@ -522,7 +522,7 @@
 </section>
 
 <!-- ===== MODAL DESKRIPSI VIDEO ===== -->
-<div class="vid-modal-overlay" id="vidModal" onclick="closeVidModal(event)">
+<div class="vid-modal-overlay" id="vidModal" onclick="closeVidModal(event)" style="position:fixed; top:0; left:0; width:100%; height:100%;">
   <div class="vid-modal">
     <button class="vid-modal-close" onclick="closeVidModal()">✕</button>
     <div class="vid-modal-thumb" id="modalThumb">
@@ -690,7 +690,8 @@ const vidData = [
     desc: "Pelajari berbagai teknologi assistive yang membantu penyandang tunanetra dan low vision dalam beraktivitas, mulai dari screen reader, aplikasi pengenalan suara, hingga perangkat braille digital yang tersedia saat ini.",
     duration: "8 menit 20 detik",
     bg: "linear-gradient(135deg, #065f46, #10b981)",
-    emoji: "👁️"
+    emoji: "👁️",
+    src: "r9Y6XMko9Jc"
   },
   {
     title: "Bahasa Isyarat: Dasar Komunikasi Tuli",
@@ -745,11 +746,16 @@ function openVidModal(index) {
   document.getElementById('modalDuration').textContent = '⏱ ' + data.duration;
 
   thumb.style.background = data.bg;
-  thumb.querySelector('.vid-modal-play').innerHTML = `
-    <span style="font-size:2.5rem">${data.emoji}</span>
-  `;
+  thumb.querySelector('.vid-modal-play').innerHTML = data.src
+  ? `<iframe 
+       src="https://www.youtube.com/embed/${data.src}?autoplay=1" 
+       style="position:absolute; top:0; left:0; width:100%; height:100%; border:none;"
+       allowfullscreen 
+       allow="autoplay; encrypted-media">
+     </iframe>`
+  : `<span style="font-size:2.5rem">${data.emoji}</span>`;
 
-  modal.classList.add('active');
+  modal.classList.add('active'); // ← ini yang hilang!
   document.body.style.overflow = 'hidden';
 }
 
@@ -757,13 +763,32 @@ function closeVidModal(event) {
   if (!event || event.target === document.getElementById('vidModal') || event.currentTarget.classList.contains('vid-modal-close')) {
     document.getElementById('vidModal').classList.remove('active');
     document.body.style.overflow = '';
+    document.querySelector('#modalThumb .vid-modal-play').innerHTML = ''; // ← tambah ini
   }
-}
+  }
+
 
 // Close dengan tombol ESC
 document.addEventListener('keydown', function(e) {
   if (e.key === 'Escape') closeVidModal();
 });
+
+const reveals = document.querySelectorAll('.main-header, .tuna-hero, .tuna-features, .marketplace, .vid-section, footer');
+
+reveals.forEach(el => el.classList.add('reveal'));
+
+const revealObserver = new IntersectionObserver((entries) => {
+  entries.forEach((entry, i) => {
+    if (entry.isIntersecting) {
+      setTimeout(() => {
+        entry.target.classList.add('visible');
+      }, i * 120);
+      revealObserver.unobserve(entry.target);
+    }
+  });
+}, { threshold: 0.08 });
+
+reveals.forEach(el => revealObserver.observe(el));
 </script>
 
 </body>
