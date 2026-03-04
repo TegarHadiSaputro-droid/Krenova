@@ -4,6 +4,12 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>TUNA</title>
+  <script>
+    if ('scrollRestoration' in history) {
+      history.scrollRestoration = 'manual';
+    }
+    window.scrollTo(0, 0);
+  </script>
   <link rel="stylesheet" href="{{ asset('css/style.css') }}">
 </head>
 <body>
@@ -49,20 +55,20 @@
       <div class="nav-item">
         <span class="nav-link">Panduan <span class="arrow"></span></span>
         <div class="dropdown">
-         <a href="/panduan">Visi Misi</a>
-         <a href="/panduan">Cara Mulai</a>
-         <a href="/panduan">Video Tutorial</a>
-         <a href="/panduan">FAQ</a>
+        <a href="/panduan#visi-misi">Visi Misi</a>
+        <a href="/panduan#cara-mulai">Cara Mulai</a>
+        <a href="/panduan#video-tutorial">Video Tutorial</a>
+        <a href="/panduan#faq">FAQ</a>
         </div>
       </div>
 
       <div class="nav-item">
         <span class="nav-link">Hubungi Kami <span class="arrow"></span></span>
         <div class="dropdown">
-         <a href="/hubungi-kami">WhatsApp</a>
-         <a href="/hubungi-kami">Email Support</a>
-         <a href="/hubungi-kami">Sosial Media Kami</a>
-         <a href="/hubungi-kami">Kantor Kami</a>
+        <a href="/hubungi-kami#whatsapp">WhatsApp</a>
+        <a href="/hubungi-kami#email">Email Support</a>
+        <a href="/hubungi-kami#sosial-media">Sosial Media Kami</a>
+        <a href="/hubungi-kami#kantor">Kantor Kami</a>
         </div>
       </div>
 
@@ -76,12 +82,20 @@
 </div>
   </nav>
 
-    <div class="header-actions">
+  <div class="header-actions">
+    <!-- Tampil kalau BELUM login -->
+    <div id="guest-actions" style="display: flex; align-items: center; gap: 10px;">
       <a href="{{ route('login') }}" class="btn-login">Masuk</a>
       <a href="{{ route('download') }}" style="text-decoration: none;">
         <button class="btn-cta">Coba Gratis</button>
       </a>
     </div>
+
+  <!-- Tampil kalau SUDAH login -->
+  <div id="user-actions" style="display: none; align-items: center; gap: 10px;">
+    <a href="{{ route('download') }}" style="text-decoration: none;">
+      <button class="btn-cta">Coba Gratis</button>
+    </a>
   </header>
 
   <!-- ============================================================
@@ -583,20 +597,20 @@
                 <div class="f-col">
                     <h4>Panduan</h4>
                     <ul>
-                        <li><a href="#"><span class="dot"></span>Visi Misi</a></li>
-                        <li><a href="#"><span class="dot"></span>Cara Mulai</a></li>
-                        <li><a href="#"><span class="dot"></span>Video Tutorial</a></li>
-                        <li><a href="#"><span class="dot"></span>FAQ</a></li>
+                        <li><a href="/panduan#visi-misi"><span class="dot"></span>Visi Misi</a></li>
+                        <li><a href="/panduan#cara-mulai"><span class="dot"></span>Cara Mulai</a></li>
+                        <li><a href="/panduan#video-tutorial"><span class="dot"></span>Video Tutorial</a></li>
+                        <li><a href="/panduan#faq"><span class="dot"></span>FAQ</a></li>
                     </ul>
                 </div>
 
                 <div class="f-col">
                     <h4>Hubungi Kami</h4>
                     <ul>
-                        <li><a href="#"><span class="dot"></span>WhatsApp</a></li>
-                        <li><a href="#"><span class="dot"></span>Email Support</a></li>
-                        <li><a href="#"><span class="dot"></span>Sosial Media Kami</a></li>
-                        <li><a href="#"><span class="dot"></span>Kantor Kami</a></li>
+                        <li><a href="/hubungi-kami#whatsapp"><span class="dot"></span>WhatsApp</a></li>
+                        <li><a href="/hubungi-kami#email"><span class="dot"></span>Email Support</a></li>
+                        <li><a href="/hubungi-kami#sosial-media"><span class="dot"></span>Sosial Media Kami</a></li>
+                        <li><a href="/hubungi-kami#kantor"><span class="dot"></span>Kantor Kami</a></li>
                     </ul>
                 </div>
             </div>
@@ -654,9 +668,24 @@
     <img src="{{ asset('tunawoi.png') }}" alt="Trixie AI">
     </a>
 <script>
-  window.addEventListener("load", function() {
-    document.querySelector(".page-content")
-          .classList.add("loaded");
+(function() {
+  window.scrollTo(0, 0);
+  
+  const pageContent = document.querySelector(".page-content");
+  
+  pageContent.style.animation = 'none';
+  pageContent.style.opacity = '0';
+  
+  void pageContent.offsetHeight;
+  
+  setTimeout(() => {
+    pageContent.style.animation = '';
+    pageContent.style.opacity = '';
+  }, 10);
+})();
+
+window.addEventListener('beforeunload', function() {
+  window.scrollTo(0, 0);
 });
 
 let closeTimer;

@@ -38,7 +38,7 @@
   <div class="hk-body">
 
     <div class="hk-cards">
-      <div class="hk-card hk-card--accent reveal">
+      <div id="whatsapp" class="hk-card hk-card--accent reveal">
         <div class="hk-card__icon">💬</div>
         <div><div class="hk-card__title">WhatsApp</div><div class="hk-card__desc">Hubungi kami langsung via WhatsApp untuk respons paling cepat. Tim kami siap membantu setiap hari tanpa henti.</div></div>
         <div class="hk-card__info">
@@ -48,7 +48,7 @@
         <a href="https://wa.me/6281234567890" target="_blank" class="btn-hk btn-hk--white">Buka WhatsApp →</a>
       </div>
 
-      <div class="hk-card reveal" style="transition-delay:0.15s;">
+      <div id="email-support" class="hk-card reveal" style="transition-delay:0.15s;">
         <div class="hk-card__icon">📧</div>
         <div><div class="hk-card__title">Email Support</div><div class="hk-card__desc">Kirim pertanyaan, laporan, atau saran lewat email. Kami akan merespons dengan solusi terbaik dalam 1×24 jam kerja.</div></div>
         <div class="hk-card__info">
@@ -59,7 +59,7 @@
       </div>
     </div>
 
-    <div class="hk-sosmed reveal" style="transition-delay:0.2s;">
+    <div id="sosial-media" class="hk-sosmed reveal" style="transition-delay:0.2s;">
       <div class="hk-sosmed__head">
         <div class="hk-card__icon">🌐</div>
         <div><h3>Sosial Media Kami</h3><p>Ikuti kami untuk update terbaru, tips aksesibilitas, dan konten inspiratif setiap harinya.</p></div>
@@ -76,7 +76,7 @@
       </div>
     </div>
 
-    <div class="hk-kantor reveal" style="transition-delay:0.3s;">
+    <div id="kantor" class="hk-kantor reveal" style="transition-delay:0.3s;">
       <div>
         <div class="hk-kantor__head">
           <div class="hk-card__icon">🏢</div>
@@ -110,34 +110,67 @@
     <a href="{{ url('/') }}">Kembali ke Beranda</a>
   </div>
 
-  <script>
-    const observer = new IntersectionObserver((entries) => {
+<script>
+  const observer = new IntersectionObserver((entries) => {
+    entries.forEach(entry => {
+      if (entry.isIntersecting) {
+        entry.target.classList.add('visible');
+        observer.unobserve(entry.target);
+      }
+    });
+  }, { threshold: 0.1 });
+
+  document.querySelectorAll('.reveal').forEach(el => observer.observe(el));
+
+  // ✨ BARU: Handle scroll otomatis saat halaman dibuka dengan hash
+  window.addEventListener('load', function() {
+    if (window.location.hash) {
+      const hash = window.location.hash.substring(1);
+      const targetElement = document.getElementById(hash);
+      
+      if (targetElement) {
+        setTimeout(() => {
+          targetElement.scrollIntoView({ 
+            behavior: 'smooth',
+            block: 'start'
+          });
+        }, 100);
+      }
+    }
+  });
+
+  // ✨ BARU: Handle klik pada link internal
+  document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+    anchor.addEventListener('click', function(e) {
+      e.preventDefault();
+      const targetId = this.getAttribute('href').substring(1);
+      const targetElement = document.getElementById(targetId);
+      
+      if (targetElement) {
+        targetElement.scrollIntoView({ 
+          behavior: 'smooth',
+          block: 'start'
+        });
+      }
+    });
+  });
+
+  // Stagger sosmed items
+  document.querySelectorAll('.sosmed-item').forEach((item, i) => {
+    item.style.opacity = '0';
+    item.style.transform = 'translateY(20px)';
+    item.style.transition = `all 0.4s cubic-bezier(0.25,0.46,0.45,0.94) ${i * 0.06}s`;
+
+    new IntersectionObserver((entries) => {
       entries.forEach(entry => {
         if (entry.isIntersecting) {
-          entry.target.classList.add('visible');
-          observer.unobserve(entry.target);
+          entry.target.style.opacity = '1';
+          entry.target.style.transform = 'translateY(0)';
         }
       });
-    }, { threshold: 0.1 });
-
-    document.querySelectorAll('.reveal').forEach(el => observer.observe(el));
-
-    // Stagger sosmed items
-    document.querySelectorAll('.sosmed-item').forEach((item, i) => {
-      item.style.opacity = '0';
-      item.style.transform = 'translateY(20px)';
-      item.style.transition = `all 0.4s cubic-bezier(0.25,0.46,0.45,0.94) ${i * 0.06}s`;
-
-      new IntersectionObserver((entries) => {
-        entries.forEach(entry => {
-          if (entry.isIntersecting) {
-            entry.target.style.opacity = '1';
-            entry.target.style.transform = 'translateY(0)';
-          }
-        });
-      }, { threshold: 0.1 }).observe(item);
-    });
-  </script>
+    }, { threshold: 0.1 }).observe(item);
+  });
+</script>
 
 </body>
 </html>

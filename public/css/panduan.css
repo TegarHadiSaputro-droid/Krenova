@@ -319,6 +319,14 @@
     }
     .btn-blue-outline:hover { background:#0078ff; color:#fff; transform:translateY(-2px); }
 
+    /* Scroll offset untuk mencegah section tertutup saat scroll */
+#visi-misi,
+#cara-mulai,
+#video-tutorial,
+#faq {
+  scroll-margin-top: 80px;
+}
+
     @media (max-width:900px) {
       .vm-grid { grid-template-columns:1fr; }
       .cm-steps { grid-template-columns:repeat(2,1fr); gap:24px; }

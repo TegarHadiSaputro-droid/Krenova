@@ -10,6 +10,14 @@ Route::get('/', function () {
     return view('welcome');
 });
 
+Route::get('/panduan', function () {
+    return view('panduan');
+})->name('panduan');
+
+Route::get('/hubungi-kami', function () {
+    return view('hubungi-kami');
+})->name('hubungi-kami');
+
 Route::get('/download', function () {
     return view('download');
 })->name('download');

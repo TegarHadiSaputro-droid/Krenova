@@ -243,54 +243,54 @@
     <a href="{{ url('/') }}">Kembali ke Beranda</a>
   </div>
 
-  <script>
-    // Scroll reveal
-    const observer = new IntersectionObserver((entries) => {
+<script>
+  // Scroll reveal
+  const observer = new IntersectionObserver((entries) => {
+    entries.forEach(entry => {
+      if (entry.isIntersecting) {
+        entry.target.classList.add('visible');
+        observer.unobserve(entry.target);
+      }
+    });
+  }, { threshold: 0.1 });
+
+  document.querySelectorAll('.reveal').forEach(el => observer.observe(el));
+
+  // Smooth scroll to section
+  function scrollTo(id) {
+    document.getElementById(id).scrollIntoView({ behavior: 'smooth' });
+  }
+
+  // Stagger vt cards
+  document.querySelectorAll('.vt-card').forEach((card, i) => {
+    card.style.opacity = '0';
+    card.style.transform = 'translateY(24px)';
+    card.style.transition = `all 0.4s cubic-bezier(0.25,0.46,0.45,0.94) ${i * 0.08}s`;
+    new IntersectionObserver((entries) => {
       entries.forEach(entry => {
         if (entry.isIntersecting) {
-          entry.target.classList.add('visible');
-          observer.unobserve(entry.target);
+          entry.target.style.opacity = '1';
+          entry.target.style.transform = 'translateY(0)';
         }
       });
-    }, { threshold: 0.1 });
+    }, { threshold: 0.1 }).observe(card);
+  });
 
-    document.querySelectorAll('.reveal').forEach(el => observer.observe(el));
-
-    // Smooth scroll to section
-    function scrollTo(id) {
-      document.getElementById(id).scrollIntoView({ behavior: 'smooth' });
-    }
-
-    // Stagger vt cards
-    document.querySelectorAll('.vt-card').forEach((card, i) => {
-      card.style.opacity = '0';
-      card.style.transform = 'translateY(24px)';
-      card.style.transition = `all 0.4s cubic-bezier(0.25,0.46,0.45,0.94) ${i * 0.08}s`;
-      new IntersectionObserver((entries) => {
-        entries.forEach(entry => {
-          if (entry.isIntersecting) {
-            entry.target.style.opacity = '1';
-            entry.target.style.transform = 'translateY(0)';
-          }
-        });
-      }, { threshold: 0.1 }).observe(card);
-    });
-
-    // Stagger cm steps
-    document.querySelectorAll('.cm-step').forEach((step, i) => {
-      step.style.opacity = '0';
-      step.style.transform = 'translateY(24px)';
-      step.style.transition = `all 0.5s cubic-bezier(0.25,0.46,0.45,0.94) ${i * 0.1}s`;
-      new IntersectionObserver((entries) => {
-        entries.forEach(entry => {
-          if (entry.isIntersecting) {
-            entry.target.style.opacity = '1';
-            entry.target.style.transform = 'translateY(0)';
-          }
-        });
-      }, { threshold: 0.1 }).observe(step);
-    });
-  </script>
+  // Stagger cm steps
+  document.querySelectorAll('.cm-step').forEach((step, i) => {
+    step.style.opacity = '0';
+    step.style.transform = 'translateY(24px)';
+    step.style.transition = `all 0.5s cubic-bezier(0.25,0.46,0.45,0.94) ${i * 0.1}s`;
+    new IntersectionObserver((entries) => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          entry.target.style.opacity = '1';
+          entry.target.style.transform = 'translateY(0)';
+        }
+      });
+    }, { threshold: 0.1 }).observe(step);
+  });
+</script>
 
 </body>
 </html>

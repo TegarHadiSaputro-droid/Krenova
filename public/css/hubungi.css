@@ -300,6 +300,14 @@
     .hk-footer a { display:inline-block; background:#fff; color:#0040c8; font-weight:700; font-size:0.9rem; padding:14px 36px; border-radius:30px; text-decoration:none; box-shadow:0 8px 24px rgba(0,0,0,0.2); transition:opacity 0.2s, transform 0.2s; position:relative; z-index:1; }
     .hk-footer a:hover { opacity:0.9; transform:translateY(-3px); }
 
+    /* Scroll offset untuk section agar tidak tertutup saat scroll */
+#whatsapp,
+#email-support,
+#sosial-media,
+#kantor {
+  scroll-margin-top: 100px;
+}
+
     @media (max-width: 900px) {
       .hk-cards { grid-template-columns:1fr; }
       .sosmed-grid { grid-template-columns:repeat(2,1fr); }

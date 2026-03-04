@@ -10,10 +10,6 @@
 <body>
 
 <div class="banner">
-    <div class="circle circle-1"></div>
-    <div class="circle circle-2"></div>
-    <div class="circle circle-3"></div>
-    <div class="circle circle-4"></div>
     <div class="banner-nav">
         <a href="javascript:history.back()" class="back-btn">← Kembali</a>
         <div style="width:80px"></div>
