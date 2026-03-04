@@ -35,7 +35,7 @@
         <div class="dropdown">
           <a href="#">Call & Chat</a>
           <a href="#">AI Trixie</a>
-          <div class="nav-link" onclick="document.getElementById('marketplace').scrollIntoView({behavior:'smooth'})">Fitur Kami</div>
+          <a href="#marketplace" class="close-menu">Marketplace</a>
           <a href="#">Konsultasi</a>
         </div>
       </div>
