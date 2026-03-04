@@ -110,11 +110,7 @@ body {
   gap: 32px;
   position: sticky;
   top: 0;
-<<<<<<< Updated upstream
   z-index: 9999;
-=======
-  z-index: 1000;
->>>>>>> Stashed changes
   box-shadow: 0 2px 8px rgba(0,0,0,0.06);
   margin-top: 0;
 }
@@ -1367,15 +1363,14 @@ a.btn-login {
   transform: translateY(0);
 }
 
-<<<<<<< Updated upstream
 .vid-modal-play {
   position: absolute;
   top: 0;
   left: 0;
-=======
+}
+
 .vid-modal-thumb {
   position: relative;
->>>>>>> Stashed changes
   width: 100%;
   aspect-ratio: 16/9;
   display: flex;
@@ -1671,7 +1666,6 @@ a.btn-login {
         color: #ffffff;
 }
 
-<<<<<<< Updated upstream
 /* ===== PROFILE DROPDOWN ===== */
         .profile-dropdown-wrap {
             position: relative;
@@ -1975,8 +1969,6 @@ a.btn-login {
             border-top: 1px solid rgba(0,0,0,0.06);
             text-align: center;
         }
-=======
->>>>>>> Stashed changes
 
 /* ============================================================
    RESPONSIVE
