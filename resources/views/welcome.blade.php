@@ -35,7 +35,7 @@
         <div class="dropdown">
           <a href="#">Call & Chat</a>
           <a href="#">AI Trixie</a>
-          <a href="#">Marketplace</a>
+          <div class="nav-link" onclick="document.getElementById('marketplace').scrollIntoView({behavior:'smooth'})">Fitur Kami</div>
           <a href="#">Konsultasi</a>
         </div>
       </div>
@@ -90,83 +90,90 @@
         <button class="btn-cta">Coba Gratis</button>
       </a>
     </div>
-
   <!-- Tampil kalau SUDAH login -->
   <div id="user-actions" style="display: none; align-items: center; gap: 10px;">
-    <form id="logout-form" action="{{ route('logout') }}" method="POST" style="display:none;">
-    @csrf
-    </form>
     <a href="{{ route('download') }}" style="text-decoration: none;">
       <button class="btn-cta">Coba Gratis</button>
     </a>
+   </div>
+ </div>
 
-    <!-- Profile Dropdown -->
-<div class="profile-dropdown-wrap" id="profileWrap">
-    <button class="profile-trigger" onclick="toggleDropdown()">
-        <div class="profile-trigger-avatar" id="triggerAvatar">R</div>
-    </button>
+   <button class="hamburger-btn" id="hamburgerBtn" aria-label="Toggle menu">
+    <span></span>
+    <span></span>
+    <span></span>
+  </button>
 
-    <div class="profile-dropdown" id="profileDropdown">
-
-    <!-- Header - klik untuk ke halaman profile -->
-    <a href="/account" style="text-decoration:none;display:block;">
-        <div class="dropdown-header" style="cursor:pointer;">
-            <div class="dropdown-avatar" id="dropdownAvatar">R</div>
-            <div class="dropdown-user-info">
-                <div class="dropdown-name" id="dropdownName">Revan Putra</div>
-                <div class="dropdown-email" id="dropdownEmail">revan@email.com</div>
-                <span class="dropdown-badge">🟢 Akun Aktif</span>
-            </div>
-        </div>
-    </a>
-
-    <div class="dropdown-divider"></div>
-
-    <!-- Menu -->
-    <div class="dropdown-section-label">Menu</div>
-    <a href="/settings" class="dropdown-item">
-        <span class="dropdown-icon"></span>
-        <span class="dropdown-item-label">Pengaturan</span>
-    </a>
-    <a href="/notifications" class="dropdown-item">
-        <span class="dropdown-icon"></span>
-        <span class="dropdown-item-label">Notifikasi</span>
-        <span class="dropdown-item-badge" style="background:#ef4444;">3</span>
-    </a>
-    <a href="/privacy-security" class="dropdown-item">
-        <span class="dropdown-icon"></span>
-        <span class="dropdown-item-label">Privasi & Keamanan</span>
-    </a>
-    <a href="/about" class="dropdown-item">
-        <span class="dropdown-icon"></span>
-        <span class="dropdown-item-label">Tentang Aplikasi</span>
-    </a>
-    <a href="/help" class="dropdown-item">
-        <span class="dropdown-icon"></span>
-        <span class="dropdown-item-label">Bantuan</span>
-    </a>
-
-    <div class="dropdown-divider"></div>
-
-    <button class="dropdown-item dropdown-logout" onclick="handleLogout()">
-        <span class="dropdown-icon"></span>
-        <span class="dropdown-item-label">Keluar</span>
-    </button>
-
-    <div class="dropdown-footer">Transforming User Needs into Access</div>
-</div>
-
-<div class="logout-overlay" id="logoutOverlay">
-    <div class="logout-modal">
-        <div class="logout-title">Yakin ingin keluar?</div>
-        <div class="logout-desc">Kamu akan keluar dari akun. Perubahan yang kamu lakukan di akun ini akan tetap tersimpan</div>
-        <div class="logout-actions">
-            <button class="logout-btn logout-btn-cancel" onclick="closeLogoutModal()">Batal</button>
-            <button class="logout-btn logout-btn-confirm" onclick="confirmLogout()">Ya, Keluar</button>
-        </div>
-    </div>
-</div>  
   </header>
+
+  <div class="mobile-menu" id="mobileMenu">
+    <div class="mobile-menu-inner">
+
+      <div class="mobile-nav-item">
+        <a href="/" class="mobile-nav-link">Beranda</a>
+      </div>
+
+      <div class="mobile-nav-item">
+        <div class="mobile-nav-link" onclick="toggleDropdown(this)">
+          Layanan <span class="mobile-arrow">▾</span>
+        </div>
+        <div class="mobile-dropdown">
+          <a href="#">Call & Chat</a>
+          <a href="#">AI Trixie</a>
+          <a href="#marketplace" class="close-menu">Marketplace</a>
+          <a href="#">Konsultasi</a>
+        </div>
+      </div>
+
+      <div class="mobile-nav-item">
+        <a href="#fitur" class="mobile-nav-link close-menu">Fitur Kami</a>
+      </div>
+
+      <div class="mobile-nav-item">
+        <div class="mobile-nav-link" onclick="toggleDropdown(this)">
+          Berlangganan <span class="mobile-arrow">▾</span>
+        </div>
+        <div class="mobile-dropdown">
+          <a href="#">Promo</a>
+          <a href="{{ url('/berlangganan') }}" onclick="event.stopPropagation()">Lihat Paket</a>
+          <a href="#">E-Wallet</a>
+          <a href="#">Invoice</a>
+        </div>
+      </div>
+
+      <div class="mobile-nav-item">
+        <div class="mobile-nav-link" onclick="toggleDropdown(this)">
+          Panduan <span class="mobile-arrow">▾</span>
+        </div>
+        <div class="mobile-dropdown">
+        <a href="/panduan#visi-misi">Visi Misi</a>
+        <a href="/panduan#cara-mulai">Cara Mulai</a>
+        <a href="/panduan#video-tutorial">Video Tutorial</a>
+        <a href="/panduan#faq">FAQ</a>
+        </div>
+      </div>
+
+      <div class="mobile-nav-item">
+        <div class="mobile-nav-link" onclick="toggleDropdown(this)">
+          Hubungi Kami <span class="mobile-arrow">▾</span>
+        </div>
+        <div class="mobile-dropdown">
+        <a href="/hubungi-kami#whatsapp">WhatsApp</a>
+        <a href="/hubungi-kami#email">Email Support</a>
+        <a href="/hubungi-kami#sosial-media">Sosial Media Kami</a>
+        <a href="/hubungi-kami#kantor">Kantor Kami</a>
+        </div>
+      </div>
+
+    </div>
+
+    <div class="mobile-menu-actions">
+      <a href="/login" class="btn-login">Masuk</a>
+      <a href="/download" style="text-decoration:none; flex:1; display:flex;">
+        <button class="btn-cta" style="width:100%; justify-content:center;">Coba Gratis</button>
+      </a>
+    </div>
+  </div>
 
   <!-- ============================================================
        MAIN
@@ -758,103 +765,6 @@ window.addEventListener('beforeunload', function() {
   window.scrollTo(0, 0);
 });
 
-  // ============================================================
-  // PROFILE DROPDOWN & USER AUTH
-  // ============================================================
-  
-  function toggleDropdown() {
-    const dropdown = document.getElementById('profileDropdown');
-    if (dropdown) {
-      dropdown.classList.toggle('open');
-    }
-  }
-
-  document.addEventListener('click', function(e) {
-    const wrap = document.getElementById('profileWrap');
-    if (wrap && !wrap.contains(e.target)) {
-      const dropdown = document.getElementById('profileDropdown');
-      if (dropdown) {
-        dropdown.classList.remove('open');
-      }
-    }
-  }); 
-
-  function handleLogout() {
-    const dropdown = document.getElementById('profileDropdown');
-    if (dropdown) {
-      dropdown.classList.remove('open');
-    }
-    const overlay = document.getElementById('logoutOverlay');
-    if (overlay) {
-      overlay.classList.add('open');
-    }
-  }
-
-  function closeLogoutModal() {
-    const overlay = document.getElementById('logoutOverlay');
-    if (overlay) {
-      overlay.classList.remove('open');
-    }
-  }
-
-  function confirmLogout() {
-    const form = document.getElementById('logout-form');
-    if (form) {
-      form.submit();
-    }
-  }
-
-  const logoutOverlay = document.getElementById('logoutOverlay');
-  if (logoutOverlay) {
-    logoutOverlay.addEventListener('click', function(e) {
-      if (e.target === this) closeLogoutModal();
-    });
-  }
-
-  function getInitials(text) {
-    if (!text) return 'U';
-    
-    const words = text.trim().split(' ');
-    if (words.length >= 2) {
-      return (words[0][0] + words[1][0]).toUpperCase();
-    }
-    
-    if (text.includes('@')) {
-      return text.split('@')[0][0].toUpperCase();
-    }
-    
-    return text[0].toUpperCase();
-  }
-
-  function updateUserProfile(userData) {
-    const initial = getInitials(userData.name || userData.email);
-    
-    const triggerAvatar = document.getElementById('triggerAvatar');
-    const dropdownAvatar = document.getElementById('dropdownAvatar');
-    const dropdownName = document.getElementById('dropdownName');
-    const dropdownEmail = document.getElementById('dropdownEmail');
-    
-    if (triggerAvatar) triggerAvatar.textContent = initial;
-    if (dropdownAvatar) dropdownAvatar.textContent = initial;
-    if (dropdownName) dropdownName.textContent = userData.name || 'User';
-    if (dropdownEmail) dropdownEmail.textContent = userData.email;
-    
-    const guestActions = document.getElementById('guest-actions');
-    const userActions = document.getElementById('user-actions');
-    if (guestActions) guestActions.style.display = 'none';
-    if (userActions) userActions.style.display = 'flex';
-  }
-
-  // ✨ CEK LOGIN STATUS SAAT PAGE LOAD
-  window.addEventListener('load', function() {
-    @auth
-      updateUserProfile({
-        name: "{{ Auth::user()->name }}",
-        email: "{{ Auth::user()->email }}"
-      });
-    @endauth
-  });
-
 let closeTimer;
 
 document.querySelectorAll('.nav-item').forEach(item => {
@@ -870,6 +780,78 @@ document.querySelectorAll('.nav-item').forEach(item => {
     }, 300);
   });
 });
+
+document.addEventListener('DOMContentLoaded', function() {
+
+  var btn  = document.getElementById('hamburgerBtn');
+  var menu = document.getElementById('mobileMenu');
+
+  if (!btn || !menu) return;
+
+
+  // TOGGLE HAMBURGER
+  btn.addEventListener('click', function(e) {
+    e.stopPropagation();
+
+    var isOpen = menu.classList.toggle('open');
+    btn.classList.toggle('open', isOpen);
+    document.body.style.overflow = isOpen ? 'hidden' : '';
+
+    if (isOpen) {
+      window.scrollTo({ top: 0, behavior: 'smooth' });
+    }
+  });
+
+
+  // CLICK OUTSIDE CLOSE
+  document.addEventListener('click', function(e) {
+    if (
+      menu.classList.contains('open') &&
+      !menu.contains(e.target) &&
+      !btn.contains(e.target)
+    ) {
+      closeMenu();
+    }
+  });
+
+
+  // RESIZE CLOSE
+  window.addEventListener('resize', function() {
+    if (window.innerWidth > 900) {
+      closeMenu();
+    }
+  });
+
+
+  // KHUSUS LINK YANG ADA CLASS close-menu
+  document.querySelectorAll('.close-menu').forEach(function(link) {
+    link.addEventListener('click', function() {
+      closeMenu();
+      window.scrollTo({ top: 0, behavior: 'smooth' });
+    });
+  });
+
+
+  function closeMenu() {
+    menu.classList.remove('open');
+    btn.classList.remove('open');
+    document.body.style.overflow = '';
+  }
+
+});
+
+
+// DROPDOWN
+function toggleDropdown(el) {
+  var item = el.closest('.mobile-nav-item');
+  var wasOpen = item.classList.contains('open');
+
+  document.querySelectorAll('.mobile-nav-item.open').forEach(function(i) {
+    i.classList.remove('open');
+  });
+
+  if (!wasOpen) item.classList.add('open');
+}
 
 const vidData = [
   {
