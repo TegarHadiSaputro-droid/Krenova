@@ -56,6 +56,7 @@
         <div class="messages" id="messages"></div>
     </div>
 
+
     <div class="input-wrapper">
         <div class="input-container">
             <textarea
@@ -390,6 +391,8 @@
     }
 
     loadHistory();
+
+  
 </script>
 </body>
 </html>

@@ -148,6 +148,8 @@
 
 <div class="toast" id="toast"></div>
 
+
+
 <script>
     function showToast(msg, type = 'success') {
         const toast = document.getElementById('toast');
@@ -238,6 +240,7 @@
         closeDeleteModal();
         showToast('Akun berhasil dihapus', 'error');
     }
+
 </script>
 </body>
 </html>

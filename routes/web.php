@@ -101,3 +101,14 @@ Route::post('/logout', [AuthController::class, 'logout'])->name('logout');
 Route::get('/register', [AuthController::class, 'showRegister'])->name('register');
 Route::post('/register', [AuthController::class, 'register']);
 
+Route::get('/berlangganan', function () {
+    return view('berlangganan');
+})->name('berlangganan');
+
+Route::get('/hubungi-kami', function () {
+    return view('hubungi-kami');
+});
+
+Route::get('/panduan', function () {
+    return view('panduan');
+});

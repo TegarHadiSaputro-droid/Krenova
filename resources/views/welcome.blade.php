@@ -7,7 +7,8 @@
   <link rel="stylesheet" href="{{ asset('css/style.css') }}">
 </head>
 <body>
-  <div class="page-content">
+
+<div class="page-content">
   <!-- ============================================================
        HEADER
   ============================================================ -->
@@ -33,13 +34,13 @@
         </div>
       </div>
 
-      <a href="#" class="nav-link">Fitur Kami</a>
+      <div class="nav-link" onclick="document.getElementById('fitur').scrollIntoView({behavior:'smooth'})">Fitur Kami</div>
 
       <div class="nav-item">
         <span class="nav-link">Berlangganan <span class="arrow"></span></span>
         <div class="dropdown">
           <a href="#">Promo</a>
-          <a href="#">Lihat Paket</a>
+        <a href="{{ url('/berlangganan') }}" onclick="event.stopPropagation()">Lihat Paket</a>
           <a href="#">E-Wallet</a>
           <a href="#">Invoice</a>
         </div>
@@ -48,32 +49,32 @@
       <div class="nav-item">
         <span class="nav-link">Panduan <span class="arrow"></span></span>
         <div class="dropdown">
-          <a href="#">Visi Misi</a>
-          <a href="#">Cara Mulai</a>
-          <a href="#">Video Tutorial</a>
-          <a href="#">FAQ</a>
+         <a href="/panduan">Visi Misi</a>
+         <a href="/panduan">Cara Mulai</a>
+         <a href="/panduan">Video Tutorial</a>
+         <a href="/panduan">FAQ</a>
         </div>
       </div>
 
       <div class="nav-item">
         <span class="nav-link">Hubungi Kami <span class="arrow"></span></span>
         <div class="dropdown">
-          <a href="#">WhatsApp</a>
-          <a href="#">Email Support</a>
-          <a href="#">Sosial Media Kami</a>
-          <a href="#">Kantor Kami</a>
+         <a href="/hubungi-kami">WhatsApp</a>
+         <a href="/hubungi-kami">Email Support</a>
+         <a href="/hubungi-kami">Sosial Media Kami</a>
+         <a href="/hubungi-kami">Kantor Kami</a>
         </div>
       </div>
 
       <div class="nav-divider"></div>
 
-      <div class="all-products">
-        <div class="grid-icon">
-          <span></span><span></span><span></span><span></span>
-        </div>
-        All Products
-      </div>
-    </nav>
+      <div class="all-products" onclick="document.getElementById('marketplace').scrollIntoView({behavior:'smooth'})">
+  <div class="grid-icon">
+    <span></span><span></span><span></span><span></span>
+  </div>
+  All Products
+</div>
+  </nav>
 
     <div class="header-actions">
       <a href="{{ route('login') }}" class="btn-login">Masuk</a>
@@ -152,7 +153,7 @@
     </section>
 
     <!-- ===== FITUR ===== -->
-    <section class="tuna-features" id="layanan">
+    <section class="tuna-features" id="fitur">
       <div class="tuna-container">
         <div class="tuna-section-head">
           <span class="section-tag">Layanan Kami</span>
@@ -254,7 +255,7 @@
     </section>
 
     <!-- ===== MARKETPLACE ===== -->
-    <section class="tuna-market" id="marketplace">
+    <section class="marketplace" id="marketplace">
       <div class="tuna-container">
         <div class="tuna-section-head">
           <span class="section-tag">Marketplace</span>
@@ -573,7 +574,7 @@
                     <h4>Berlangganan</h4>
                     <ul>
                         <li><a href="#"><span class="dot"></span>Promo</a></li>
-                        <li><a href="#"><span class="dot"></span>Lihat Paket</a></li>
+                        <li><a href="{{ route('berlangganan') }}"><span class="dot"></span>Lihat Paket</a></li>
                         <li><a href="#"><span class="dot"></span>E-Wallet</a></li>
                         <li><a href="#"><span class="dot"></span>Invoice</a></li>
                     </ul>
@@ -640,6 +641,7 @@
                             <path d="M12 0C5.373 0 0 5.373 0 12c0 5.084 3.163 9.426 7.627 11.174-.105-.949-.2-2.405.042-3.441.218-.937 1.407-5.965 1.407-5.965s-.359-.719-.359-1.782c0-1.668.967-2.914 2.171-2.914 1.023 0 1.518.769 1.518 1.69 0 1.029-.655 2.568-.994 3.995-.283 1.194.599 2.169 1.777 2.169 2.133 0 3.772-2.249 3.772-5.495 0-2.873-2.064-4.882-5.012-4.882-3.414 0-5.418 2.561-5.418 5.207 0 1.031.397 2.138.893 2.738a.36.36 0 01.083.345l-.333 1.36c-.053.22-.174.267-.402.161-1.499-.698-2.436-2.889-2.436-4.649 0-3.785 2.75-7.262 7.929-7.262 4.163 0 7.398 2.967 7.398 6.931 0 4.136-2.607 7.464-6.227 7.464-1.216 0-2.359-.632-2.75-1.378l-.748 2.853c-.271 1.043-1.002 2.35-1.492 3.146C9.57 23.812 10.763 24 12 24c6.627 0 12-5.373 12-12S18.627 0 12 0z"/>
                         </svg>
                     </a>
+                   
                 </div>
                 <div class="f-copy">
                     © 2025 <span class="cn">TU</span><span class="ct">NA</span> · All Rights Reserved
@@ -763,5 +765,6 @@ document.addEventListener('keydown', function(e) {
   if (e.key === 'Escape') closeVidModal();
 });
 </script>
+
 </body>
 </html>

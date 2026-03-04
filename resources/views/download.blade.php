@@ -7,5 +7,6 @@
     <h1>Halaman Download Aplikasi</h1>
     <p>Link download akan tersedia segera!</p>
     <a href="{{ url('/') }}">← Kembali ke Beranda</a>
+</script>
 </body>
 </html>

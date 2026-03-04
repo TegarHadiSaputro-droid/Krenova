@@ -65,23 +65,6 @@
     <div class="dropdown-footer">Transforming User Needs into Access</div>
 </div>
 
-<script>
-    function toggleDropdown() {
-        document.getElementById('profileDropdown').classList.toggle('open');
-    }
-
-    document.addEventListener('click', function(e) {
-        const wrap = document.getElementById('profileWrap');
-        if (wrap && !wrap.contains(e.target)) {
-            document.getElementById('profileDropdown').classList.remove('open');
-        }
-    });
-
-    function handleLogout() {
-        if (confirm('Yakin mau keluar?')) {
-            alert('Logout berhasil!');
-        }
-    }
 </script>
 </body>
 </html>

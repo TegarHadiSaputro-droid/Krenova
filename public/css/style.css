@@ -15,6 +15,9 @@
   display: none;
 }
 
+html {
+  scroll-behavior: smooth;
+}
 
 /* ── Body ── */
 body {
@@ -780,6 +783,13 @@ a.btn-login {
 /* ============================================================
    MARKETPLACE SECTION
    ============================================================ */
+
+   .marketplace {
+  padding-bottom: 80px;
+  overflow: visible;
+  padding-top: 80px;
+}
+
 .tuna-market {
   padding: 96px 0;
   background: #fff;
@@ -842,6 +852,10 @@ a.btn-login {
   justify-content: center;
   background-size: cover; 
   background-position: center;
+}
+
+.marketplace .tuna-container {
+  overflow: visible;
 }
 
 .market-card__img-placeholder {
@@ -1440,6 +1454,7 @@ a.btn-login {
         object-fit: cover;
         color: #ffffff;
 }
+
 
 /* ============================================================
    RESPONSIVE
