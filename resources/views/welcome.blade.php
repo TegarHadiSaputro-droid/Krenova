@@ -93,9 +93,79 @@
 
   <!-- Tampil kalau SUDAH login -->
   <div id="user-actions" style="display: none; align-items: center; gap: 10px;">
+    <form id="logout-form" action="{{ route('logout') }}" method="POST" style="display:none;">
+    @csrf
+    </form>
     <a href="{{ route('download') }}" style="text-decoration: none;">
       <button class="btn-cta">Coba Gratis</button>
     </a>
+
+    <!-- Profile Dropdown -->
+<div class="profile-dropdown-wrap" id="profileWrap">
+    <button class="profile-trigger" onclick="toggleDropdown()">
+        <div class="profile-trigger-avatar" id="triggerAvatar">R</div>
+    </button>
+
+    <div class="profile-dropdown" id="profileDropdown">
+
+    <!-- Header - klik untuk ke halaman profile -->
+    <a href="/account" style="text-decoration:none;display:block;">
+        <div class="dropdown-header" style="cursor:pointer;">
+            <div class="dropdown-avatar" id="dropdownAvatar">R</div>
+            <div class="dropdown-user-info">
+                <div class="dropdown-name" id="dropdownName">Revan Putra</div>
+                <div class="dropdown-email" id="dropdownEmail">revan@email.com</div>
+                <span class="dropdown-badge">🟢 Akun Aktif</span>
+            </div>
+        </div>
+    </a>
+
+    <div class="dropdown-divider"></div>
+
+    <!-- Menu -->
+    <div class="dropdown-section-label">Menu</div>
+    <a href="/settings" class="dropdown-item">
+        <span class="dropdown-icon"></span>
+        <span class="dropdown-item-label">Pengaturan</span>
+    </a>
+    <a href="/notifications" class="dropdown-item">
+        <span class="dropdown-icon"></span>
+        <span class="dropdown-item-label">Notifikasi</span>
+        <span class="dropdown-item-badge" style="background:#ef4444;">3</span>
+    </a>
+    <a href="/privacy-security" class="dropdown-item">
+        <span class="dropdown-icon"></span>
+        <span class="dropdown-item-label">Privasi & Keamanan</span>
+    </a>
+    <a href="/about" class="dropdown-item">
+        <span class="dropdown-icon"></span>
+        <span class="dropdown-item-label">Tentang Aplikasi</span>
+    </a>
+    <a href="/help" class="dropdown-item">
+        <span class="dropdown-icon"></span>
+        <span class="dropdown-item-label">Bantuan</span>
+    </a>
+
+    <div class="dropdown-divider"></div>
+
+    <button class="dropdown-item dropdown-logout" onclick="handleLogout()">
+        <span class="dropdown-icon"></span>
+        <span class="dropdown-item-label">Keluar</span>
+    </button>
+
+    <div class="dropdown-footer">Transforming User Needs into Access</div>
+</div>
+
+<div class="logout-overlay" id="logoutOverlay">
+    <div class="logout-modal">
+        <div class="logout-title">Yakin ingin keluar?</div>
+        <div class="logout-desc">Kamu akan keluar dari akun. Perubahan yang kamu lakukan di akun ini akan tetap tersimpan</div>
+        <div class="logout-actions">
+            <button class="logout-btn logout-btn-cancel" onclick="closeLogoutModal()">Batal</button>
+            <button class="logout-btn logout-btn-confirm" onclick="confirmLogout()">Ya, Keluar</button>
+        </div>
+    </div>
+</div>  
   </header>
 
   <!-- ============================================================
@@ -687,6 +757,103 @@
 window.addEventListener('beforeunload', function() {
   window.scrollTo(0, 0);
 });
+
+  // ============================================================
+  // PROFILE DROPDOWN & USER AUTH
+  // ============================================================
+  
+  function toggleDropdown() {
+    const dropdown = document.getElementById('profileDropdown');
+    if (dropdown) {
+      dropdown.classList.toggle('open');
+    }
+  }
+
+  document.addEventListener('click', function(e) {
+    const wrap = document.getElementById('profileWrap');
+    if (wrap && !wrap.contains(e.target)) {
+      const dropdown = document.getElementById('profileDropdown');
+      if (dropdown) {
+        dropdown.classList.remove('open');
+      }
+    }
+  }); 
+
+  function handleLogout() {
+    const dropdown = document.getElementById('profileDropdown');
+    if (dropdown) {
+      dropdown.classList.remove('open');
+    }
+    const overlay = document.getElementById('logoutOverlay');
+    if (overlay) {
+      overlay.classList.add('open');
+    }
+  }
+
+  function closeLogoutModal() {
+    const overlay = document.getElementById('logoutOverlay');
+    if (overlay) {
+      overlay.classList.remove('open');
+    }
+  }
+
+  function confirmLogout() {
+    const form = document.getElementById('logout-form');
+    if (form) {
+      form.submit();
+    }
+  }
+
+  const logoutOverlay = document.getElementById('logoutOverlay');
+  if (logoutOverlay) {
+    logoutOverlay.addEventListener('click', function(e) {
+      if (e.target === this) closeLogoutModal();
+    });
+  }
+
+  function getInitials(text) {
+    if (!text) return 'U';
+    
+    const words = text.trim().split(' ');
+    if (words.length >= 2) {
+      return (words[0][0] + words[1][0]).toUpperCase();
+    }
+    
+    if (text.includes('@')) {
+      return text.split('@')[0][0].toUpperCase();
+    }
+    
+    return text[0].toUpperCase();
+  }
+
+  function updateUserProfile(userData) {
+    const initial = getInitials(userData.name || userData.email);
+    
+    const triggerAvatar = document.getElementById('triggerAvatar');
+    const dropdownAvatar = document.getElementById('dropdownAvatar');
+    const dropdownName = document.getElementById('dropdownName');
+    const dropdownEmail = document.getElementById('dropdownEmail');
+    
+    if (triggerAvatar) triggerAvatar.textContent = initial;
+    if (dropdownAvatar) dropdownAvatar.textContent = initial;
+    if (dropdownName) dropdownName.textContent = userData.name || 'User';
+    if (dropdownEmail) dropdownEmail.textContent = userData.email;
+    
+    const guestActions = document.getElementById('guest-actions');
+    const userActions = document.getElementById('user-actions');
+    if (guestActions) guestActions.style.display = 'none';
+    if (userActions) userActions.style.display = 'flex';
+  }
+
+  // ✨ CEK LOGIN STATUS SAAT PAGE LOAD
+  window.addEventListener('load', function() {
+    @auth
+      updateUserProfile({
+        name: "{{ Auth::user()->name }}",
+        email: "{{ Auth::user()->email }}"
+      });
+    @endauth
+  });
 
 let closeTimer;
 

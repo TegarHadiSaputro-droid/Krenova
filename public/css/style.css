@@ -131,7 +131,7 @@ body {
   gap: 32px;
   position: sticky;
   top: 0;
-  z-index: 100;
+  z-index: 9999;
   box-shadow: 0 2px 8px rgba(0,0,0,0.06);
 }
 
@@ -313,6 +313,8 @@ body {
   display: flex;
   align-items: center;
   gap: 10px;
+  position: relative;
+  z-index: 10000;
 }
 
 .btn-login {
@@ -1194,8 +1196,6 @@ a.btn-login {
   transform: translateY(0);
 }
 
-
-
 .vid-modal-play {
   position: absolute;
   top: 0;
@@ -1485,10 +1485,8 @@ a.btn-login {
 
 /* ===== PROFILE DROPDOWN ===== */
         .profile-dropdown-wrap {
-            position: fixed;
-            top: 16px;
-            right: 16px;
-            z-index: 999;
+            position: relative;
+            z-index: 10000;
         }
 
         .profile-trigger {
@@ -1693,6 +1691,8 @@ a.btn-login {
 
         .logout-overlay.open {
             display: flex;
+            align-items: center;
+            justify-content: center;
         }
 
         .logout-modal {

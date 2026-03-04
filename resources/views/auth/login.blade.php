@@ -38,12 +38,12 @@
 
     <div class="form-group">
       <label>Email</label>
-      <input type="email" placeholder="email@example.com">
+      <input type="email" name="email" placeholder="email@example.com">
     </div>
 
     <div class="form-group">
       <label>Password</label>
-      <input type="password" placeholder="••••••••">
+      <input type="password" name="password" placeholder="••••••••">
     </div>
 
     <div class="forgot"><a href="#">Lupa password?</a></div>

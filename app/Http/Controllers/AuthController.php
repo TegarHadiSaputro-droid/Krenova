@@ -57,12 +57,13 @@ class AuthController extends Controller
             'password' => 'required|min:6|confirmed',
         ]);
 
-        User::create([
+        $user= User::create([
             'name' => $request->name,
             'email' => $request->email,
             'password' => Hash::make($request->password),
         ]);
 
-        return redirect('/login')->with('success', 'Akun berhasil dibuat, silakan login!');
+        Auth::login($user);
+        return redirect('/')->with('success', 'Akun berhasil dibuat, silakan login!');
     }
 }
