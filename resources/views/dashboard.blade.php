@@ -12,7 +12,7 @@
 <!-- Profile Dropdown -->
 <div class="profile-dropdown-wrap" id="profileWrap">
     <button class="profile-trigger" onclick="toggleDropdown()">
-        <div class="profile-trigger-avatar" id="triggerAvatar">R</div>
+        <div class="profile-trigger-avatar" id="triggerAvatar">{{ getInitials(Auth::user()->name) }}</div>
     </button>
 
     <div class="profile-dropdown" id="profileDropdown">
@@ -20,10 +20,10 @@
     <!-- Header - klik untuk ke halaman profile -->
     <a href="/account" style="text-decoration:none;display:block;">
         <div class="dropdown-header" style="cursor:pointer;">
-            <div class="dropdown-avatar" id="dropdownAvatar">R</div>
+            <div class="dropdown-avatar" id="dropdownAvatar">{{ getInitials(Auth::user()->name) }}</div>
             <div class="dropdown-user-info">
-                <div class="dropdown-name" id="dropdownName">Revan Putra</div>
-                <div class="dropdown-email" id="dropdownEmail">revan@email.com</div>
+                <div class="dropdown-name" id="dropdownName">{{ Auth::user()->name }}</div>
+                <div class="dropdown-email" id="dropdownEmail">{{ Auth::user()->email }}</div>
                 <span class="dropdown-badge">🟢 Akun Aktif</span>
             </div>
         </div>

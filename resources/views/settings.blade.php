@@ -156,13 +156,13 @@
     <div class="col col-wide">
         <div class="section-label">👤 Info Akun</div>
         <div class="card card-account">
-            <div class="account-avatar">R</div>
+            <div class="account-avatar">{{ getInitials(Auth::user()->name) }}</div>
             <div class="account-info">
-                <div class="account-name">Revan Putra</div>
-                <div class="account-email">revan@email.com</div>
+                    <div class="account-name">{{ Auth::user()->name }}</div>
+                    <div class="account-email">{{ Auth::user()->email }}</div>
                 <span class="account-badge">🟢Gratis</span>
             </div>
-            <a href="/profile" class="btn-edit">Edit Profil →</a>
+            <a href="{{ route('account') }}" class="btn-edit">Edit Profil →</a>
         </div>
     </div>
 </div>
@@ -174,7 +174,7 @@
         btn.classList.toggle('on');
         showToast(btn.classList.contains('on') ? 'Diaktifkan' : 'Dinonaktifkan');
     }
-    function clearCache() { showToast('Cache berhasil dihapus ✓'); }
+    function clearCache() { showToast('Cache berhasil dihapus'); }
     function showToast(msg) {
         const t = document.getElementById('toast');
         t.textContent = msg; t.classList.add('show');

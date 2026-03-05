@@ -103,18 +103,18 @@
     <!-- Profile Dropdown -->
 <div class="profile-dropdown-wrap" id="profileWrap">
     <button class="profile-trigger" onclick="toggleDropdown()">
-        <div class="profile-trigger-avatar" id="triggerAvatar">R</div>
+        <div class="profile-trigger-avatar" id="triggerAvatar">{{ getInitials(Auth::user()->name ?? 'User') }}</div>
     </button>
 
     <div class="profile-dropdown" id="profileDropdown">
 
     <!-- Header - klik untuk ke halaman profile -->
-    <a href="/account" style="text-decoration:none;display:block;">
+    <a href="{{ route('account') }}" style="text-decoration:none;display:block;">
         <div class="dropdown-header" style="cursor:pointer;">
-            <div class="dropdown-avatar" id="dropdownAvatar">R</div>
+            <div class="dropdown-avatar" id="dropdownAvatar">{{ getInitials(Auth::user()->name ?? 'User') }}</div>
             <div class="dropdown-user-info">
-                <div class="dropdown-name" id="dropdownName">Revan Putra</div>
-                <div class="dropdown-email" id="dropdownEmail">revan@email.com</div>
+                <div class="dropdown-name" id="dropdownName">{{ Auth::user()->name }}</div>
+                <div class="dropdown-email" id="dropdownEmail">{{ Auth::user()->email }}</div>
                 <span class="dropdown-badge">🟢 Akun Aktif</span>
             </div>
         </div>
@@ -155,17 +155,6 @@
 
     <div class="dropdown-footer">Transforming User Needs into Access</div>
 </div>
-
-<div class="logout-overlay" id="logoutOverlay">
-    <div class="logout-modal">
-        <div class="logout-title">Yakin ingin keluar?</div>
-        <div class="logout-desc">Kamu akan keluar dari akun. Perubahan yang kamu lakukan di akun ini akan tetap tersimpan</div>
-        <div class="logout-actions">
-            <button class="logout-btn logout-btn-cancel" onclick="closeLogoutModal()">Batal</button>
-            <button class="logout-btn logout-btn-confirm" onclick="confirmLogout()">Ya, Keluar</button>
-        </div>
-    </div>
-</div>  
   </header>
 
   <!-- ============================================================
@@ -737,6 +726,19 @@
     <a href="/chat" id="trixie-fab">
     <img src="{{ asset('tunawoi.png') }}" alt="Trixie AI">
     </a>
+<div class="logout-overlay" id="logoutOverlay">
+    <div class="logout-modal">
+        <div class="logout-title">Yakin ingin keluar?</div>
+        <div class="logout-desc">Kamu akan keluar dari akun. Perubahan yang kamu lakukan di akun ini akan tetap tersimpan</div>
+        <div class="logout-actions">
+            <button class="logout-btn logout-btn-cancel" onclick="closeLogoutModal()">Batal</button>
+            <button class="logout-btn logout-btn-confirm" onclick="confirmLogout()">Ya, Keluar</button>
+        </div>
+    </div>
+</div>  
+<form id="logout-form" action="{{ route('logout') }}" method="POST" style="display: none;">
+  @csrf
+</form>
 <script>
 (function() {
   window.scrollTo(0, 0);
@@ -816,15 +818,11 @@ window.addEventListener('beforeunload', function() {
     
     const words = text.trim().split(' ');
     if (words.length >= 2) {
-      return (words[0][0] + words[1][0]).toUpperCase();
-    }
-    
-    if (text.includes('@')) {
-      return text.split('@')[0][0].toUpperCase();
+        return (words[0][0] + words[1][0]).toUpperCase();
     }
     
     return text[0].toUpperCase();
-  }
+}
 
   function updateUserProfile(userData) {
     const initial = getInitials(userData.name || userData.email);
@@ -853,8 +851,12 @@ window.addEventListener('beforeunload', function() {
         email: "{{ Auth::user()->email }}"
       });
     @endauth
-  });
 
+    @if(session('success'))
+      showToast("{{ session('success') }}");
+    @endif
+  });
+  
 let closeTimer;
 
 document.querySelectorAll('.nav-item').forEach(item => {

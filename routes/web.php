@@ -64,9 +64,9 @@ Route::middleware('auth')->group(function () {
     Route::get('/about', [DashboardController::class, 'about'])->name('dashboard.about');
     Route::get('/help', [DashboardController::class, 'help'])->name('dashboard.help');
     
-    Route::get('/profile', [ProfileController::class, 'edit'])->name('profile.edit');
-    Route::patch('/profile', [ProfileController::class, 'update'])->name('profile.update');
-    Route::delete('/profile', [ProfileController::class, 'destroy'])->name('profile.destroy');
+    Route::patch('/account/update', [AuthController::class, 'updateProfile'])->name('account.update');
+    Route::delete('/account', [ProfileController::class, 'destroy'])->name('account.destroy');
+    Route::post('/account/update', [AuthController::class, 'updateProfile'])->name('account.update');
     
     // ============================================================
     // CHAT AI ROUTES (Harus login)

@@ -66,4 +66,21 @@ class AuthController extends Controller
         Auth::login($user);
         return redirect('/')->with('success', 'Akun berhasil dibuat, silakan login!');
     }
+
+    public function updateProfile(Request $request)
+{
+    $request->validate([
+        'first_name' => 'required|string|max:255',
+        'email' => 'required|email|unique:users,email,' . Auth::id(),
+    ]);
+
+    $name = trim($request->first_name . ' ' . $request->last_name);
+
+    Auth::user()->update([
+        'name' => $name,
+        'email' => $request->email,
+    ]);
+
+    return back()->with('success', 'Profil berhasil diperbarui');
+}
 }
