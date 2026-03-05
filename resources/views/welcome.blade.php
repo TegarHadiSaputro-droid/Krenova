@@ -35,7 +35,7 @@
         <div class="dropdown">
           <a href="#">Call & Chat</a>
           <a href="#">AI Trixie</a>
-          <a href="#">Marketplace</a>
+          <a href="#marketplace" class="close-menu">Marketplace</a>
           <a href="#">Konsultasi</a>
         </div>
       </div>
@@ -90,15 +90,13 @@
         <button class="btn-cta">Coba Gratis</button>
       </a>
     </div>
-
   <!-- Tampil kalau SUDAH login -->
   <div id="user-actions" style="display: none; align-items: center; gap: 10px;">
-    <form id="logout-form" action="{{ route('logout') }}" method="POST" style="display:none;">
-    @csrf
-    </form>
     <a href="{{ route('download') }}" style="text-decoration: none;">
       <button class="btn-cta">Coba Gratis</button>
     </a>
+   </div>
+ </div>
 
     <!-- Profile Dropdown -->
 <div class="profile-dropdown-wrap" id="profileWrap">
@@ -155,7 +153,82 @@
 
     <div class="dropdown-footer">Transforming User Needs into Access</div>
 </div>
+   <button class="hamburger-btn" id="hamburgerBtn" aria-label="Toggle menu">
+    <span></span>
+    <span></span>
+    <span></span>
+  </button>
+
   </header>
+
+  <div class="mobile-menu" id="mobileMenu">
+    <div class="mobile-menu-inner">
+
+      <div class="mobile-nav-item">
+        <a href="/" class="mobile-nav-link">Beranda</a>
+      </div>
+
+      <div class="mobile-nav-item">
+        <div class="mobile-nav-link" onclick="toggleDropdown(this)">
+          Layanan <span class="mobile-arrow">▾</span>
+        </div>
+        <div class="mobile-dropdown">
+          <a href="#">Call & Chat</a>
+          <a href="#">AI Trixie</a>
+          <a href="#marketplace" class="close-menu">Marketplace</a>
+          <a href="#">Konsultasi</a>
+        </div>
+      </div>
+
+      <div class="mobile-nav-item">
+        <a href="#fitur" class="mobile-nav-link close-menu">Fitur Kami</a>
+      </div>
+
+      <div class="mobile-nav-item">
+        <div class="mobile-nav-link" onclick="toggleDropdown(this)">
+          Berlangganan <span class="mobile-arrow">▾</span>
+        </div>
+        <div class="mobile-dropdown">
+          <a href="#">Promo</a>
+          <a href="{{ url('/berlangganan') }}" onclick="event.stopPropagation()">Lihat Paket</a>
+          <a href="#">E-Wallet</a>
+          <a href="#">Invoice</a>
+        </div>
+      </div>
+
+      <div class="mobile-nav-item">
+        <div class="mobile-nav-link" onclick="toggleDropdown(this)">
+          Panduan <span class="mobile-arrow">▾</span>
+        </div>
+        <div class="mobile-dropdown">
+        <a href="/panduan#visi-misi">Visi Misi</a>
+        <a href="/panduan#cara-mulai">Cara Mulai</a>
+        <a href="/panduan#video-tutorial">Video Tutorial</a>
+        <a href="/panduan#faq">FAQ</a>
+        </div>
+      </div>
+
+      <div class="mobile-nav-item">
+        <div class="mobile-nav-link" onclick="toggleDropdown(this)">
+          Hubungi Kami <span class="mobile-arrow">▾</span>
+        </div>
+        <div class="mobile-dropdown">
+        <a href="/hubungi-kami#whatsapp">WhatsApp</a>
+        <a href="/hubungi-kami#email">Email Support</a>
+        <a href="/hubungi-kami#sosial-media">Sosial Media Kami</a>
+        <a href="/hubungi-kami#kantor">Kantor Kami</a>
+        </div>
+      </div>
+
+    </div>
+
+    <div class="mobile-menu-actions">
+      <a href="/login" class="btn-login">Masuk</a>
+      <a href="/download" style="text-decoration:none; flex:1; display:flex;">
+        <button class="btn-cta" style="width:100%; justify-content:center;">Coba Gratis</button>
+      </a>
+    </div>
+  </div>
 
   <!-- ============================================================
        MAIN
@@ -172,7 +245,7 @@
           <div class="tuna-hero__text">
             <span class="tuna-hero__label">Tentang Kami</span>
             <h1>Platform yang <br><em>menghadirkan</em> akses setara <strong> untuk semua</strong></h1>
-            <p>TUNA — <b>Transforming User Needs into Access</b> — TUNA adalah platform digital inklusif yang dibuat untuk membantu teman-teman disabilitas supaya bisa lebih mudah mengakses layanan, informasi, dan berbagai peluang tanpa merasa terhambat.</p>
+            <p>TUNA — <b>Transforming User Needs into Access</b> — TUNA adalah platform digital inklusif yang dibuat untuk membantu teman-teman disabilitas agar lebih mudah mengakses layanan, informasi, dan berbagai peluang tanpa merasa terhambat.</p>
             <div class="tuna-hero__stats">
               <div class="stat">
                 <span class="stat-num">11k+</span>
@@ -716,9 +789,6 @@
                     </a>
                    
                 </div>
-                <div class="f-copy">
-                    © 2025 <span class="cn">TU</span><span class="ct">NA</span> · All Rights Reserved
-                </div>
             </div>
         </div>
     </footer>
@@ -872,6 +942,78 @@ document.querySelectorAll('.nav-item').forEach(item => {
     }, 300);
   });
 });
+
+document.addEventListener('DOMContentLoaded', function() {
+
+  var btn  = document.getElementById('hamburgerBtn');
+  var menu = document.getElementById('mobileMenu');
+
+  if (!btn || !menu) return;
+
+
+  // TOGGLE HAMBURGER
+  btn.addEventListener('click', function(e) {
+    e.stopPropagation();
+
+    var isOpen = menu.classList.toggle('open');
+    btn.classList.toggle('open', isOpen);
+    document.body.style.overflow = isOpen ? 'hidden' : '';
+
+    if (isOpen) {
+      window.scrollTo({ top: 0, behavior: 'smooth' });
+    }
+  });
+
+
+  // CLICK OUTSIDE CLOSE
+  document.addEventListener('click', function(e) {
+    if (
+      menu.classList.contains('open') &&
+      !menu.contains(e.target) &&
+      !btn.contains(e.target)
+    ) {
+      closeMenu();
+    }
+  });
+
+
+  // RESIZE CLOSE
+  window.addEventListener('resize', function() {
+    if (window.innerWidth > 900) {
+      closeMenu();
+    }
+  });
+
+
+  // KHUSUS LINK YANG ADA CLASS close-menu
+  document.querySelectorAll('.close-menu').forEach(function(link) {
+    link.addEventListener('click', function() {
+      closeMenu();
+      window.scrollTo({ top: 0, behavior: 'smooth' });
+    });
+  });
+
+
+  function closeMenu() {
+    menu.classList.remove('open');
+    btn.classList.remove('open');
+    document.body.style.overflow = '';
+  }
+
+});
+
+
+// DROPDOWN
+function toggleDropdown(el) {
+  var item = el.closest('.mobile-nav-item');
+  var wasOpen = item.classList.contains('open');
+
+  document.querySelectorAll('.mobile-nav-item.open').forEach(function(i) {
+    i.classList.remove('open');
+  });
+
+  if (!wasOpen) item.classList.add('open');
+}
 
 const vidData = [
   {

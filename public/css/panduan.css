@@ -128,7 +128,7 @@
     }
     .vm-card:hover { transform:translateY(-4px); box-shadow:0 16px 40px rgba(0,0,0,0.1); }
 
-    .vm-card--visi { background:linear-gradient(135deg, #0040c8, #0078ff); color:#fff; }
+    .vm-card--visi {background: linear-gradient(135deg, #0040c8 0%, #0078ff 45%, #00c6ff 100%);}
     .vm-card--misi { background:#f8faff; border:1.5px solid #e8eef8; }
 
     .vm-card__icon { font-size:2.4rem; margin-bottom:16px; display:block; }

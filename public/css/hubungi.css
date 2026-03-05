@@ -167,7 +167,7 @@
     .hk-card:hover { border-color: #0078ff; box-shadow: 0 24px 56px rgba(0,120,255,0.15); transform: translateY(-6px); }
 
     .hk-card--accent {
-      background: linear-gradient(150deg, #0040c8 0%, #0078ff 55%, #00b4e6 100%);
+      background: linear-gradient(135deg, #0040c8 0%, #0078ff 45%, #00c6ff 100%);
       border-color: transparent;
     }
     .hk-card--accent::before { display: none; }
