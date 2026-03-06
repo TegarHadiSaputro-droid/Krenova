@@ -294,6 +294,14 @@ body { font-family: 'Plus Jakarta Sans', sans-serif; background: #f1f5f9; min-he
 
 .btn-edit:hover { opacity: .85; }
 
+body.dark-mode { background: #0f172a !important; color: #e2e8f0 !important; }
+body.dark-mode .main-header { background: #1e293b !important; }
+body.dark-mode .feature-card { background: #1e293b !important; border-color: #334155 !important; color: #e2e8f0 !important; }
+body.dark-mode .feature-card__body p { color: #94a3b8 !important; }
+body.dark-mode footer, body.dark-mode .f-strip, body.dark-mode .f-links, body.dark-mode .f-bottom { background: #1e293b !important; color: #94a3b8 !important; }
+body.high-contrast { filter: contrast(150%); }
+body.reduce-motion * { animation: none !important; transition: none !important; }
+
 @media (max-width: 900px) {
     .grid-bottom { grid-template-columns: 1fr; }
 }

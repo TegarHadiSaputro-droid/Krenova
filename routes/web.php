@@ -4,6 +4,7 @@ use App\Http\Controllers\ProfileController;
 use App\Http\Controllers\ChatController;
 use App\Http\Controllers\AuthController;
 use App\Http\Controllers\DashboardController;
+use App\Http\Controllers\SettingsController;
 use Illuminate\Support\Facades\Route;
 
 // ============================================================
@@ -58,7 +59,8 @@ Route::middleware('auth')->group(function () {
         return view('account');
     })->name('account');
     
-    Route::get('/settings', [DashboardController::class, 'settings'])->name('dashboard.settings');
+    Route::get('/settings', [SettingsController::class, 'index'])->name('dashboard.settings');
+    Route::post('/settings/update', [SettingsController::class, 'update'])->name('settings.update');
     Route::get('/notifications', [DashboardController::class, 'notifications'])->name('dashboard.notifications');
     Route::get('/privacy-security', [DashboardController::class, 'privacySecurity'])->name('dashboard.privacy-security');
     Route::get('/about', [DashboardController::class, 'about'])->name('dashboard.about');

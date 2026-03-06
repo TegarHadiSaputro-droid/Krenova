@@ -246,5 +246,6 @@
         }
 
     </script>
+    @include('partials.apply-settings')
     </body>
     </html>

@@ -47,4 +47,9 @@ class User extends Authenticatable
             'password' => 'hashed',
         ];
     }
+
+    public function setting()
+{
+    return $this->hasOne(\App\Models\UserSetting::class);
+}
 }

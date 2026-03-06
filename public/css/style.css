@@ -291,10 +291,12 @@ body {
 /* Header Actions */
 .header-actions {
   display: flex;
-  align-items: center;
-  gap: 10px;
+  flex-direction: row !important;
+  align-items: center !important;
+  gap: 10px !important;
+  margin-left: auto !important;
   position: relative;
-  z-index: 10000;
+  z-index: 10001;
 }
 
 .btn-login {
@@ -340,9 +342,8 @@ a.btn-login {
   transform: translateY(-1px);
 }
 
-/* ===== HAMBURGER - TAMBAH DI PALING BAWAH style.css ===== */
 .hamburger-btn {
-  display: none;
+  display: flex !important;
   flex-direction: column;
   justify-content: center;
   align-items: center;
@@ -356,6 +357,7 @@ a.btn-login {
   border-radius: 8px;
   transition: background .2s, transform .2s;
   flex-shrink: 0;
+  z-index: 1;
 }
 .hamburger-btn:hover { 
   background: #f0f6ff; 
@@ -1327,46 +1329,58 @@ a.btn-login {
 }
 
 /* ============================================================
-   MODAL
+   MODAL VIDEO
    ============================================================ */
 .vid-modal-overlay {
   position: fixed;
-  inset: 0;
-  background: rgba(0,0,0,0.6);
-  backdrop-filter: blur(4px);
-  z-index: 9998;
-  display: flex;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(0,0,0,0.85);
+  backdrop-filter: blur(8px);
+  -webkit-backdrop-filter: blur(8px);
+  z-index: 999999; /* ✅ Sangat tinggi supaya di atas semua */
+  display: none; /* ✅ Default hidden */
   align-items: center;
   justify-content: center;
-  opacity: 0;
-  visibility: hidden;
-  transition: opacity 0.25s, visibility 0.25s;
+  padding: 20px;
+  overflow-y: auto;
+  animation: fadeIn 0.25s ease;
 }
 
 .vid-modal-overlay.active {
-  opacity: 1;
-  visibility: visible;
+  display: flex; /* ✅ Show saat active */
+}
+
+@keyframes fadeIn {
+  from { opacity: 0; }
+  to { opacity: 1; }
 }
 
 .vid-modal {
   background: #fff;
   border-radius: 20px;
   width: 90%;
-  max-width: 520px;
+  max-width: 700px;
+  max-height: 90vh;
   overflow: hidden;
-  box-shadow: 0 24px 64px rgba(0,0,0,0.25);
-  transform: translateY(20px);
-  transition: transform 0.25s;
+  box-shadow: 0 24px 64px rgba(0,0,0,0.5);
+  position: relative;
+  animation: modalSlideUp 0.3s cubic-bezier(0.34, 1.56, 0.64, 1);
 }
 
-.vid-modal-overlay.active .vid-modal {
-  transform: translateY(0);
-}
-
-.vid-modal-play {
-  position: absolute;
-  top: 0;
-  left: 0;
+@keyframes modalSlideUp {
+  from { 
+    opacity: 0; 
+    transform: translateY(30px) scale(0.95); 
+  }
+  to { 
+    opacity: 1; 
+    transform: translateY(0) scale(1); 
+  }
 }
 
 .vid-modal-thumb {
@@ -1380,48 +1394,54 @@ a.btn-login {
 }
 
 .vid-modal-play {
-  width: 64px;
-  height: 64px;
-  background: rgba(255,255,255,0.25);
-  border-radius: 50%;
+  width: 100%;
+  height: 100%;
   display: flex;
   align-items: center;
   justify-content: center;
-  border: 2px solid rgba(255,255,255,0.5);
+  position: relative;
 }
 
-.vid-modal-play svg {
-  width: 32px;
-  height: 32px;
-  color: #fff;
+.vid-modal-play iframe {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  border: none;
 }
 
 .vid-modal-close {
   position: absolute;
   top: 14px;
   right: 14px;
-  width: 32px;
-  height: 32px;
+  width: 36px;
+  height: 36px;
   border-radius: 50%;
-  background: rgba(0,0,0,0.3);
+  background: rgba(0,0,0,0.5);
   border: none;
   color: #fff;
-  font-size: 0.85rem;
+  font-size: 1rem;
   cursor: pointer;
   display: flex;
   align-items: center;
   justify-content: center;
-  z-index: 1;
-  transition: background 0.2s;
+  z-index: 10;
+  transition: background 0.2s, transform 0.2s;
 }
 
-.vid-modal-close:hover { background: rgba(0,0,0,0.5); }
+.vid-modal-close:hover { 
+  background: rgba(0,0,0,0.75);
+  transform: scale(1.1);
+}
 
 .vid-modal-body {
   padding: 24px;
   display: flex;
   flex-direction: column;
-  gap: 8px;
+  gap: 10px;
+  max-height: 40vh;
+  overflow-y: auto;
 }
 
 .vid-modal-tag {
@@ -1432,26 +1452,28 @@ a.btn-login {
   font-weight: 700;
   letter-spacing: 1px;
   text-transform: uppercase;
-  padding: 3px 10px;
+  padding: 4px 12px;
   border-radius: 20px;
   align-self: flex-start;
 }
 
 .vid-modal-body h3 {
-  font-size: 1.1rem;
+  font-size: 1.15rem;
   font-weight: 800;
   color: #0d1b2a;
   line-height: 1.4;
+  margin: 0;
 }
 
 .vid-modal-body p {
-  font-size: 0.88rem;
+  font-size: 0.9rem;
   color: #64748b;
   line-height: 1.6;
+  margin: 0;
 }
 
 .vid-modal-meta {
-  font-size: 0.8rem;
+  font-size: 0.82rem;
   color: #94a3b8;
   font-weight: 600;
 }
@@ -1652,7 +1674,8 @@ a.btn-login {
 /* ===== PROFILE DROPDOWN ===== */
         .profile-dropdown-wrap {
             position: relative;
-            z-index: 10000;
+            display: inline-flex;
+            z-index: 10002;
         }
 
         .profile-trigger {
@@ -1957,9 +1980,75 @@ a.btn-login {
             text-align: center;
         }
 
+  body.dark-mode { background: #0f172a !important; color: #e2e8f0 !important; }
+  body.dark-mode .main-header { background: #1e293b !important; }
+  body.dark-mode .feature-card { background: #1e293b !important; border-color: #334155 !important; color: #e2e8f0 !important; }
+  body.dark-mode .feature-card__body p { color: #94a3b8 !important; }
+  body.dark-mode footer, body.dark-mode .f-strip, body.dark-mode .f-links, body.dark-mode .f-bottom { background: #1e293b !important; color: #94a3b8 !important; }
+  body.high-contrast { filter: contrast(150%); }
+  body.reduce-motion * { animation: none !important; transition: none !important; }
+
 /* ============================================================
    RESPONSIVE
    ============================================================ */
+
+@media (min-width: 901px) {
+  .header-actions {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: flex-end;
+    gap: 12px;
+  }
+  
+  .profile-dropdown-wrap {
+    order: 2; /* Avatar urutan ke-2 */
+  }
+  
+  .header-actions .btn-cta {
+    order: 1; /* Tombol Coba Gratis urutan ke-1 */
+  }
+  
+  .hamburger-btn {
+    display: none !important; /* Hide hamburger di desktop */
+  }
+}
+
+@media (max-width: 900px) {
+  .header-actions {
+    display: flex;
+    gap: 10px;
+  }
+  
+  .profile-dropdown-wrap {
+    order: 2;
+  }
+  
+  .hamburger-btn {
+    order: 3;
+    display: flex !important;
+  }
+}
+
+@media (max-width: 900px) {
+  .hamburger-btn {
+    display: flex !important;
+    flex-direction: column;
+  }
+
+  .header-actions a[href*="download"] {
+    order: 1;
+  }
+  
+  .profile-dropdown-wrap {
+    order: 2;
+  }
+  
+  .hamburger-btn {
+    order: 3;
+  }
+}
+
 @media (max-width: 1024px) {
   .tuna-features__grid { grid-template-columns: repeat(2, 1fr); }
 }
@@ -1975,8 +2064,29 @@ a.btn-login {
   .topbar { padding: 0 16px; }
   .main-nav { display: none !important; }
   .all-products { display: none !important; }
-  .header-actions { display: none !important; }
-  .hamburger-btn { display: flex !important; }
+  
+  /* ✅ TAMPILKAN header-actions */
+  .header-actions { 
+    display: flex !important; 
+    gap: 8px !important;
+  }
+  
+  /* Tombol Coba Gratis lebih kecil */
+  .header-actions .btn-cta {
+    padding: 6px 14px !important;
+    font-size: 0.75rem !important;
+  }
+  
+  /* Avatar lebih kecil */
+  .profile-trigger-avatar {
+    width: 36px !important;
+    height: 36px !important;
+    font-size: 14px !important;
+  }
+  
+  .hamburger-btn { 
+    display: flex !important; 
+  }
   .main-header {
     padding: 0 16px !important;
     gap: 16px !important;

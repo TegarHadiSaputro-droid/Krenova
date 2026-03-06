@@ -180,5 +180,6 @@
         setTimeout(() => t.classList.remove('show'), 2200);
     }
 </script>
+@include('partials.apply-settings')
 </body>
 </html>

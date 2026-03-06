@@ -81,27 +81,34 @@
   All Products
 </div>
   </nav>
-
   <div class="header-actions">
     <!-- Tampil kalau BELUM login -->
-    <div id="guest-actions" style="display: flex; align-items: center; gap: 10px;">
+    @guest
       <a href="{{ route('login') }}" class="btn-login">Masuk</a>
       <a href="{{ route('download') }}" style="text-decoration: none;">
         <button class="btn-cta">Coba Gratis</button>
       </a>
-    </div>
+      @endguest 
+
   <!-- Tampil kalau SUDAH login -->
-  <div id="user-actions" style="display: none; align-items: center; gap: 10px;">
-    <a href="{{ route('download') }}" style="text-decoration: none;">
-      <button class="btn-cta">Coba Gratis</button>
-    </a>
-   </div>
- </div>
+  @auth
+  @php
+      $userName = Auth::user()->name;
+      $userEmail = Auth::user()->email;
+      $words = explode(' ', trim($userName));
+      $userInitials = count($words) >= 2 
+          ? strtoupper($words[0][0] . $words[1][0])
+          : strtoupper(substr($userName, 0, 1));
+  @endphp
+  
+  <a href="{{ route('download') }}" style="text-decoration: none;">
+    <button class="btn-cta" style="padding: 8px 18px; font-size: 0.82rem;">Coba Gratis</button>
+  </a>
 
     <!-- Profile Dropdown -->
-<div class="profile-dropdown-wrap" id="profileWrap">
-    <button class="profile-trigger" onclick="toggleDropdown()">
-        <div class="profile-trigger-avatar" id="triggerAvatar">{{ getInitials(Auth::user()->name ?? 'User') }}</div>
+<div class="profile-dropdown-wrap" id="profileWrap">  
+    <button class="profile-trigger" onclick="toggleDropdown(event)">
+        <div class="profile-trigger-avatar" id="triggerAvatar">{{ $userInitials }}</div>
     </button>
 
     <div class="profile-dropdown" id="profileDropdown">
@@ -109,10 +116,10 @@
     <!-- Header - klik untuk ke halaman profile -->
     <a href="{{ route('account') }}" style="text-decoration:none;display:block;">
         <div class="dropdown-header" style="cursor:pointer;">
-            <div class="dropdown-avatar" id="dropdownAvatar">{{ getInitials(Auth::user()->name ?? 'User') }}</div>
+            <div class="dropdown-avatar" id="dropdownAvatar">{{ $userInitials }}</div>
             <div class="dropdown-user-info">
-                <div class="dropdown-name" id="dropdownName">{{ Auth::user()->name }}</div>
-                <div class="dropdown-email" id="dropdownEmail">{{ Auth::user()->email }}</div>
+                <div class="dropdown-name" id="dropdownName">{{ $userName }}</div>
+                <div class="dropdown-email" id="dropdownEmail">{{ $userEmail }}</div>
                 <span class="dropdown-badge">🟢 Akun Aktif</span>
             </div>
         </div>
@@ -122,24 +129,24 @@
 
     <!-- Menu -->
     <div class="dropdown-section-label">Menu</div>
-    <a href="/settings" class="dropdown-item">
+    <a href="{{ route('dashboard.settings') }}" class="dropdown-item">
         <span class="dropdown-icon"></span>
         <span class="dropdown-item-label">Pengaturan</span>
     </a>
-    <a href="/notifications" class="dropdown-item">
+    <a href="{{ route('dashboard.notifications') }}" class="dropdown-item">
         <span class="dropdown-icon"></span>
         <span class="dropdown-item-label">Notifikasi</span>
         <span class="dropdown-item-badge" style="background:#ef4444;">3</span>
     </a>
-    <a href="/privacy-security" class="dropdown-item">
+    <a href="{{ route('dashboard.privacy-security') }}" class="dropdown-item">
         <span class="dropdown-icon"></span>
         <span class="dropdown-item-label">Privasi & Keamanan</span>
     </a>
-    <a href="/about" class="dropdown-item">
+    <a href="{{ route('dashboard.about') }}" class="dropdown-item">
         <span class="dropdown-icon"></span>
         <span class="dropdown-item-label">Tentang Aplikasi</span>
     </a>
-    <a href="/help" class="dropdown-item">
+    <a href="{{ route('dashboard.help') }}" class="dropdown-item">
         <span class="dropdown-icon"></span>
         <span class="dropdown-item-label">Bantuan</span>
     </a>
@@ -158,8 +165,9 @@
     <span></span>
     <span></span>
   </button>
-
-  </header>
+  @endauth
+  </div>
+</header>
 
   <div class="mobile-menu" id="mobileMenu">
     <div class="mobile-menu-inner">
@@ -219,14 +227,6 @@
         <a href="/hubungi-kami#kantor">Kantor Kami</a>
         </div>
       </div>
-
-    </div>
-
-    <div class="mobile-menu-actions">
-      <a href="/login" class="btn-login">Masuk</a>
-      <a href="/download" style="text-decoration:none; flex:1; display:flex;">
-        <button class="btn-cta" style="width:100%; justify-content:center;">Coba Gratis</button>
-      </a>
     </div>
   </div>
 
@@ -666,10 +666,11 @@
     </div>
   </div>
 </section>
+</main>
 
 <!-- ===== MODAL DESKRIPSI VIDEO ===== -->
 <div class="vid-modal-overlay" id="vidModal" onclick="closeVidModal(event)" style="position:fixed; top:0; left:0; width:100%; height:100%;">
-  <div class="vid-modal">
+  <div class="vid-modal" onclick="event.stopPropagation()">
     <button class="vid-modal-close" onclick="closeVidModal()">✕</button>
     <div class="vid-modal-thumb" id="modalThumb">
       <div class="vid-modal-play">
@@ -687,11 +688,9 @@
     </div>
   </div>
 </div>
-  </main>
-
 
   <!-- ============================================================
-       FOOTER
+      FOOTER
   ============================================================ -->
 
 <footer>
@@ -809,6 +808,7 @@
 <form id="logout-form" action="{{ route('logout') }}" method="POST" style="display: none;">
   @csrf
 </form>
+@auth
 <script>
 (function() {
   window.scrollTo(0, 0);
@@ -834,7 +834,11 @@ window.addEventListener('beforeunload', function() {
   // PROFILE DROPDOWN & USER AUTH
   // ============================================================
   
-  function toggleDropdown() {
+  function toggleDropdown(event) {
+    if (event) {
+      event.stopPropagation();
+    }
+
     const dropdown = document.getElementById('profileDropdown');
     if (dropdown) {
       dropdown.classList.toggle('open');
@@ -893,25 +897,6 @@ window.addEventListener('beforeunload', function() {
     
     return text[0].toUpperCase();
 }
-
-  function updateUserProfile(userData) {
-    const initial = getInitials(userData.name || userData.email);
-    
-    const triggerAvatar = document.getElementById('triggerAvatar');
-    const dropdownAvatar = document.getElementById('dropdownAvatar');
-    const dropdownName = document.getElementById('dropdownName');
-    const dropdownEmail = document.getElementById('dropdownEmail');
-    
-    if (triggerAvatar) triggerAvatar.textContent = initial;
-    if (dropdownAvatar) dropdownAvatar.textContent = initial;
-    if (dropdownName) dropdownName.textContent = userData.name || 'User';
-    if (dropdownEmail) dropdownEmail.textContent = userData.email;
-    
-    const guestActions = document.getElementById('guest-actions');
-    const userActions = document.getElementById('user-actions');
-    if (guestActions) guestActions.style.display = 'none';
-    if (userActions) userActions.style.display = 'flex';
-  }
 
   // ✨ CEK LOGIN STATUS SAAT PAGE LOAD
   window.addEventListener('load', function() {
@@ -1004,7 +989,7 @@ document.addEventListener('DOMContentLoaded', function() {
 
 
 // DROPDOWN
-function toggleDropdown(el) {
+function toggleMobileDropdown(el) {
   var item = el.closest('.mobile-nav-item');
   var wasOpen = item.classList.contains('open');
 
@@ -1014,6 +999,33 @@ function toggleDropdown(el) {
 
   if (!wasOpen) item.classList.add('open');
 }
+
+const userSettings = {
+        mode_gelap: {{ Auth::user()->setting->mode_gelap ?? 'false' ? 'true' : 'false' }},
+        kontras_tinggi: {{ Auth::user()->setting->kontras_tinggi ?? 'false' ? 'true' : 'false' }},
+        kurangi_animasi: {{ Auth::user()->setting->kurangi_animasi ?? 'false' ? 'true' : 'false' }},
+        pembaca_layar: {{ Auth::user()->setting->pembaca_layar ?? 'true' ? 'true' : 'false' }},
+        text_to_speech: {{ Auth::user()->setting->text_to_speech ?? 'true' ? 'true' : 'false' }},
+    };
+
+    function applySettings() {
+        // Mode Gelap
+        if (userSettings.mode_gelap) {
+            document.body.classList.add('dark-mode');
+        }
+
+        // Kontras Tinggi
+        if (userSettings.kontras_tinggi) {
+            document.body.classList.add('high-contrast');
+        }
+
+        // Kurangi Animasi
+        if (userSettings.kurangi_animasi) {
+            document.body.classList.add('reduce-motion');
+        }
+    }
+
+    applySettings();
 
 const vidData = [
   {
@@ -1095,22 +1107,42 @@ function openVidModal(index) {
      </iframe>`
   : `<span style="font-size:2.5rem">${data.emoji}</span>`;
 
-  modal.classList.add('active'); // ← ini yang hilang!
+  // ✅ Tampilkan modal
+  modal.classList.add('active');
+  
+  // ✅ Disable scroll di body
   document.body.style.overflow = 'hidden';
+  document.body.style.position = 'fixed';
+  document.body.style.width = '100%';
 }
 
 function closeVidModal(event) {
-  if (!event || event.target === document.getElementById('vidModal') || event.currentTarget.classList.contains('vid-modal-close')) {
-    document.getElementById('vidModal').classList.remove('active');
+  const modal = document.getElementById('vidModal');
+  
+  if (!event || event.target === modal || event.currentTarget?.classList.contains('vid-modal-close')) {
+    modal.classList.remove('active');
+    
+    // ✅ Enable scroll di body lagi
     document.body.style.overflow = '';
-    document.querySelector('#modalThumb .vid-modal-play').innerHTML = ''; // ← tambah ini
+    document.body.style.position = '';
+    document.body.style.width = '';
+    
+    // ✅ Stop video
+    const playArea = document.querySelector('#modalThumb .vid-modal-play');
+    if (playArea) {
+      playArea.innerHTML = '';
+    }
   }
-  }
+}
 
-
-// Close dengan tombol ESC
+// Close dengan ESC
 document.addEventListener('keydown', function(e) {
-  if (e.key === 'Escape') closeVidModal();
+  if (e.key === 'Escape') {
+    const modal = document.getElementById('vidModal');
+    if (modal && modal.classList.contains('active')) {
+      closeVidModal();
+    }
+  }
 });
 
 const reveals = document.querySelectorAll('.main-header, .tuna-hero, .tuna-features, .marketplace, .vid-section, footer');
@@ -1130,6 +1162,7 @@ const revealObserver = new IntersectionObserver((entries) => {
 
 reveals.forEach(el => revealObserver.observe(el));
 </script>
-
+@endauth
+@include('partials.apply-settings')
 </body>
 </html>
