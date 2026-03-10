@@ -8,6 +8,7 @@ body { font-family: 'Plus Jakarta Sans', sans-serif; background: #f1f5f9; min-he
     position: relative;
     overflow: hidden;
     width: 100%;
+    transition: background 0.4s ease;
 }
 
 .banner::before {
@@ -85,8 +86,6 @@ body { font-family: 'Plus Jakarta Sans', sans-serif; background: #f1f5f9; min-he
     grid-template-columns: repeat(3, 1fr);
     gap: 1.2rem;
     padding: 1.4rem 1.5rem;
-    max-width: 1400px;
-    margin: 0 auto;
 }
 
 .col-fill { display: flex; flex-direction: column; }    
@@ -108,6 +107,7 @@ body { font-family: 'Plus Jakarta Sans', sans-serif; background: #f1f5f9; min-he
     border-radius: 16px;
     overflow: hidden;
     box-shadow: 0 1px 4px rgba(0,0,0,.06);
+    transition: background 0.4s ease, border-color 0.4s ease, box-shadow 0.4s ease;
 }
 
 .row {
@@ -116,13 +116,10 @@ body { font-family: 'Plus Jakarta Sans', sans-serif; background: #f1f5f9; min-he
     justify-content: space-between;
     padding: .9rem 1rem;
     cursor: pointer;
-    border-bottom: 1px solid #f8fafc;
     transition: background .15s;
 }
 
 .row:last-child { border-bottom: none; }
-.row:hover { background: #f8fafc; }
-.row:active { background: #f1f5f9; }
 
 .row-left { display: flex; align-items: center; gap: .8rem; }
 
@@ -140,6 +137,10 @@ body { font-family: 'Plus Jakarta Sans', sans-serif; background: #f1f5f9; min-he
 .row-label { font-weight: 600; font-size: .88rem; color: #0f172a; }
 .row-sub   { font-size: .74rem; color: #64748b; margin-top: .05rem; }
 .arrow     { color: #cbd5e1; font-size: .9rem; }
+
+.row-label, .row-sub, .section-label, .account-name, .account-email {
+    transition: color 0.3s ease;
+}
 
 @keyframes fadeUp {
     from { opacity: 0; transform: translateY(10px); }
@@ -294,13 +295,27 @@ body { font-family: 'Plus Jakarta Sans', sans-serif; background: #f1f5f9; min-he
 
 .btn-edit:hover { opacity: .85; }
 
-body.dark-mode { background: #0f172a !important; color: #e2e8f0 !important; }
-body.dark-mode .main-header { background: #1e293b !important; }
-body.dark-mode .feature-card { background: #1e293b !important; border-color: #334155 !important; color: #e2e8f0 !important; }
-body.dark-mode .feature-card__body p { color: #94a3b8 !important; }
-body.dark-mode footer, body.dark-mode .f-strip, body.dark-mode .f-links, body.dark-mode .f-bottom { background: #1e293b !important; color: #94a3b8 !important; }
-body.high-contrast { filter: contrast(150%); }
-body.reduce-motion * { animation: none !important; transition: none !important; }
+/* ===== DARK MODE ===== */
+body.dark-mode .banner {background: linear-gradient(135deg, #0a0f1e 0%, #0d1b2a 50%, #0a0f1e 100%) !important;}
+body.dark-mode .grid,
+body.dark-mode .grid-bottom {
+    width: 100%;
+    margin-left: 0;
+    margin-right: 0;
+}
+body.dark-mode .card {
+    background: linear-gradient(160deg, #111520 0%, #0e121c 100%) !important;
+    border: 1px solid rgba(255, 255, 255, 0.06) !important;
+    box-shadow: 0 4px 24px rgba(0, 0, 0, 0.5) !important;
+}
+body.dark-mode .row-label { color: #ffffff !important; }
+body.dark-mode .row-sub { color: rgba(255,255,255,0.45) !important; }
+body.dark-mode .row:hover { background: rgba(255,255,255,0.04) !important; }
+body.dark-mode .toggle { background: rgba(255,255,255,0.12) !important; }
+body.dark-mode .toggle.on { background: #3b82f6 !important; }
+body.dark-mode .account-name { color: #ffffff !important; }
+body.dark-mode .account-email { color: rgba(255,255,255,0.5) !important; }
+body.dark-mode .section-label { color: rgba(255,255,255,0.35) !important; }
 
 @media (max-width: 900px) {
     .grid-bottom { grid-template-columns: 1fr; }

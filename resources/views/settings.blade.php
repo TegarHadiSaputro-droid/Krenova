@@ -5,6 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Pengaturan - TUNA</title>
     <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="{{ asset('css/style.css') }}">
     <link rel="stylesheet" href="{{ asset('css/settings.css') }}">
 </head>
 <body>
@@ -173,7 +174,21 @@
     function toggleSwitch(el, key) {
     el.classList.toggle('on');
     const isOn = el.classList.contains('on');
-    
+
+    if (key === 'mode_gelap') {
+        document.body.classList.toggle('dark-mode', isOn);
+        // Broadcast ke semua tab/halaman
+        localStorage.setItem('mode_gelap', isOn ? '1' : '0');
+    }
+    if (key === 'kontras_tinggi') {
+        document.body.classList.toggle('high-contrast', isOn);
+        localStorage.setItem('kontras_tinggi', isOn ? '1' : '0');
+    }
+    if (key === 'kurangi_animasi') {
+        document.body.classList.toggle('reduce-motion', isOn);
+        localStorage.setItem('kurangi_animasi', isOn ? '1' : '0');
+    }
+
     fetch('{{ route("settings.update") }}', {
         method: 'POST',
         headers: {
@@ -182,7 +197,7 @@
         },
         body: JSON.stringify({ [key]: isOn })
     });
-    }
+}
     function clearCache() { showToast('Cache berhasil dihapus'); }
     function showToast(msg) {
         const t = document.getElementById('toast');

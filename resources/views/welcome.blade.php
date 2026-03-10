@@ -106,14 +106,13 @@
   </a>
 
     <!-- Profile Dropdown -->
-<div class="profile-dropdown-wrap" id="profileWrap">  
+<div class="profile-dropdown-wrap" id="profile-dropdown-wrap">  
     <button class="profile-trigger" onclick="toggleDropdown(event)">
         <div class="profile-trigger-avatar" id="triggerAvatar">{{ $userInitials }}</div>
     </button>
 
-    <div class="profile-dropdown" id="profileDropdown">
-
     <!-- Header - klik untuk ke halaman profile -->
+  <div class="profile-dropdown" id="profileDropdown">
     <a href="{{ route('account') }}" style="text-decoration:none;display:block;">
         <div class="dropdown-header" style="cursor:pointer;">
             <div class="dropdown-avatar" id="dropdownAvatar">{{ $userInitials }}</div>
@@ -136,7 +135,6 @@
     <a href="{{ route('dashboard.notifications') }}" class="dropdown-item">
         <span class="dropdown-icon"></span>
         <span class="dropdown-item-label">Notifikasi</span>
-        <span class="dropdown-item-badge" style="background:#ef4444;">3</span>
     </a>
     <a href="{{ route('dashboard.privacy-security') }}" class="dropdown-item">
         <span class="dropdown-icon"></span>
@@ -159,13 +157,14 @@
     </button>
 
     <div class="dropdown-footer">Transforming User Needs into Access</div>
+  </div>
 </div>
-   <button class="hamburger-btn" id="hamburgerBtn" aria-label="Toggle menu">
+  @endauth
+  <button class="hamburger-btn" id="hamburgerBtn" aria-label="Toggle menu">
     <span></span>
     <span></span>
     <span></span>
   </button>
-  @endauth
   </div>
 </header>
 
@@ -177,7 +176,7 @@
       </div>
 
       <div class="mobile-nav-item">
-        <div class="mobile-nav-link" onclick="toggleDropdown(this)">
+        <div class="mobile-nav-link" onclick="toggleMobileDropdown(this)">
           Layanan <span class="mobile-arrow">▾</span>
         </div>
         <div class="mobile-dropdown">
@@ -193,7 +192,7 @@
       </div>
 
       <div class="mobile-nav-item">
-        <div class="mobile-nav-link" onclick="toggleDropdown(this)">
+        <div class="mobile-nav-link" onclick="toggleMobileDropdown(this)">
           Berlangganan <span class="mobile-arrow">▾</span>
         </div>
         <div class="mobile-dropdown">
@@ -205,7 +204,7 @@
       </div>
 
       <div class="mobile-nav-item">
-        <div class="mobile-nav-link" onclick="toggleDropdown(this)">
+        <div class="mobile-nav-link" onclick="toggleMobileDropdown(this)">
           Panduan <span class="mobile-arrow">▾</span>
         </div>
         <div class="mobile-dropdown">
@@ -217,7 +216,7 @@
       </div>
 
       <div class="mobile-nav-item">
-        <div class="mobile-nav-link" onclick="toggleDropdown(this)">
+        <div class="mobile-nav-link" onclick="toggleMobileDropdown(this)">
           Hubungi Kami <span class="mobile-arrow">▾</span>
         </div>
         <div class="mobile-dropdown">
@@ -227,8 +226,47 @@
         <a href="/hubungi-kami#kantor">Kantor Kami</a>
         </div>
       </div>
+      @auth
+        @php
+          $userName = Auth::user()->name;
+          $userEmail = Auth::user()->email;
+          $words = explode(' ', trim($userName));
+          $userInitials = count($words) >= 2 
+              ? strtoupper($words[0][0] . $words[1][0])
+              : strtoupper(substr($userName, 0, 1));
+        @endphp
+        
+        <div class="mobile-nav-item">
+          <div class="mobile-nav-link" onclick="toggleMobileDropdown(this)">
+            <div style="display: flex; align-items: center; gap: 10px;">
+              <div class="mobile-avatar-small">{{ $userInitials }}</div>
+              <span>{{ $userName }}</span>
+            </div>
+            <span class="mobile-arrow">▾</span>
+          </div>
+          <div class="mobile-dropdown">
+            <a href="{{ route('account') }}">Akun Saya</a>
+            <a href="{{ route('dashboard.settings') }}">Pengaturan</a>
+            <a href="{{ route('dashboard.notifications') }}">Notifikasi</a>
+            <a href="{{ route('dashboard.privacy-security') }}">Privasi & Keamanan</a>
+            <a href="{{ route('dashboard.about') }}">Tentang Aplikasi</a>
+            <a href="{{ route('dashboard.help') }}">Bantuan</a>
+            <a href="#" onclick="event.preventDefault(); handleLogout();" class="mobile-logout" style="color: #ef4444;">Keluar</a>
+          </div>
+        </div>
+      @endauth
+
+      @guest
+    <div class="mobile-menu-actions">
+      <a href="{{ route('login') }}" class="btn-login">Masuk</a>
+      <a href="{{ route('download') }}" style="text-decoration:none; flex:1; display:flex;">
+        <button class="btn-cta" style="width:100%; justify-content:center;">Coba Gratis</button>
+      </a>
+    </div>
+    @endguest
     </div>
   </div>
+
 
   <!-- ============================================================
        MAIN
@@ -668,27 +706,6 @@
 </section>
 </main>
 
-<!-- ===== MODAL DESKRIPSI VIDEO ===== -->
-<div class="vid-modal-overlay" id="vidModal" onclick="closeVidModal(event)" style="position:fixed; top:0; left:0; width:100%; height:100%;">
-  <div class="vid-modal" onclick="event.stopPropagation()">
-    <button class="vid-modal-close" onclick="closeVidModal()">✕</button>
-    <div class="vid-modal-thumb" id="modalThumb">
-      <div class="vid-modal-play">
-        <svg viewBox="0 0 24 24" fill="currentColor"><path d="M8 5v14l11-7z"/></svg>
-      </div>
-    </div>
-    <div class="vid-modal-body">
-      <span class="vid-modal-tag" id="modalTag"></span>
-      <h3 id="modalTitle"></h3>
-      <p id="modalDesc"></p>
-      <div class="vid-modal-meta">
-        <span id="modalDuration">⏱ </span>
-      </div>
-      <a href="#" class="btn-blue" style="margin-top: 16px; display: inline-block;">▶ Tonton Sekarang</a>
-    </div>
-  </div>
-</div>
-
   <!-- ============================================================
       FOOTER
   ============================================================ -->
@@ -792,6 +809,28 @@
         </div>
     </footer>
   </div>
+
+  <!-- ===== MODAL DESKRIPSI VIDEO ===== -->
+<div class="vid-modal-overlay" id="vidModal" onclick="closeVidModal(event)" style="position:fixed; top:0; left:0; width:100%; height:100%;">
+  <div class="vid-modal" onclick="event.stopPropagation()">
+    <button class="vid-modal-close" onclick="closeVidModal()">✕</button>
+    <div class="vid-modal-thumb" id="modalThumb">
+      <div class="vid-modal-play">
+        <svg viewBox="0 0 24 24" fill="currentColor"><path d="M8 5v14l11-7z"/></svg>
+      </div>
+    </div>
+    <div class="vid-modal-body">
+      <span class="vid-modal-tag" id="modalTag"></span>
+      <h3 id="modalTitle"></h3>
+      <p id="modalDesc"></p>
+      <div class="vid-modal-meta">
+        <span id="modalDuration">⏱ </span>
+      </div>
+      <a href="#" class="btn-blue" style="margin-top: 16px; display: inline-block;">▶ Tonton Sekarang</a>
+    </div>
+  </div>
+</div>
+
     <a href="/chat" id="trixie-fab">
     <img src="{{ asset('tunawoi.png') }}" alt="Trixie AI">
     </a>
@@ -838,7 +877,7 @@ window.addEventListener('beforeunload', function() {
     if (event) {
       event.stopPropagation();
     }
-
+    console.log('toggleDropdown dipanggil');
     const dropdown = document.getElementById('profileDropdown');
     if (dropdown) {
       dropdown.classList.toggle('open');
@@ -846,14 +885,14 @@ window.addEventListener('beforeunload', function() {
   }
 
   document.addEventListener('click', function(e) {
-    const wrap = document.getElementById('profileWrap');
+    const wrap = document.getElementById('profile-dropdown-wrap');
     if (wrap && !wrap.contains(e.target)) {
-      const dropdown = document.getElementById('profileDropdown');
-      if (dropdown) {
-        dropdown.classList.remove('open');
-      }
+        const dropdown = document.getElementById('profileDropdown');
+        if (dropdown) {
+            dropdown.classList.remove('open');
+        }
     }
-  }); 
+  });
 
   function handleLogout() {
     const dropdown = document.getElementById('profileDropdown');
@@ -900,13 +939,6 @@ window.addEventListener('beforeunload', function() {
 
   // ✨ CEK LOGIN STATUS SAAT PAGE LOAD
   window.addEventListener('load', function() {
-    @auth
-      updateUserProfile({
-        name: "{{ Auth::user()->name }}",
-        email: "{{ Auth::user()->email }}"
-      });
-    @endauth
-
     @if(session('success'))
       showToast("{{ session('success') }}");
     @endif
@@ -928,6 +960,61 @@ document.querySelectorAll('.nav-item').forEach(item => {
   });
 });
 
+const userSettings = {
+        mode_gelap: {{ Auth::user()->setting->mode_gelap ?? 'false' ? 'true' : 'false' }},
+        kontras_tinggi: {{ Auth::user()->setting->kontras_tinggi ?? 'false' ? 'true' : 'false' }},
+        kurangi_animasi: {{ Auth::user()->setting->kurangi_animasi ?? 'false' ? 'true' : 'false' }},
+        pembaca_layar: {{ Auth::user()->setting->pembaca_layar ?? 'true' ? 'true' : 'false' }},
+        text_to_speech: {{ Auth::user()->setting->text_to_speech ?? 'true' ? 'true' : 'false' }},
+    };
+
+    function applySettings() {
+        // Mode Gelap
+        if (userSettings.mode_gelap) {
+            document.body.classList.add('dark-mode');
+        }
+
+        // Kontras Tinggi
+        if (userSettings.kontras_tinggi) {
+            document.body.classList.add('high-contrast');
+        }
+
+        // Kurangi Animasi
+        if (userSettings.kurangi_animasi) {
+            document.body.classList.add('reduce-motion');
+        }
+    }
+    applySettings();
+
+// Close dengan ESC
+document.addEventListener('keydown', function(e) {
+  if (e.key === 'Escape') {
+    const modal = document.getElementById('vidModal');
+    if (modal && modal.classList.contains('active')) {
+      closeVidModal();
+    }
+  }
+});
+
+const reveals = document.querySelectorAll('.main-header, .tuna-hero, .tuna-features, .marketplace, .vid-section, footer');
+
+reveals.forEach(el => el.classList.add('reveal'));
+
+const revealObserver = new IntersectionObserver((entries) => {
+  entries.forEach((entry, i) => {
+    if (entry.isIntersecting) {
+      setTimeout(() => {
+        entry.target.classList.add('visible');
+      }, i * 120);
+      revealObserver.unobserve(entry.target);
+    }
+  });
+}, { threshold: 0.08 });
+
+reveals.forEach(el => revealObserver.observe(el));
+</script>
+@endauth
+<script>
 document.addEventListener('DOMContentLoaded', function() {
 
   var btn  = document.getElementById('hamburgerBtn');
@@ -987,8 +1074,6 @@ document.addEventListener('DOMContentLoaded', function() {
 
 });
 
-
-// DROPDOWN
 function toggleMobileDropdown(el) {
   var item = el.closest('.mobile-nav-item');
   var wasOpen = item.classList.contains('open');
@@ -1000,33 +1085,6 @@ function toggleMobileDropdown(el) {
   if (!wasOpen) item.classList.add('open');
 }
 
-const userSettings = {
-        mode_gelap: {{ Auth::user()->setting->mode_gelap ?? 'false' ? 'true' : 'false' }},
-        kontras_tinggi: {{ Auth::user()->setting->kontras_tinggi ?? 'false' ? 'true' : 'false' }},
-        kurangi_animasi: {{ Auth::user()->setting->kurangi_animasi ?? 'false' ? 'true' : 'false' }},
-        pembaca_layar: {{ Auth::user()->setting->pembaca_layar ?? 'true' ? 'true' : 'false' }},
-        text_to_speech: {{ Auth::user()->setting->text_to_speech ?? 'true' ? 'true' : 'false' }},
-    };
-
-    function applySettings() {
-        // Mode Gelap
-        if (userSettings.mode_gelap) {
-            document.body.classList.add('dark-mode');
-        }
-
-        // Kontras Tinggi
-        if (userSettings.kontras_tinggi) {
-            document.body.classList.add('high-contrast');
-        }
-
-        // Kurangi Animasi
-        if (userSettings.kurangi_animasi) {
-            document.body.classList.add('reduce-motion');
-        }
-    }
-
-    applySettings();
-
 const vidData = [
   {
     title: "Mengenal Disabilitas Fisik & Cara Mendukungnya",
@@ -1034,7 +1092,8 @@ const vidData = [
     desc: "Video ini membahas secara mendalam tentang berbagai jenis disabilitas fisik, tantangan yang dihadapi dalam kehidupan sehari-hari, serta cara-cara praktis yang bisa kita lakukan untuk mendukung dan menciptakan lingkungan yang lebih inklusif bagi penyandang disabilitas fisik.",
     duration: "12 menit 34 detik",
     bg: "linear-gradient(135deg, #1e3a8a, #3b82f6)",
-    emoji: "♿"
+    emoji: "♿",
+    src: "hjvmAUbfXdw"
   },
   {
     title: "Teknologi Aksesibilitas untuk Tunanetra",
@@ -1051,7 +1110,8 @@ const vidData = [
     desc: "Pengenalan dasar Bahasa Isyarat Indonesia (BISINDO) yang dapat membantu kamu berkomunikasi dengan teman-teman Tuli. Video ini mencakup salam, angka, huruf, dan kalimat sehari-hari yang paling sering digunakan.",
     duration: "15 menit 10 detik",
     bg: "linear-gradient(135deg, #7c3aed, #a78bfa)",
-    emoji: "👂"
+    emoji: "👂",
+    src: "Re8XaAr8XRw"
   },
   {
     title: "Memahami Spektrum Autisme & Cara Berinteraksi",
@@ -1059,7 +1119,8 @@ const vidData = [
     desc: "Autisme adalah spektrum yang luas. Video ini menjelaskan karakteristik autisme, cara berinteraksi yang tepat, serta bagaimana menciptakan lingkungan yang nyaman dan ramah bagi individu autistik di rumah, sekolah, maupun tempat kerja.",
     duration: "20 menit 5 detik",
     bg: "linear-gradient(135deg, #9a3412, #fb923c)",
-    emoji: "🧠"
+    emoji: "🧠",
+    src: "rjluLV1F-UI"
   },
   {
     title: "Disabilitas Wicara: Komunikasi Alternatif",
@@ -1067,7 +1128,8 @@ const vidData = [
     desc: "Mengenal berbagai jenis gangguan wicara dan cara mendukung komunikasi yang efektif menggunakan Augmentative and Alternative Communication (AAC), papan komunikasi, dan aplikasi text-to-speech modern.",
     duration: "10 menit 45 detik",
     bg: "linear-gradient(135deg, #0e7490, #22d3ee)",
-    emoji: "🗣️"
+    emoji: "🗣️",
+    src: "dm7uXtpNiAQ"
   },
   {
     title: "Kesehatan Mental & Disabilitas Psikososial",
@@ -1075,7 +1137,8 @@ const vidData = [
     desc: "Disabilitas psikososial sering kali tidak terlihat namun dampaknya nyata. Video ini membahas pentingnya kesehatan mental, stigma yang dihadapi, serta bagaimana membangun sistem dukungan yang inklusif untuk individu dengan kondisi kesehatan mental.",
     duration: "18 menit 30 detik",
     bg: "linear-gradient(135deg, #be185d, #f472b6)",
-    emoji: "❤️"
+    emoji: "❤️",
+    src: "Z3faUGgMsNI"
   },
   {
     title: "Membangun Dunia Inklusif untuk Semua",
@@ -1083,7 +1146,8 @@ const vidData = [
     desc: "Sebuah panduan komprehensif tentang bagaimana individu, komunitas, dan organisasi dapat berkontribusi dalam membangun dunia yang benar-benar inklusif — mulai dari desain universal, kebijakan publik, hingga perubahan pola pikir masyarakat.",
     duration: "22 menit 15 detik",
     bg: "linear-gradient(135deg, #1a2340, #0078ff)",
-    emoji: "🌍"
+    emoji: "🌍",
+    src: "p1pYKMiPpzU"
   }
 ];
 
@@ -1100,69 +1164,33 @@ function openVidModal(index) {
   thumb.style.background = data.bg;
   thumb.querySelector('.vid-modal-play').innerHTML = data.src
   ? `<iframe 
-       src="https://www.youtube.com/embed/${data.src}?autoplay=1" 
-       style="position:absolute; top:0; left:0; width:100%; height:100%; border:none;"
-       allowfullscreen 
-       allow="autoplay; encrypted-media">
-     </iframe>`
+      src="https://www.youtube.com/embed/${data.src}?autoplay=1" 
+      style="position:absolute; top:0; left:0; width:100%; height:100%; border:none;"
+      allowfullscreen 
+      allow="autoplay; encrypted-media">
+      </iframe>`
   : `<span style="font-size:2.5rem">${data.emoji}</span>`;
 
   // ✅ Tampilkan modal
   modal.classList.add('active');
-  
-  // ✅ Disable scroll di body
-  document.body.style.overflow = 'hidden';
-  document.body.style.position = 'fixed';
-  document.body.style.width = '100%';
+  document.body.classList.add('modal-open');
 }
 
 function closeVidModal(event) {
   const modal = document.getElementById('vidModal');
-  
   if (!event || event.target === modal || event.currentTarget?.classList.contains('vid-modal-close')) {
     modal.classList.remove('active');
-    
-    // ✅ Enable scroll di body lagi
-    document.body.style.overflow = '';
-    document.body.style.position = '';
-    document.body.style.width = '';
-    
-    // ✅ Stop video
+    document.body.classList.remove('modal-open');
     const playArea = document.querySelector('#modalThumb .vid-modal-play');
     if (playArea) {
       playArea.innerHTML = '';
     }
   }
 }
-
-// Close dengan ESC
-document.addEventListener('keydown', function(e) {
-  if (e.key === 'Escape') {
-    const modal = document.getElementById('vidModal');
-    if (modal && modal.classList.contains('active')) {
-      closeVidModal();
-    }
-  }
-});
-
-const reveals = document.querySelectorAll('.main-header, .tuna-hero, .tuna-features, .marketplace, .vid-section, footer');
-
-reveals.forEach(el => el.classList.add('reveal'));
-
-const revealObserver = new IntersectionObserver((entries) => {
-  entries.forEach((entry, i) => {
-    if (entry.isIntersecting) {
-      setTimeout(() => {
-        entry.target.classList.add('visible');
-      }, i * 120);
-      revealObserver.unobserve(entry.target);
-    }
-  });
-}, { threshold: 0.08 });
-
-reveals.forEach(el => revealObserver.observe(el));
 </script>
-@endauth
+
+@auth
 @include('partials.apply-settings')
+@endauth
 </body>
 </html>
