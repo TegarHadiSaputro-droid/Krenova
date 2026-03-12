@@ -31,6 +31,18 @@ Route::get('/berlangganan', function () {
     return view('berlangganan');
 })->name('berlangganan');
 
+Route::get('/camera-on', function () {
+    return view('camera-on');
+})->name('camera-on');
+
+Route::get('/call-chat', function () {
+    return view('call-chat');
+})->name('call-chat');
+
+Route::get('/personalisasi', function () {
+    return view('personalisasi');
+})->name('personalisasi');
+
 // ============================================================
 // AUTH ROUTES (Login/Register untuk guest)
 // ============================================================

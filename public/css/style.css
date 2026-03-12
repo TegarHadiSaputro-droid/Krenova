@@ -784,17 +784,20 @@ body.dark-mode .mobile-logout:hover {
   flex-wrap: wrap;
 }
 
-/* Hero Visual */
-.tuna-hero__visual {
+
+/* ── Hero Visual — selalu tampil di semua ukuran layar ── */
+.hero-visual-wrapper {
   flex: 1;
   position: relative;
   min-height: 340px;
   display: flex;
   align-items: center;
   justify-content: center;
+  overflow: visible;
+  width: 100%;
 }
 
-.tuna-hero__mockup {
+.hero-device {
   width: 320px;
   background: rgba(255,255,255,0.12);
   backdrop-filter: blur(12px);
@@ -804,7 +807,7 @@ body.dark-mode .mobile-logout:hover {
   box-shadow: 0 24px 64px rgba(0,0,0,0.2);
 }
 
-.mockup-topbar {
+.hero-device__topbar {
   height: 36px;
   background: rgba(255,255,255,0.15);
   display: flex;
@@ -813,45 +816,45 @@ body.dark-mode .mobile-logout:hover {
   gap: 6px;
 }
 
-.mockup-topbar::before {
+.hero-device__topbar::before {
   content: '';
   width: 10px; height: 10px;
   border-radius: 50%;
   background: rgba(255,255,255,0.5);
 }
 
-.mockup-content {
+.hero-device__body {
   padding: 20px 18px;
   display: flex;
   flex-direction: column;
   gap: 10px;
 }
 
-.mockup-line {
+.hero-device__line {
   height: 10px;
   border-radius: 5px;
   background: rgba(255,255,255,0.2);
 }
 
-.mockup-line.w80 { width: 80%; }
-.mockup-line.w60 { width: 60%; }
-.mockup-line.w90 { width: 90%; }
+.hero-device__line--w80 { width: 80%; }
+.hero-device__line--w60 { width: 60%; }
+.hero-device__line--w90 { width: 90%; }
 
-.mockup-cards-row {
+.hero-device__cards {
   display: flex;
   gap: 10px;
   margin-top: 8px;
 }
 
-.mockup-mini-card {
+.hero-device__mini-card {
   flex: 1;
   height: 64px;
   border-radius: 10px;
   background: rgba(255,255,255,0.15);
 }
 
-/* Floating cards */
-.tuna-hero__card-float {
+/* Floating badges */
+.hero-badge {
   position: absolute;
   display: flex;
   align-items: center;
@@ -864,30 +867,53 @@ body.dark-mode .mobile-logout:hover {
   border-radius: 30px;
   box-shadow: 0 8px 24px rgba(0,0,0,0.15);
   white-space: nowrap;
-  animation: floatCard 3s ease-in-out infinite;
+  animation: floatBadge 3s ease-in-out infinite;
 }
 
-.card-icon { font-size: 1.1rem; }
-.card-1 { top: 10px; left: -10px; animation-delay: 0s; }
-.card-3 { bottom: 5px; left: 0; animation-delay: 2s; }
+.hero-badge__icon {
+  font-size: 1.1rem;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  line-height: 1;
+}
 
-.card-2 {
+/* Fix sejajar khusus badge camera */
+/* ── Hero Badge Positions ── */
+.hero-badge--call {
+  top: 10px;
+  left: 20px;
+}
+
+.hero-badge--camera {
+  bottom: 10px;
+  left: 20px;
+}
+
+.icon-camera {
+  display: inline-flex;
+  align-items: center;
+  line-height: 1;
+  position: relative;
+  top: -2.5px;
+}
+
+.hero-badge--ai {
   top: 50%;
-  right: -40px;
-  animation: floatCard2 3s ease-in-out infinite;
-  animation-delay: 1s;
+  right: -5px;
+  transform: translateY(-50%);
+  animation: floatBadgeMiddle 3s ease-in-out infinite;
 }
 
-@keyframes floatCard {
+@keyframes floatBadge {
   0%, 100% { transform: translateY(0); }
   50% { transform: translateY(-8px); }
 }
 
-@keyframes floatCard2 {
+@keyframes floatBadgeMiddle {
   0%, 100% { transform: translateY(-50%); }
   50% { transform: translateY(calc(-50% - 8px)); }
 }
-
 /* ============================================================
    FITUR SECTION
    ============================================================ */
@@ -1658,6 +1684,7 @@ body.modal-open {
             opacity: 1;
         }
 
+        /* Bottom Bar */
         /* Bottom Bar */
         .f-bottom {
             background: #dce8f2;

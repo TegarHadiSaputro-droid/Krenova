@@ -33,10 +33,10 @@
       <div class="nav-item">
         <span class="nav-link">Layanan <span class="arrow"></span></span>
         <div class="dropdown">
-          <a href="#">Call & Chat</a>
-          <a href="#">AI Trixie</a>
-          <a href="#marketplace" class="close-menu">Marketplace</a>
-          <a href="#">Konsultasi</a>
+          <a href="/call-chat" onclick="handleNavigation(event)">Call & Chat</a>
+          <a href="/chat">AI Trixie</a>
+          <a href="/personalisasi" onclick="handleNavigation(event)">Personalisasi</a>
+          <a href="/camera-on" onclick="handleNavigation(event)">Camera On Point</a>
         </div>
       </div>
 
@@ -180,10 +180,10 @@
           Layanan <span class="mobile-arrow">▾</span>
         </div>
         <div class="mobile-dropdown">
-          <a href="#">Call & Chat</a>
-          <a href="#">AI Trixie</a>
-          <a href="#marketplace" class="close-menu">Marketplace</a>
-          <a href="#">Konsultasi</a>
+          <a href="/call-chat" onclick="handleNavigation(event)">Call & Chat</a>
+          <a href="/chat">AI Trixie</a>
+          <a href="/personalisasi" onclick="handleNavigation(event)">Personalisasi</a>
+          <a href="/camera-on" onclick="handleNavigation(event)">Camera On Point</a>
         </div>
       </div>
 
@@ -306,28 +306,30 @@
             </div>
           </div>
 
-          <div class="tuna-hero__visual">
-            <div class="tuna-hero__card-float card-1">
-              <span class="card-icon">📞</span>
+          
+          {{-- Visual mockup: hanya muncul ≥900px via CSS --}}
+          <div class="hero-visual-wrapper">
+            <div class="hero-badge hero-badge--call">
+              <span class="hero-badge__icon">📞</span>
               <span>Call & Chat</span>
             </div>
-            <div class="tuna-hero__card-float card-2">
-              <span class="card-icon">🤖</span>
+            <div class="hero-badge hero-badge--ai">
+              <span class="hero-badge__icon">🤖</span>
               <span>AI Trixie</span>
             </div>
-            <div class="tuna-hero__card-float card-3">
-              <span class="card-icon">🛒</span>
-              <span>Marketplace</span>
+            <div class="hero-badge hero-badge--camera">
+              <span class="hero-badge__icon icon-camera">📸</span>
+              <span>Camera On Point</span>
             </div>
-            <div class="tuna-hero__mockup">
-              <div class="mockup-topbar"></div>
-              <div class="mockup-content">
-                <div class="mockup-line w80"></div>
-                <div class="mockup-line w60"></div>
-                <div class="mockup-line w90"></div>
-                <div class="mockup-cards-row">
-                  <div class="mockup-mini-card"></div>
-                  <div class="mockup-mini-card"></div>
+            <div class="hero-device">
+              <div class="hero-device__topbar"></div>
+              <div class="hero-device__body">
+                <div class="hero-device_line hero-device_line--w80"></div>
+                <div class="hero-device_line hero-device_line--w60"></div>
+                <div class="hero-device_line hero-device_line--w90"></div>
+                <div class="hero-device__cards">
+                  <div class="hero-device__mini-card"></div>
+                  <div class="hero-device__mini-card"></div>
                 </div>
               </div>
             </div>
@@ -337,102 +339,115 @@
     </section>
 
     <!-- ===== FITUR ===== -->
-    <section class="tuna-features" id="fitur">
-      <div class="tuna-container">
-        <div class="tuna-section-head">
-          <span class="section-tag">Layanan Kami</span>
-          <h2>Semua yang kamu butuhkan,<br><span>dalam satu platform</span></h2>
-          <p>Empat layanan utama yang dirancang khusus agar lebih mudah diakses dan nyaman digunakan oleh semua pengguna.</p>
+     <!-- ===== FITUR ===== -->
+  <section class="tuna-features" id="fitur">
+  <div class="tuna-container">
+    <div class="tuna-section-head">
+      <span class="section-tag">Layanan Kami</span>
+      <h2>Semua yang kamu butuhkan,<br><span>dalam satu platform</span></h2>
+      <p>Empat layanan utama yang dirancang khusus agar lebih mudah diakses dan nyaman digunakan oleh semua pengguna.</p>
+    </div>
+
+    <div class="tuna-features__grid">
+
+      <!-- 1. Call & Chat -->
+      <a href="#" class="feature-card">
+        <div class="feature-card__icon">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8">
+            <path d="M8 12h.01M12 12h.01M16 12h.01M21 12c0 4.418-4.03 8-9 8a9.863 9.863 0 01-4.255-.949L3 20l1.395-3.72C3.512 15.042 3 13.574 3 12c0-4.418 4.03-8 9-8s9 3.582 9 8z"/>
+          </svg>
         </div>
-        <div class="tuna-features__grid">
+        <div class="feature-card__body">
+          <h3>Call & Chat</h3>
+          <p>Media komunikasi yang memudahkan pengguna disabilitas untuk berinteraksi, bertanya, dan saling terhubung secara cepat dan mudah.</p>
+        </div>
+        <div class="feature-card__silhouette">
+          <svg viewBox="0 0 120 80" fill="none">
+            <circle cx="30" cy="40" r="18" fill="currentColor" opacity=".08"/>
+            <circle cx="30" cy="40" r="10" fill="currentColor" opacity=".12"/>
+            <rect x="50" y="25" width="55" height="8" rx="4" fill="currentColor" opacity=".1"/>
+            <rect x="50" y="38" width="40" height="8" rx="4" fill="currentColor" opacity=".08"/>
+            <rect x="50" y="51" width="48" height="8" rx="4" fill="currentColor" opacity=".06"/>
+          </svg>
+        </div>
+        <span class="feature-card__arrow">→</span>
+      </a>
 
-          <a href="#" class="feature-card">
-            <div class="feature-card__icon">
-              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8">
-                <path d="M8 12h.01M12 12h.01M16 12h.01M21 12c0 4.418-4.03 8-9 8a9.863 9.863 0 01-4.255-.949L3 20l1.395-3.72C3.512 15.042 3 13.574 3 12c0-4.418 4.03-8 9-8s9 3.582 9 8z"/>
-              </svg>
-            </div>
-            <div class="feature-card__body">
-              <h3>Call & Chat</h3>
-              <p>Kamu bisa hubungi kami kapan saja lewat telepon atau chat. Layanan kami siap membantu 24 jam untuk semua kebutuhanmu.</p>
-            </div>
-            <div class="feature-card__silhouette">
-              <svg viewBox="0 0 120 80" fill="none">
-                <circle cx="30" cy="40" r="18" fill="currentColor" opacity=".08"/>
-                <circle cx="30" cy="40" r="10" fill="currentColor" opacity=".12"/>
-                <rect x="50" y="25" width="55" height="8" rx="4" fill="currentColor" opacity=".1"/>
-                <rect x="50" y="38" width="40" height="8" rx="4" fill="currentColor" opacity=".08"/>
-                <rect x="50" y="51" width="48" height="8" rx="4" fill="currentColor" opacity=".06"/>
-              </svg>
-            </div>
-            <span class="feature-card__arrow">→</span>
-          </a>
+      <!-- 2. AI Trixie (accent) -->
+      <a href="#" class="feature-card feature-card--accent">
+        <div class="feature-card__icon">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8">
+            <path d="M12 2a10 10 0 100 20A10 10 0 0012 2zm0 0v4m0 12v2m-8-8H2m20 0h-2M5.636 5.636l1.414 1.414m9.9 9.9l1.414 1.414M5.636 18.364l1.414-1.414m9.9-9.9l1.414-1.414"/>
+          </svg>
+        </div>
+        <div class="feature-card__body">
+          <h3>AI Trixie</h3>
+          <p>Asisten AI yang membantu menjawab pertanyaan, memberikan rekomendasi, dan mendukung kebutuhan pengguna secara personal.</p>
+        </div>
+        <div class="feature-card__silhouette">
+          <svg viewBox="0 0 120 80" fill="none">
+            <rect x="10" y="15" width="100" height="50" rx="12" fill="currentColor" opacity=".1"/>
+            <circle cx="35" cy="40" r="12" fill="currentColor" opacity=".15"/>
+            <rect x="55" y="30" width="45" height="6" rx="3" fill="currentColor" opacity=".12"/>
+            <rect x="55" y="42" width="35" height="6" rx="3" fill="currentColor" opacity=".09"/>
+            <circle cx="35" cy="40" r="5" fill="currentColor" opacity=".2"/>
+          </svg>
+        </div>
+        <span class="feature-card__arrow">→</span>
+      </a>
 
-          <a href="#" class="feature-card feature-card--accent">
-            <div class="feature-card__icon">
-              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8">
-                <path d="M12 2a10 10 0 100 20A10 10 0 0012 2zm0 0v4m0 12v2m-8-8H2m20 0h-2M5.636 5.636l1.414 1.414m9.9 9.9l1.414 1.414M5.636 18.364l1.414-1.414m9.9-9.9l1.414-1.414"/>
-              </svg>
-            </div>
-            <div class="feature-card__body">
-              <h3>AI Trixie</h3>
-              <p>Asisten AI pintar yang siap bantu jawab pertanyaan, memberikan rekomendasi, dan nemenin aktivitas kamu sehari-hari.</p>
-            </div>
-            <div class="feature-card__silhouette">
-              <svg viewBox="0 0 120 80" fill="none">
-                <rect x="10" y="15" width="100" height="50" rx="12" fill="currentColor" opacity=".1"/>
-                <circle cx="35" cy="40" r="12" fill="currentColor" opacity=".15"/>
-                <rect x="55" y="30" width="45" height="6" rx="3" fill="currentColor" opacity=".12"/>
-                <rect x="55" y="42" width="35" height="6" rx="3" fill="currentColor" opacity=".09"/>
-                <circle cx="35" cy="40" r="5" fill="currentColor" opacity=".2"/>
-              </svg>
-            </div>
-            <span class="feature-card__arrow">→</span>
-          </a>
+      <!-- 3. Personalisasi -->
+      <a href="#" class="feature-card">
+        <div class="feature-card__icon">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
+            <circle cx="12" cy="8" r="3"/>
+            <path d="M6 20v-2a6 6 0 0112 0v2"/>
+            <line x1="19" y1="3" x2="19" y2="9"/>
+            <line x1="16" y1="6" x2="22" y2="6"/>
+          </svg>
+        </div>
+        <div class="feature-card__body">
+          <h3>Personalisasi</h3>
+          <p>Pengaturan aksesibilitas yang dapat disesuaikan dengan kebutuhan pengguna agar layanan lebih nyaman, mudah digunakan, dan mandiri.</p>
+        </div>
+        <div class="feature-card__silhouette">
+          <svg viewBox="0 0 120 80" fill="none">
+            <line x1="10" y1="20" x2="110" y2="20" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" opacity=".15"/>
+            <circle cx="35" cy="20" r="6" fill="currentColor" opacity=".2"/>
+            <line x1="10" y1="40" x2="110" y2="40" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" opacity=".15"/>
+            <circle cx="70" cy="40" r="6" fill="currentColor" opacity=".2"/>
+            <line x1="10" y1="60" x2="110" y2="60" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" opacity=".15"/>
+            <circle cx="50" cy="60" r="6" fill="currentColor" opacity=".2"/>
+          </svg>
+        </div>
+        <span class="feature-card__arrow">→</span>
+      </a>
 
-          <a href="#" class="feature-card">
-            <div class="feature-card__icon">
-              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8">
-                <path d="M3 3h2l.4 2M7 13h10l4-8H5.4M7 13L5.4 5M7 13l-2.293 2.293c-.63.63-.184 1.707.707 1.707H17m0 0a2 2 0 100 4 2 2 0 000-4zm-8 2a2 2 0 11-4 0 2 2 0 014 0z"/>
-              </svg>
-            </div>
-            <div class="feature-card__body">
-              <h3>Marketplace</h3>
-              <p>Temukan berbagai alat bantu, perlengkapan, dan produk aksesibilitas yang dirancang khusus untuk memenuhi kebutuhan teman disabilitas.</p>
-            </div>
-            <div class="feature-card__silhouette">
-              <svg viewBox="0 0 120 80" fill="none">
-                <rect x="8" y="20" width="28" height="35" rx="6" fill="currentColor" opacity=".1"/>
-                <rect x="46" y="20" width="28" height="35" rx="6" fill="currentColor" opacity=".1"/>
-                <rect x="84" y="20" width="28" height="35" rx="6" fill="currentColor" opacity=".1"/>
-                <rect x="8" y="58" width="28" height="6" rx="3" fill="currentColor" opacity=".08"/>
-                <rect x="46" y="58" width="28" height="6" rx="3" fill="currentColor" opacity=".08"/>
-                <rect x="84" y="58" width="28" height="6" rx="3" fill="currentColor" opacity=".08"/>
-              </svg>
-            </div>
-            <span class="feature-card__arrow">→</span>
-          </a>
+      <!-- 4. Camera On Point (accent) -->
+      <a href="#" class="feature-card">
+  <span class="feature-card__arrow">→</span>
 
-          <a href="#" class="feature-card">
-            <div class="feature-card__icon">
-              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8">
-                <path d="M17 20h5v-2a3 3 0 00-5.356-1.857M17 20H7m10 0v-2c0-.656-.126-1.283-.356-1.857M7 20H2v-2a3 3 0 015.356-1.857M7 20v-2c0-.656.126-1.283.356-1.857m0 0a5.002 5.002 0 019.288 0M15 7a3 3 0 11-6 0 3 3 0 016 0z"/>
-              </svg>
-            </div>
-            <div class="feature-card__body">
-              <h3>Konsultasi</h3>
-              <p>Butuh solusi yang lebih spesifik? Kamu bisa konsultasi langsung dengan tim kami agar mendapatkan saran yang benar-benar pas untuk kamu.</p>
-            </div>
-            <div class="feature-card__silhouette">
-              <svg viewBox="0 0 120 80" fill="none">
-                <circle cx="40" cy="30" r="14" fill="currentColor" opacity=".1"/>
-                <circle cx="80" cy="30" r="14" fill="currentColor" opacity=".1"/>
-                <rect x="20" y="52" width="35" height="16" rx="8" fill="currentColor" opacity=".08"/>
-                <rect x="65" y="52" width="35" height="16" rx="8" fill="currentColor" opacity=".08"/>
-              </svg>
-            </div>
-            <span class="feature-card__arrow">→</span>
-          </a>
+  <div class="feature-card__icon">
+    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8">
+      <path d="M23 19a2 2 0 01-2 2H3a2 2 0 01-2-2V8a2 2 0 012-2h4l2-3h6l2 3h4a2 2 0 012 2z"/>
+      <circle cx="12" cy="13" r="4"/>
+    </svg>
+  </div>
+
+  <div class="feature-card__body">
+    <h3>Camera On Point</h3>
+    <p>Teknologi deteksi objek dan navigasi berbasis AI yang membantu pengguna tunanetra mengenali lingkungan sekitar melalui arahan suara.</p>
+  </div>
+
+  <div class="feature-card__silhouette">
+    <svg viewBox="0 0 120 80" fill="none">
+      <rect x="10" y="10" width="100" height="62" rx="10" fill="currentColor" opacity=".08"/>
+      <circle cx="60" cy="41" r="16" fill="currentColor" opacity=".1"/>
+      <circle cx="60" cy="41" r="8" fill="currentColor" opacity=".15"/>
+      <rect x="10" y="10" width="22" height="12" rx="5" fill="currentColor" opacity=".12"/>
+    </svg>
+  </div>
+</a>
 
         </div>
       </div>
@@ -706,11 +721,14 @@
 </section>
 </main>
 
+ 
   <!-- ============================================================
       FOOTER
   ============================================================ -->
 
-<footer>
+  <!-- Footer Strip -->
+
+  <footer>
         <div class="f-wrap">
             <!-- Strip: Logo + Tagline centered -->
             <div class="f-strip">
@@ -725,10 +743,10 @@
                 <div class="f-col">
                     <h4>Layanan Kami</h4>
                     <ul>
-                        <li><a href="#"><span class="dot"></span>Call & Chat</a></li>
-                        <li><a href="#"><span class="dot"></span>AI Trixie</a></li>
-                        <li><a href="#"><span class="dot"></span>Marketplace</a></li>
-                        <li><a href="#"><span class="dot"></span>Konsultasi</a></li>
+                        <li><a href="/call-chat"><span class="dot"></span>Call & Chat</a></li>
+                        <li><a href="/chat"><span class="dot"></span>AI Trixie</a></li>
+                        <li><a href="/personalisasi"><span class="dot"></span>Personalisasi</a></li>
+                        <li><a href="/camera-on"><span class="dot"></span>Camera On Point</a></li>
                     </ul>
                 </div>
 
@@ -738,7 +756,6 @@
                         <li><a href="#"><span class="dot"></span>Promo</a></li>
                         <li><a href="{{ route('berlangganan') }}"><span class="dot"></span>Lihat Paket</a></li>
                         <li><a href="#"><span class="dot"></span>E-Wallet</a></li>
-                        <li><a href="#"><span class="dot"></span>Invoice</a></li>
                     </ul>
                 </div>
 
@@ -778,32 +795,17 @@
                             <path d="M19.59 6.69a4.83 4.83 0 01-3.77-4.25V2h-3.45v13.67a2.89 2.89 0 01-2.88 2.5 2.89 2.89 0 01-2.89-2.89 2.89 2.89 0 012.89-2.89c.28 0 .54.04.79.1V9.01a6.32 6.32 0 00-.79-.05 6.34 6.34 0 00-6.34 6.34 6.34 6.34 0 006.34 6.34 6.34 6.34 0 006.33-6.34V8.69a8.18 8.18 0 004.78 1.53V6.79a4.85 4.85 0 01-1.01-.1z"/>
                         </svg>
                     </a>
-                    <a href="#" title="YouTube">
-                        <svg width="15" height="15" fill="currentColor" viewBox="0 0 24 24">
-                            <path d="M19.615 3.184c-3.604-.246-11.631-.245-15.23 0-3.897.266-4.356 2.62-4.385 8.816.029 6.185.484 8.549 4.385 8.816 3.6.245 11.626.246 15.23 0 3.897-.266 4.356-2.62 4.385-8.816-.029-6.185-.484-8.549-4.385-8.816zm-10.615 12.816v-8l8 3.993-8 4.007z"/>
-                        </svg>
-                    </a>
+                    
                     <a href="#" title="X">
                         <svg width="13" height="13" fill="currentColor" viewBox="0 0 24 24">
                             <path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-4.714-6.231-5.401 6.231H2.74l7.73-8.835L1.254 2.25H8.08l4.713 6.231zm-1.161 17.52h1.833L7.084 4.126H5.117z"/>
                         </svg>
                     </a>
-                    <a href="#" title="Facebook">
-                        <svg width="15" height="15" fill="currentColor" viewBox="0 0 24 24">
-                            <path d="M24 12.073c0-6.627-5.373-12-12-12s-12 5.373-12 12c0 5.99 4.388 10.954 10.125 11.854v-8.385H7.078v-3.47h3.047V9.43c0-3.007 1.792-4.669 4.533-4.669 1.312 0 2.686.235 2.686.235v2.953H15.83c-1.491 0-1.956.925-1.956 1.874v2.25h3.328l-.532 3.47h-2.796v8.385C19.612 23.027 24 18.062 24 12.073z"/>
+                    <a href="#" title="Threads">
+                        <svg width="13" height="13" fill="currentColor" viewBox="0 0 192 192">
+                            <path d="M141.537 88.988a66.667 66.667 0 00-2.518-1.143c-1.482-27.307-16.403-42.94-41.457-43.1h-.34c-14.986 0-27.449 6.396-35.12 18.036l13.779 9.452c5.73-8.695 14.724-10.548 21.348-10.548h.229c8.249.053 14.474 2.452 18.503 7.129 2.932 3.405 4.893 8.111 5.864 14.05-7.314-1.243-15.224-1.626-23.68-1.14-23.82 1.371-39.134 15.264-38.105 34.568.522 9.792 5.4 18.216 13.735 23.719 7.047 4.652 16.124 6.927 25.557 6.412 12.458-.683 22.231-5.436 29.049-14.127 5.178-6.6 8.453-15.153 9.899-25.93 5.937 3.583 10.337 8.298 12.767 13.966 4.132 9.635 4.373 25.468-8.546 38.376-11.533 11.533-25.531 16.523-46.505 16.674-23.266-.163-40.99-7.731-52.702-22.498C34.054 152.093 28.22 132.603 28 105.13c.22-27.472 6.054-46.963 18.557-62.541C58.269 27.983 76 20.418 99.24 20.255c23.39.162 41.5 7.77 53.83 22.616 6.055 7.295 10.74 16.551 13.95 27.514l16.43-4.373c-3.906-14.395-10.23-26.78-18.942-36.918C147.636 10.983 126.825 1.585 99.31 1.408h-.12C71.677 1.585 50.543 11.016 35.077 29.75 21.07 46.562 13.734 70.322 13.5 105.157c.234 34.835 7.57 58.594 21.577 75.408 15.466 18.733 36.6 28.164 64.114 28.34h.12c24.235-.153 41.35-6.522 55.43-20.59 18.717-18.696 18.178-42.112 12.03-56.48-4.344-10.12-12.649-18.323-24.234-23.847z"/>
                         </svg>
                     </a>
-                    <a href="#" title="LinkedIn">
-                        <svg width="14" height="14" fill="currentColor" viewBox="0 0 24 24">
-                            <path d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433a2.062 2.062 0 01-2.063-2.065 2.064 2.064 0 112.063 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z"/>
-                        </svg>
-                    </a>
-                    <a href="#" title="Pinterest">
-                        <svg width="14" height="14" fill="currentColor" viewBox="0 0 24 24">
-                            <path d="M12 0C5.373 0 0 5.373 0 12c0 5.084 3.163 9.426 7.627 11.174-.105-.949-.2-2.405.042-3.441.218-.937 1.407-5.965 1.407-5.965s-.359-.719-.359-1.782c0-1.668.967-2.914 2.171-2.914 1.023 0 1.518.769 1.518 1.69 0 1.029-.655 2.568-.994 3.995-.283 1.194.599 2.169 1.777 2.169 2.133 0 3.772-2.249 3.772-5.495 0-2.873-2.064-4.882-5.012-4.882-3.414 0-5.418 2.561-5.418 5.207 0 1.031.397 2.138.893 2.738a.36.36 0 01.083.345l-.333 1.36c-.053.22-.174.267-.402.161-1.499-.698-2.436-2.889-2.436-4.649 0-3.785 2.75-7.262 7.929-7.262 4.163 0 7.398 2.967 7.398 6.931 0 4.136-2.607 7.464-6.227 7.464-1.216 0-2.359-.632-2.75-1.378l-.748 2.853c-.271 1.043-1.002 2.35-1.492 3.146C9.57 23.812 10.763 24 12 24c6.627 0 12-5.373 12-12S18.627 0 12 0z"/>
-                        </svg>
-                    </a>
-                   
                 </div>
             </div>
         </div>
